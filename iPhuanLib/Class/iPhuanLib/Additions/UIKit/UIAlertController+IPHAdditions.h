@@ -1,5 +1,5 @@
 //
-//  UIAlertController+IPHExtendedAlertController.h
+//  UIAlertController+IPHAdditions.h
 //
 //
 //  Created by iPhuan on 2017/1/14.
@@ -80,7 +80,7 @@ typedef void(^IPHAlertActionHandeler)(UIAlertAction *action, NSUInteger index);
 @end
 
 
-@interface UIAlertController (IPHExtendedAlertController)
+@interface UIAlertController (IPHAdditions)
 
 + (UIAlertController *)iph_alertControllerWithTitle:(NSString *)title
                                             message:(NSString *)message

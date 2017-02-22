@@ -10,6 +10,6 @@
 
 @interface NSTimer (IPHBlockSupport)
 
-+ (NSTimer *)iph_scheduledTimerWithTimeInterval:(NSTimeInterval)ti usingBlock:(void(^)())block repeats:(BOOL)yesOrNo;
++ (NSTimer *)iph_scheduledTimerWithTimeInterval:(NSTimeInterval)ti usingBlock:(void(^)(BOOL *stop))block repeats:(BOOL)yesOrNo;
 
 @end

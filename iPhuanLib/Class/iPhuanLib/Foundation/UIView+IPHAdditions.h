@@ -1,5 +1,5 @@
 //
-//  UIView+IPHExtendedView.h
+//  UIView+IPHAdditions.h
 //  iPhuanLib
 //
 //  Created by iPhuan on 2017/2/18.
@@ -28,7 +28,7 @@
 @end
 
 
-@interface UIView (IPHExtended)
+@interface UIView (IPHAdditions)
 
 // 从默认xib文件中加载初始化
 + (id)iph_loadFromNib;

@@ -1,12 +1,12 @@
 //
-//  UIAlertController+IPHExtendedAlertController.m
+//  UIAlertController+IPHAdditions.m
 //
 //
 //  Created by iPhuan on 2017/1/14.
 //  Copyright © 2017年 iPhuan. All rights reserved.
 //
 
-#import "UIAlertController+IPHExtendedAlertController.h"
+#import "UIAlertController+IPHAdditions.h"
 
 #define IPH_ALERT_CONTROLLER(VC, ti, msg, style, block, destructive, cancel, other)UIAlertController *alertController = [self iph_alertControllerWithTitle:ti  \
 message:msg  \
@@ -40,7 +40,7 @@ return alertController;
 
 #pragma mark - IPHExtendedAlertController
 
-@implementation UIAlertController (IPHExtendedAlertController)
+@implementation UIAlertController (IPHAdditions)
 
 + (UIAlertController *)iph_alertControllerWithTitle:(NSString *)title
                                             message:(NSString *)message

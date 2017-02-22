@@ -10,15 +10,21 @@
 
 @implementation NSTimer (IPHBlockSupport)
 
-+ (NSTimer *)iph_scheduledTimerWithTimeInterval:(NSTimeInterval)ti usingBlock:(void(^)())block repeats:(BOOL)yesOrNo{
++ (NSTimer *)iph_scheduledTimerWithTimeInterval:(NSTimeInterval)ti usingBlock:(void(^)(BOOL *stop))block repeats:(BOOL)yesOrNo{
     return [self scheduledTimerWithTimeInterval:ti target:self selector:@selector(p_blockInvoke:) userInfo:[block copy] repeats:yesOrNo];
 }
 
 
 + (void)p_blockInvoke:(NSTimer *)timer {
-    void(^block)() = timer.userInfo;
+    BOOL isStop = NO;
+    void(^block)(BOOL *stop) = timer.userInfo;
     if (block) {
-        block();
+        block(&isStop);
+    }
+    
+    if (isStop) {
+        [timer invalidate];
+        timer = nil;
     }
 }
 

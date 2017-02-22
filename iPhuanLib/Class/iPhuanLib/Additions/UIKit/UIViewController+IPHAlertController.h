@@ -6,7 +6,7 @@
 //  Copyright © 2017年 bangtai. All rights reserved.
 //
 
-#import "UIAlertController+IPHExtendedAlertController.h"
+#import "UIAlertController+IPHAdditions.h"
 
 @interface UIViewController (IPHAlertView)
 

@@ -14,7 +14,7 @@
 #import "IPHDebug.h"
 #import "IPHBaseModel.h"
 #import "IPHViewNibUtils.h"
-#import "UIView+IPHExtendedView.h"
+#import "UIView+IPHAdditions.h"
 
 
 

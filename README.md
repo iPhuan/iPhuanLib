@@ -19,7 +19,7 @@ iPhuanLib是本人在平时的开发过程中知识积累后整理出来的一�
 
 <a name="Foundation">Foundation</a>
 -------------------------------------------------------------  
-Foundation为基础类库目录，一般来说整个iPhuanLib的类都依赖于Foundation基础库。  
+**Foundation为基础类库目录，一般来说整个iPhuanLib的类都依赖于Foundation基础库。**  
 
 
 ### <a name="IPHDebug">IPHDebug</a>  
@@ -147,7 +147,44 @@ IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字�
 <br />
 :warning:注意：
 * IPHBaseModel会将Number类型的字典数据转化为字符串，你在使用IPHBaseModel创建类时，其对应的属性应当以字符串的形式创建。  
-* 不仅仅是`initWithDictionary:`和`toDictionary`基于`attributeMapDictionary`映射来进行数据操作的。其在实现`NSCoding`和`NSCopying`协议时也都是基于`attributeMapDictionary`来处理的，所以一般建议在`attributeMapDictionary`中添加所有对象属性的映射。
+* 不仅仅是`initWithDictionary:`和`toDictionary`基于`attributeMapDictionary`映射来进行数据操作的。其在实现`NSCoding`和`NSCopying`协议时也都是基于`attributeMapDictionary`来处理的，所以一般建议在`attributeMapDictionary`中添加所有对象属性的映射。  
+
+
+
+### <a name="IPHViewNibUtils">IPHViewNibUtils</a>   
+IPHViewNibUtils为Nib加载工具类，方便开发者从xib文件中加载视图或者object对象。  
+
+
+
+### <a name="UIView+IPHAdditions">UIView+IPHAdditions</a>   
+UIView+IPHAdditions为`UIView`的扩展类，包含了一些图形几何的属性和视图操作的方法。  
+
+
+<br />
+
+<a name="Utils">Utils</a>
+-------------------------------------------------------------  
+**Utils为工具类库目录，包含了一些常用的工具类。**    
+
+### <a name="IPHSearchPathUtils">IPHSearchPathUtils</a>  
+IPHSearchPathUtils为资源路径获取工具类，通过该工具类可以获取到bundle和沙盒对应资源文件的路径。  
+
+
+<br />
+
+<a name="Additions">Additions</a>
+-------------------------------------------------------------  
+**Additions为扩展类库目录，包含了一些常用的扩展类。**    
+
+### <a name="NSTimer+IPHBlockSupport">IPHSearchPathUtils</a>  
+IPHSearchPathUtils为资源路径获取工具类，通过该工具类可以获取到bundle和沙盒对应资源文件的路径。  
+
+
+
+
+
+
+
 
 
 

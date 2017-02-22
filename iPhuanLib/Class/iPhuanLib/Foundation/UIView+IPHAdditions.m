@@ -1,12 +1,12 @@
 //
-//  UIView+IPHExtendedView.m
+//  UIView+IPHAdditions.m
 //  iPhuanLib
 //
 //  Created by iPhuan on 2017/2/18.
 //  Copyright © 2017年 iPhuan. All rights reserved.
 //
 
-#import "UIView+IPHExtendedView.h"
+#import "UIView+IPHAdditions.h"
 #import "IPHViewNibUtils.h"
 
 
@@ -120,7 +120,7 @@
 @end
 
 
-@implementation UIView (IPHExtended)
+@implementation UIView (IPHAdditions)
 
 + (id)iph_loadFromNib {
     return [IPHViewNibUtils loadViewFromNibNamed:NSStringFromClass([self class])];
