@@ -205,13 +205,13 @@
 			isa = PBXGroup;
 			children = (
 				E5206DC31E58720D00E3EE50 /* iPhuanLib-prefix.pch */,
-				E5165D161E5860030021D8E1 /* Category */,
-				E5165D221E5860030021D8E1 /* Common */,
 				E5165D251E5860030021D8E1 /* Foundation */,
-				E5165D2B1E5860030021D8E1 /* Others */,
+				E5165D221E5860030021D8E1 /* Common */,
 				E5165D2E1E5860030021D8E1 /* Utils */,
-				E5165D311E5860030021D8E1 /* ViewControllers */,
+				E5165D161E5860030021D8E1 /* Category */,
 				E5165D321E5860030021D8E1 /* Views */,
+				E5165D311E5860030021D8E1 /* ViewControllers */,
+				E5165D2B1E5860030021D8E1 /* Others */,
 			);
 			path = iPhuanLib;
 			sourceTree = "<group>";
