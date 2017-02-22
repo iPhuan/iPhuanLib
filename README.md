@@ -324,11 +324,11 @@ IPHHorizontalTableView因为被旋转，对于其`frame`,`x`和`y`,`width`和`he
 > 条件按钮选中状态下文字的颜色，其中选中状态下按钮的边框颜色和确定按钮的背景色都保持和该颜色值一样。   
 
 
-***IPHConditionProtocol：  
+***IPHConditionProtocol：***  
 提供给conditionSelectorView的数据源对象，必须遵循IPHConditionProtocol系统。`conditionId`提供ID的支持，`isUnlimited`为该条件是否为无限制条件的标志，比如星级条件可能从一星分到五星，那么我们可能还需要添加一个条件为“不限”，表示条件不限制，这个时候我们可以添加一个不限的条件对象，`title`值为“不限”，`conditionId`设置一个固定的id，把`isUnlimited`设置为`YES`,这样我们就能轻易在选择操作结束后的回调中区分哪个条件为不限条件。  
 
 
-***IPHConfirmCell：  
+***IPHConfirmCell：***  
 用于显示确定按钮的Cell。开发者可添加对应的IPHConfirmCell xib文件来自定义确定按钮样式，否则该按钮将通过IPHConfirmCell默认创建。
 
 
