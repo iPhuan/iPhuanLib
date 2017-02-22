@@ -20,13 +20,11 @@
 }
 
 - (NSDictionary *)attributeTypesMapDictionary {
-    IPH_OVERRIDE_WARN(@"IPHBaseModel", NSStringFromClass([self class]));
     return nil;
 }
 
 
 - (NSDictionary *)attributeDefaultValueMapDictionary {
-    IPH_OVERRIDE_WARN(@"IPHBaseModel", NSStringFromClass([self class]));
     return nil;
 }
 
