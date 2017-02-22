@@ -7,7 +7,7 @@
 
 <a name="iPhuanLib">iPhuanLib</a>
 =============================================================  
-iPhuanLib是本人在平时的开发过程中知识积累后整理出来的一套可直接用于开发的框架，包含了平时自己写的一些工具类，视图控件，以及基于别人的代码修改优化后的基础类等。用意在于跟大家一起分享自己在平时工作中所摸索的技术和成果，同时也方便一些开发者可以直接基于iPhuanLib来快速启动项目。  
+iPhuanLib是本人在平时的开发过程中知识积累后整理出来的一套可直接用于开发的框架，包含了平时自己写的一些基础类，工具类，视图控件，以及基于别人的代码修改优化后的类库等。用意在于跟大家一起分享自己在平时工作中所摸索的技术和成果，同时也方便一些开发者可以直接基于iPhuanLib来快速启动项目。  
 目前集成在iPhuanLib里的类并不多，日后会不断更新资源并跟进优化，当前版本的iPhuanLib还在自测中，等到自测完成后会发布release版本，提供完整demo，并且提供Pod库支持，方便开发者下载使用。  
 
 
@@ -49,6 +49,7 @@ iPhuanLib是本人在平时的开发过程中知识积累后整理出来的一�
 -------------------------------------------------------------  
 **Foundation为基础类库目录，一般来说整个iPhuanLib的类都依赖于Foundation基础库。**  
 
+<br />
 
 ### <a name="IPHDebug">IPHDebug</a>  
 IPHDebug方便开发者在Debug模式下进行项目调试和相关信息的打印。  
@@ -57,12 +58,12 @@ IPHDebug方便开发者在Debug模式下进行项目调试和相关信息的打�
 > * `IPH_PRINT_METHOD_NAME`，Debug模式下打印函数名； 
 > * `IPH_CONDITION_PRINT`，Debug模式下根据一定的条件来打印log；  
 
-
+<br />
 ### <a name="IPHCommonMacros">IPHCommonMacros</a>  
 IPHCommonMacros为一些常用的宏定义命令，为开发者在编写代码时提供便捷。  
 IPHCommonMacros包含了一些单列类的宏定义，几何宏定义，条件判断宏定义等等，直接查看`IPHCommonMacros.h`文件便可一目了然。  
 
-
+<br />
 ### <a name="IPHBaseModel">IPHBaseModel</a>  
 IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字典对对象进行初始化。与大家平常使用的主流的基础模型类不同的是，IPHBaseModel做了更大的改进和优化，IPHBaseModel不仅可以直接对字符串的属性进行映射初始化，还能对对象属性，数组属性进行映射，类似于响应链的模式可进行多级的数据处理和初始化。  
   
@@ -70,7 +71,7 @@ IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字�
 
 * **`- (NSDictionary *)attributeMapDictionary;`**  
 
-> 对象属性映射字典。开发者在子类中重写该方法，并返回一个可用的字典。其中字典的Key为属性的名称，Value为方法`initWithDictionary:`中字典参数的Key，通过该映射方法，IPHBaseModel在初始化对象时才知道怎么从数据字典中取值并进初始化。   
+> 对象属性映射字典。开发者在子类中重写该方法，并返回一个可用的字典。其中字典的Key为属性的名称，Value为方法`initWithDictionary:`中字典参数的Key，通过该映射方法，IPHBaseModel在初始化对象时才知道怎么从数据字典中取值并进行初始化。   
 > 假设Json数据中root为一个酒店信息字典，包含了`name`，`hotle_id`，`recommended_room`，`room_list`等字段，其中`recommended_room`对应于一个推荐房间的字典，包含了房间的各个信息，room_list为一个数组，数组里面也是房间的字典，我们首先建立了一个叫`IPHRoom`的对象用来接收房间的信息，再建立一个`IPHHotle`的对象用来接收整个酒店的信息，`IPHRoom`和`IPHHotle`都继承于`IPHBaseModel`，于是我们可以在`IPHHotle`对象的`attributeMapDictionary`方法中这么写：  
 
 ```objective-c
@@ -101,7 +102,7 @@ IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字�
 
 > 同理，在`IPHRoom`中我们同样可以拥有对象和数组属性，当然前提是数据类型都为`IPHBaseModel`的子类对象，通过这种响应链方式的映射关系，一级一级的将数据初始化下去。   
 
-> 当然该映射你也可以不重新返回空字典，然后自己手动对`recommended_room`和`room_list`字段的数据进行特别处理。IPHBaseModel在初始化数据的时候调用了属性的Set方法，所以你只需要重写set方法，代码示例：  
+> 当然该映射你也可以不重写返回空字典，然后自己手动对`recommended_room`和`room_list`字段的数据进行特殊处理。IPHBaseModel在初始化数据的时候调用了属性的Set方法，所以你只需要重写set方法，代码示例：  
 
 ```objective-c
     - (void)setRooms:(NSArray *)rooms{
@@ -148,7 +149,7 @@ IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字�
 
 * **`- (NSArray<NSString *> *)filterStrings;`**  
 
-> 需要过滤的字段。当属性在初始化数据后，值为`filterStrings`数组里面的过滤字符串时，该属性会自动被设置为nil。目前过滤的字段如下：  
+> 需要过滤的字段。当属性在初始化数据后，如果值为`filterStrings`数组里面的某个过滤字符串时，该属性会自动被设置为nil。目前过滤的字符串如下：  
 
 
 ```objective-c
@@ -178,12 +179,12 @@ IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字�
 * 不仅仅是`initWithDictionary:`和`toDictionary`基于`attributeMapDictionary`映射来进行数据操作的。其在实现`NSCoding`和`NSCopying`协议时也都是基于`attributeMapDictionary`来处理的，所以一般建议在`attributeMapDictionary`中添加所有对象属性的映射。  
 
 
-
+<br />
 ### <a name="IPHViewNibUtils">IPHViewNibUtils</a>   
 IPHViewNibUtils为Nib加载工具类，方便开发者从xib文件中加载视图或者object对象。  
 
 
-
+<br />
 ### <a name="UIView+IPHAdditions">UIView+IPHAdditions</a>   
 UIView+IPHAdditions为`UIView`的扩展类，包含了一些图形几何的属性和视图操作的方法。  
 
@@ -194,6 +195,7 @@ UIView+IPHAdditions为`UIView`的扩展类，包含了一些图形几何的属�
 -------------------------------------------------------------  
 **Utils为工具类库目录，包含了一些常用的工具类。**    
 
+<br />
 ### <a name="IPHSearchPathUtils">IPHSearchPathUtils</a>  
 IPHSearchPathUtils为资源路径获取工具类，通过该工具类可以获取到bundle和沙盒对应资源文件的路径。  
 
@@ -204,17 +206,19 @@ IPHSearchPathUtils为资源路径获取工具类，通过该工具类可以获�
 -------------------------------------------------------------  
 **Additions为扩展类库目录，包含了一些常用的扩展类。**    
 
+<br />
+<br />
 ### <a name="NSTimer+IPHBlockSupport">NSTimer+IPHBlockSupport</a>  
-NSTimer的扩展类，使NSTimer能够通过block的方式使用，并在一定程度上减少了使用NSTimer导致循环引用的问题。  
+NSTimer的扩展类，使NSTimer能够通过block的方式使用，通过block实现在一定程度上减少了使用NSTimer导致循环引用的问题。  
 
 
-
+<br />
 ### <a name="UIAlertController+IPHAdditions">UIAlertController+IPHAdditions</a>  
 UIAlertController的扩展类，通过不同的参数来初始化不同的UIAlertController，并提供直接弹出显示的方法。  
 
 :warning:注意：
-* `IPHAlertActionHandeler` block中index的小标对应的action按钮顺序为`otherActions`，`destructiveAction`，`cancelAction`；  
-* 在iPad上请不要直接调用`popup`和`show`方法，而应该调用初始化的方法获取实例后，设置`UIAlertController`的`popoverPresentationController`的`sourceView`和`sourceRect`属性后再通过`presentViewController`弹出，否则将导致程序崩溃。因为`popup`和`show`方法中并没有对`sourceView`和`sourceRect`进行设置，也无法设置。代码实例：  
+* `IPHAlertActionHandeler` block中`index`的下标对应的action按钮顺序为`otherActions`，`destructiveAction`，`cancelAction`；  
+* 在iPad上请不要直接调用`popup`和`show`方法，而应该调用初始化的方法获取实例后，设置`popoverPresentationController`的`sourceView`和`sourceRect`属性后再通过`presentViewController`的方式弹出，否则将导致程序崩溃。因为`popup`和`show`方法中并没有对`sourceView`和`sourceRect`进行设置，也无法设置。代码实例：  
 
 
 ```objective-c
@@ -247,6 +251,7 @@ UIAlertController的扩展类，通过不同的参数来初始化不同的UIAler
 ```    
 
 
+<br />
 ### <a name="UIViewController+IPHAlertController">UIViewController+IPHAlertController</a>  
 基于UIAlertController+IPHAdditions对UIViewController的扩展，可直接通过UIViewController来弹出UIAlertController的视图。  
 
@@ -259,10 +264,12 @@ UIAlertController的扩展类，通过不同的参数来初始化不同的UIAler
 **Views为自定义视图类库目录，包含了一些自定义的视图控件**   
 
 
+<br />
 ### <a name="IPHHorizontalTableView">IPHHorizontalTableView</a>  
-可以理解为横向TableView或者为水平的TableView。IPHHorizontalTableView是我13年突发奇想所写的一个很有创新意义的控件，它的奇妙之处在于是将一个正常的TableView逆时针旋转了90°来使用。当时在做很多项目的时候经常会遇到横向滑动的需求，比如首页的广告banner，图片预览等，而当时使用的一些自定义控件，在视图的重用上效率并不是很好，滑动的流畅度有待提高，而系统也并没有给我们提供这样的控件，我当时就想，能不能想办法直接利用系统自带控件的重用机制呢，比如TableView本身，我是不是可以将其旋转一下就可以得到我想要的横向滑动的控件？这一突发奇想激起了我极大的研究兴趣，于是我开始去尝试，发现在实现上特别简单，只需要把TableView逆时针旋转90°，然后所有的cell再顺时针旋转90°，而所有其他API用法也基本都保持和UITableView的一致。最后实现后放到项目中进行测试，发现其流畅度特别高，而且兼容性也出乎意料的稳定。  
+可以理解为横向TableView或者为水平的TableView。IPHHorizontalTableView是我13年突发奇想所写的一个很有创新意义的控件，它的奇妙之处在于是将一个正常的TableView逆时针旋转了90°来使用。  
+当时在做很多项目的时候经常会遇到横向滑动的需求，比如首页的广告banner，图片预览等，而当时使用的一些自定义控件，在视图的重用上效率并不是很好，滑动的流畅度也有待提高，而系统也并没有给我们提供这样的控件，我当时就想，能不能想办法直接利用系统自带控件的重用机制呢，那样效率会好很多，比如TableView本身，我是不是可以将其旋转一下就可以得到我想要的横向滑动的控件？这一突发奇想激起了我极大的研究兴趣，于是我开始去尝试，发现在实现上特别简单，只需要把TableView逆时针旋转90°，然后所有的cell再顺时针旋转90°，而所有其他API用法也基本都保持和UITableView的一致。我将IPHHorizontalTableView放到项目中进行测试，发现其流畅度特别高，而且兼容性也出乎意料的稳定。  
 
-时隔4年，我再次在项目中用起了IPHHorizontalTableView，依然觉得它用起来非常的方便，因为它基本保留了UITableView能兼容的所有API，用法与UITableView的API几乎相近，而UITableView又是我们平常特别常用的一个控件。 的虽然现在系统已提供UIStackView这样的控件可实现横向滑动的效果，但是如果需要兼容9.0系统以下的版本IPHHorizontalTableView还是最佳的选择。  
+时隔4年，我再次在项目中添加了IPHHorizontalTableView，依然觉得它用起来非常的方便，因为它基本保留了UITableView能兼容的所有API，用法与UITableView的API几乎相近，而UITableView又是我们平常特别常用的一个控件。 虽然现在系统已提供UIStackView这样的控件可实现横向滑动的效果，但是如果需要兼容9.0系统以下的版本IPHHorizontalTableView还是最佳的选择。  
 
 IPHHorizontalTableView在13年的时候只实现了最基本的功能，抽取了UITableView的部分常用API来作为IPHHorizontalTableView的API进行使用，而当前修改后的IPHHorizontalTableView已把所有能兼容使用的API都抽取了出来。  
 
@@ -274,7 +281,7 @@ IPHHorizontalTableView因为被旋转，对于其`frame`,`x`和`y`,`width`和`he
 ### <a name="IPHConditionSelectorView">IPHConditionSelectorView</a>   
 条件选择器控件。在做酒店相关模块写的一个控件。比如搜索酒店的条件：价格范围，星级等。通过代理的方法去实现，用法也跟UITableView相近。  
 
-***IPHConditionSelectorView：
+***IPHConditionSelectorView：***
 
 * **`- (NSInteger)numberOfSectionsInConditionSelectorView:(IPHConditionSelectorView *)selectorView;`**   
 
@@ -283,7 +290,7 @@ IPHHorizontalTableView因为被旋转，对于其`frame`,`x`和`y`,`width`和`he
 
 * **`- (nullable NSString *)conditionSelectorView:(IPHConditionSelectorView *)selectorView titleForHeaderInSection:(NSInteger)section;`**   
 
-> 条件类型的标题，根据不同的`section`返回“价格范围”和“星级”字符串。  
+> 条件类型的标题，比如根据不同的`section`返回“价格范围”和“星级”字符串。  
 
 
 * **`- (nullable NSArray<id <IPHConditionProtocol>> *)conditionSelectorView:(IPHConditionSelectorView *)selectorView conditionsInSection:(NSInteger)section;`**   
@@ -318,7 +325,7 @@ IPHHorizontalTableView因为被旋转，对于其`frame`,`x`和`y`,`width`和`he
 
 
 ***IPHConditionProtocol：  
-提供给conditionSelectorView的数据源，其条件对象只需要遵循该协议就能满足。`conditionId`提供ID的支持，`isUnlimited`为该条件是否为无限制条件的标志，比如星级条件可能从一星分到五星，那么我们可能还需要添加一个条件为“不限”，表示条件不限制，这个时候我们可以添加一个不限的条件对象，`title`值为“不限”，`conditionId`设置一个固定的id，把`isUnlimited`设置为`YES`,这样我们就能轻易在选择操作结束后的回调中区分哪个条件为不限条件。  
+提供给conditionSelectorView的数据源对象，必须遵循IPHConditionProtocol系统。`conditionId`提供ID的支持，`isUnlimited`为该条件是否为无限制条件的标志，比如星级条件可能从一星分到五星，那么我们可能还需要添加一个条件为“不限”，表示条件不限制，这个时候我们可以添加一个不限的条件对象，`title`值为“不限”，`conditionId`设置一个固定的id，把`isUnlimited`设置为`YES`,这样我们就能轻易在选择操作结束后的回调中区分哪个条件为不限条件。  
 
 
 ***IPHConfirmCell：  
@@ -329,28 +336,31 @@ IPHHorizontalTableView因为被旋转，对于其`frame`,`x`和`y`,`width`和`he
 
 <a name="Others">Others</a>
 -------------------------------------------------------------  
-**其他写的一些未归属的类**   
+**其他写的一些未归属的类**  
 
-
+<br />
 ### <a name="IPHLocationManager">IPHLocationManager</a>  
 
 定位管理类。以单列形式存在，通过它可以定位获取到坐标，城市信息，详细地址等地理信息。
 
 
-
+<br />
 <a name="JSCoreBridge">JSCoreBridge</a>
 =============================================================  
 <br />
-JSCoreBridge是基于iOS平台[Apache Cordova](http://cordova.apache.org/)修改的开源框架，Cordova的用处在于作为桥梁通过插件的方式实现了Web与Native之间的通信，而JSCoreBridge参考其进行删减修改（移除了开发者在平时用不上的类和方法），改写了其传统的通信机制，在保留了Cordova实用的功能前提下，精简优化了框架占用大小，并且省去了繁琐的工程设置选项，通过的新的实现方式大大提供了通信效率。JSCoreBridge开源框架力在为开发者提供更便捷的Hybird开发体验。  
-**[点击查看JSCoreBridge详细说明](https://github.com/iPhuan/JSCoreBridge.git)
+JSCoreBridge是基于iOS平台[Apache Cordova](http://cordova.apache.org/)修改的开源框架，Cordova的用处在于作为桥梁通过插件的方式实现了Web与Native之间的通信，而JSCoreBridge参考其进行删减修改（移除了开发者在平时用不上的类和方法），改写了其传统的通信机制，在保留了Cordova实用的功能前提下，精简优化了框架占用大小，并且省去了繁琐的工程设置选项，通过的新的实现方式大大提供了通信效率。JSCoreBridge开源框架力在为开发者提供更便捷的Hybird开发体验。 
+
+<br />
+**[点击查看JSCoreBridge详细说明](https://github.com/iPhuan/JSCoreBridge.git)**
 
 
 
 <br />
 :warning: <a name="RiskStatement">风险声明</a>
 -------------------------------------------------------------
-* 本框架虽然已进行过多次自测，但是并未进行大范围的试用，避免不了会有未知的bug产生，如果您使用本框架，由于未知bug所导致的风险需要您自行承担。  
-> 迎各位使用者给本人反馈在使用中遇到的各种问题和bug。
+* 本框架虽然已进行过多次自测，但是并未进行大范围的试用，避免不了会有未知的bug产生，如果您使用本框架，由于未知bug所导致的风险需要您自行承担。 
+
+> 欢迎各位使用者给本人反馈在使用中遇到的各种问题和bug。
 
 
 <br />
@@ -358,7 +368,7 @@ JSCoreBridge是基于iOS平台[Apache Cordova](http://cordova.apache.org/)修改
 
 <a name="OpenSourceDesc">开源说明</a>
 -------------------------------------------------------------
-iPhuanLib框架意在分享和交流，本着开源的思想，现已上传至[GitHub](https://github.com/iPhuan/iPhuanLib.git)，之后会一直跟进更新，如果您在使用本框架，欢迎及时反馈您在使用过程中遇到的各种问题和bug，也欢迎大家跟本人沟通和分享更多互联网技术。iPhuan更多开源资源将会不定期的更新至 [iPhuanLib](https://github.com/iPhuan/iPhuanLib.git)  
+iPhuanLib框架意在分享和交流，本着开源的思想，现已上传至[GitHub](https://github.com/iPhuan/iPhuanLib.git)，之后会一直跟进更新，如果您在使用本框架，欢迎及时反馈您在使用过程中遇到的各种问题和bug，也欢迎大家跟本人交流和分享更多互联网技术。iPhuan更多开源资源将会不定期的更新至 [iPhuanLib](https://github.com/iPhuan/iPhuanLib.git)  
 
 
 <br />
