@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
+// block中index的下标对应的action按钮顺序为`otherActions`，`destructiveAction`，`cancelAction`
 typedef void(^IPHAlertActionHandeler)(UIAlertAction *action, NSUInteger index);
 
 
 @interface UIAlertController (IPHAlertView)
 
+// 默认为一个取消的按钮
 + (UIAlertController *)iph_popupAlertViewInController:(UIViewController *)viewController
                                                 title:(NSString *)title
                                               message:(NSString *)message;
@@ -38,6 +40,7 @@ typedef void(^IPHAlertActionHandeler)(UIAlertAction *action, NSUInteger index);
                                     cancelActionTitle:(NSString *)cancelActionTitle
                                     otherActionTitles:(NSString *)otherActionTitles, ... NS_REQUIRES_NIL_TERMINATION;
 
+// 初始化一个AlertView样式的UIAlertController对象，不弹出视图
 + (UIAlertController *)iph_alertViewControllerWithTitle:(NSString *)title
                                                 message:(NSString *)message
                                                 handler:(IPHAlertActionHandeler)handler
@@ -64,12 +67,14 @@ typedef void(^IPHAlertActionHandeler)(UIAlertAction *action, NSUInteger index);
                                      cancelActionTitle:(NSString *)cancelActionTitle
                                      otherActionTitles:(NSString *)otherActionTitles, ... NS_REQUIRES_NIL_TERMINATION;
 
+// 初始化一个ActionSheet样式的UIAlertController对象，不弹出视图
 + (UIAlertController *)iph_actionSheetControllerWithTitle:(NSString *)title
                                                   message:(NSString *)message
                                                   handler:(IPHAlertActionHandeler)handler
                                         cancelActionTitle:(NSString *)cancelActionTitle
                                         otherActionTitles:(NSString *)otherActionTitles, ... NS_REQUIRES_NIL_TERMINATION;
 
+// 初始化一个ActionSheet样式的UIAlertController对象，不弹出视图
 + (UIAlertController *)iph_actionSheetControllerWithTitle:(NSString *)title
                                                   message:(NSString *)message
                                                   handler:(IPHAlertActionHandeler)handler
@@ -82,6 +87,7 @@ typedef void(^IPHAlertActionHandeler)(UIAlertAction *action, NSUInteger index);
 
 @interface UIAlertController (IPHAdditions)
 
+// 初始化一个UIAlertController对象，不弹出视图
 + (UIAlertController *)iph_alertControllerWithTitle:(NSString *)title
                                             message:(NSString *)message
                                      preferredStyle:(UIAlertControllerStyle)preferredStyle
@@ -90,7 +96,7 @@ typedef void(^IPHAlertActionHandeler)(UIAlertAction *action, NSUInteger index);
                                   cancelActionTitle:(NSString *)cancelActionTitle
                                   otherActionTitles:(NSString *)otherActionTitles, ... NS_REQUIRES_NIL_TERMINATION;
 
-// Do not call this method
+// 建议不要调用该方法
 + (UIAlertController *)iph_alertControllerWithTitle:(NSString *)title
                                             message:(NSString *)message
                                      preferredStyle:(UIAlertControllerStyle)preferredStyle

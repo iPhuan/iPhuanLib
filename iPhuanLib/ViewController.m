@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "UIAlertController+IPHAdditions.h"
+
 
 @interface ViewController ()
 
@@ -23,7 +25,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    
 }
 
 

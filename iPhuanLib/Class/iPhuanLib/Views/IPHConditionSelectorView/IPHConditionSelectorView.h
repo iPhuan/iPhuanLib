@@ -18,10 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 // 条件分类
 - (NSInteger)numberOfSectionsInConditionSelectorView:(IPHConditionSelectorView *)selectorView;
 
-// 分类标题
+// 条件分类标题
 - (nullable NSString *)conditionSelectorView:(IPHConditionSelectorView *)selectorView titleForHeaderInSection:(NSInteger)section;
 
-// 要展示的条件
+// 供选择的条件
 - (nullable NSArray<id <IPHConditionProtocol>> *)conditionSelectorView:(IPHConditionSelectorView *)selectorView conditionsInSection:(NSInteger)section;
 
 @optional

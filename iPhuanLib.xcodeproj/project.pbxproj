@@ -16,18 +16,18 @@
 		E5165CFB1E585FDA0021D8E1 /* iPhuanLibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165CFA1E585FDA0021D8E1 /* iPhuanLibTests.m */; };
 		E5165D061E585FDA0021D8E1 /* iPhuanLibUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165D051E585FDA0021D8E1 /* iPhuanLibUITests.m */; };
 		E5165D461E5860030021D8E1 /* IPHLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165D2D1E5860030021D8E1 /* IPHLocationManager.m */; };
-		E5165D481E5860030021D8E1 /* IPHConditionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165D351E5860030021D8E1 /* IPHConditionCell.m */; };
-		E5165D491E5860030021D8E1 /* IPHConditionSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165D381E5860030021D8E1 /* IPHConditionSelectorView.m */; };
-		E5165D4A1E5860030021D8E1 /* IPHConfirmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165D3A1E5860030021D8E1 /* IPHConfirmCell.m */; };
-		E5165D4C1E5860030021D8E1 /* IPHHorizontalTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165D3E1E5860030021D8E1 /* IPHHorizontalTableView.m */; };
 		E5206DCC1E58A6E300E3EE50 /* IPHBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5206DCB1E58A6E300E3EE50 /* IPHBaseModel.m */; };
 		E5734B791E5BF1C5004E0F2A /* UIView+IPHAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E5734B781E5BF1C5004E0F2A /* UIView+IPHAdditions.m */; };
 		E5734B7D1E5C2A31004E0F2A /* IPHViewNibUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E5734B7C1E5C2A31004E0F2A /* IPHViewNibUtils.m */; };
 		E5734B831E5C34B2004E0F2A /* IPHSearchPathUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E5734B821E5C34B2004E0F2A /* IPHSearchPathUtils.m */; };
-		E5ED7B4F1E5D797D002632C0 /* IPHHorizontalTableView+UIScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED7B4E1E5D797D002632C0 /* IPHHorizontalTableView+UIScrollView.m */; };
 		E5ED7B581E5DFEC3002632C0 /* NSTimer+IPHBlockSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED7B521E5DFEC3002632C0 /* NSTimer+IPHBlockSupport.m */; };
 		E5ED7B591E5DFEC3002632C0 /* UIAlertController+IPHAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED7B551E5DFEC3002632C0 /* UIAlertController+IPHAdditions.m */; };
 		E5ED7B5A1E5DFEC3002632C0 /* UIViewController+IPHAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED7B571E5DFEC3002632C0 /* UIViewController+IPHAlertController.m */; };
+		E5ED7B601E5E0B76002632C0 /* IPHHorizontalTableView+UIScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED7B5D1E5E0B76002632C0 /* IPHHorizontalTableView+UIScrollView.m */; };
+		E5ED7B611E5E0B76002632C0 /* IPHHorizontalTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED7B5F1E5E0B76002632C0 /* IPHHorizontalTableView.m */; };
+		E5ED7B6A1E5E1A13002632C0 /* IPHConditionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED7B641E5E1A13002632C0 /* IPHConditionCell.m */; };
+		E5ED7B6B1E5E1A13002632C0 /* IPHConditionSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED7B671E5E1A13002632C0 /* IPHConditionSelectorView.m */; };
+		E5ED7B6C1E5E1A13002632C0 /* IPHConfirmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED7B691E5E1A13002632C0 /* IPHConfirmCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,15 +66,6 @@
 		E5165D071E585FDA0021D8E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5165D2C1E5860030021D8E1 /* IPHLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHLocationManager.h; sourceTree = "<group>"; };
 		E5165D2D1E5860030021D8E1 /* IPHLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHLocationManager.m; sourceTree = "<group>"; };
-		E5165D341E5860030021D8E1 /* IPHConditionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHConditionCell.h; sourceTree = "<group>"; };
-		E5165D351E5860030021D8E1 /* IPHConditionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHConditionCell.m; sourceTree = "<group>"; };
-		E5165D361E5860030021D8E1 /* IPHConditionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHConditionProtocol.h; sourceTree = "<group>"; };
-		E5165D371E5860030021D8E1 /* IPHConditionSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHConditionSelectorView.h; sourceTree = "<group>"; };
-		E5165D381E5860030021D8E1 /* IPHConditionSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHConditionSelectorView.m; sourceTree = "<group>"; };
-		E5165D391E5860030021D8E1 /* IPHConfirmCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHConfirmCell.h; sourceTree = "<group>"; };
-		E5165D3A1E5860030021D8E1 /* IPHConfirmCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHConfirmCell.m; sourceTree = "<group>"; };
-		E5165D3D1E5860030021D8E1 /* IPHHorizontalTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHHorizontalTableView.h; sourceTree = "<group>"; };
-		E5165D3E1E5860030021D8E1 /* IPHHorizontalTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHHorizontalTableView.m; sourceTree = "<group>"; };
 		E5206DC31E58720D00E3EE50 /* iPhuanLib-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iPhuanLib-prefix.pch"; sourceTree = "<group>"; };
 		E5206DC71E589AB100E3EE50 /* iPhuanLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iPhuanLib.h; sourceTree = "<group>"; };
 		E5206DC81E589B3A00E3EE50 /* IPHDebug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IPHDebug.h; sourceTree = "<group>"; };
@@ -87,14 +78,23 @@
 		E5734B7C1E5C2A31004E0F2A /* IPHViewNibUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHViewNibUtils.m; sourceTree = "<group>"; };
 		E5734B811E5C34B2004E0F2A /* IPHSearchPathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHSearchPathUtils.h; sourceTree = "<group>"; };
 		E5734B821E5C34B2004E0F2A /* IPHSearchPathUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHSearchPathUtils.m; sourceTree = "<group>"; };
-		E5ED7B4D1E5D797D002632C0 /* IPHHorizontalTableView+UIScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IPHHorizontalTableView+UIScrollView.h"; sourceTree = "<group>"; };
-		E5ED7B4E1E5D797D002632C0 /* IPHHorizontalTableView+UIScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IPHHorizontalTableView+UIScrollView.m"; sourceTree = "<group>"; };
 		E5ED7B511E5DFEC3002632C0 /* NSTimer+IPHBlockSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+IPHBlockSupport.h"; sourceTree = "<group>"; };
 		E5ED7B521E5DFEC3002632C0 /* NSTimer+IPHBlockSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+IPHBlockSupport.m"; sourceTree = "<group>"; };
 		E5ED7B541E5DFEC3002632C0 /* UIAlertController+IPHAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+IPHAdditions.h"; sourceTree = "<group>"; };
 		E5ED7B551E5DFEC3002632C0 /* UIAlertController+IPHAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+IPHAdditions.m"; sourceTree = "<group>"; };
 		E5ED7B561E5DFEC3002632C0 /* UIViewController+IPHAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+IPHAlertController.h"; sourceTree = "<group>"; };
 		E5ED7B571E5DFEC3002632C0 /* UIViewController+IPHAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+IPHAlertController.m"; sourceTree = "<group>"; };
+		E5ED7B5C1E5E0B76002632C0 /* IPHHorizontalTableView+UIScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IPHHorizontalTableView+UIScrollView.h"; sourceTree = "<group>"; };
+		E5ED7B5D1E5E0B76002632C0 /* IPHHorizontalTableView+UIScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IPHHorizontalTableView+UIScrollView.m"; sourceTree = "<group>"; };
+		E5ED7B5E1E5E0B76002632C0 /* IPHHorizontalTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHHorizontalTableView.h; sourceTree = "<group>"; };
+		E5ED7B5F1E5E0B76002632C0 /* IPHHorizontalTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHHorizontalTableView.m; sourceTree = "<group>"; };
+		E5ED7B631E5E1A13002632C0 /* IPHConditionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHConditionCell.h; sourceTree = "<group>"; };
+		E5ED7B641E5E1A13002632C0 /* IPHConditionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHConditionCell.m; sourceTree = "<group>"; };
+		E5ED7B651E5E1A13002632C0 /* IPHConditionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHConditionProtocol.h; sourceTree = "<group>"; };
+		E5ED7B661E5E1A13002632C0 /* IPHConditionSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHConditionSelectorView.h; sourceTree = "<group>"; };
+		E5ED7B671E5E1A13002632C0 /* IPHConditionSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHConditionSelectorView.m; sourceTree = "<group>"; };
+		E5ED7B681E5E1A13002632C0 /* IPHConfirmCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHConfirmCell.h; sourceTree = "<group>"; };
+		E5ED7B691E5E1A13002632C0 /* IPHConfirmCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHConfirmCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,35 +267,10 @@
 		E5165D321E5860030021D8E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E5165D3C1E5860030021D8E1 /* IPHLandscapeTableView */,
-				E5165D331E5860030021D8E1 /* IPHConditionSelector */,
+				E5ED7B5B1E5E0B76002632C0 /* IPHHorizontalTableView */,
+				E5ED7B621E5E1A13002632C0 /* IPHConditionSelectorView */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		E5165D331E5860030021D8E1 /* IPHConditionSelector */ = {
-			isa = PBXGroup;
-			children = (
-				E5165D361E5860030021D8E1 /* IPHConditionProtocol.h */,
-				E5165D371E5860030021D8E1 /* IPHConditionSelectorView.h */,
-				E5165D381E5860030021D8E1 /* IPHConditionSelectorView.m */,
-				E5165D341E5860030021D8E1 /* IPHConditionCell.h */,
-				E5165D351E5860030021D8E1 /* IPHConditionCell.m */,
-				E5165D391E5860030021D8E1 /* IPHConfirmCell.h */,
-				E5165D3A1E5860030021D8E1 /* IPHConfirmCell.m */,
-			);
-			path = IPHConditionSelector;
-			sourceTree = "<group>";
-		};
-		E5165D3C1E5860030021D8E1 /* IPHLandscapeTableView */ = {
-			isa = PBXGroup;
-			children = (
-				E5165D3D1E5860030021D8E1 /* IPHHorizontalTableView.h */,
-				E5165D3E1E5860030021D8E1 /* IPHHorizontalTableView.m */,
-				E5ED7B4D1E5D797D002632C0 /* IPHHorizontalTableView+UIScrollView.h */,
-				E5ED7B4E1E5D797D002632C0 /* IPHHorizontalTableView+UIScrollView.m */,
-			);
-			path = IPHLandscapeTableView;
 			sourceTree = "<group>";
 		};
 		E5ED7B501E5DFEC3002632C0 /* Additions */ = {
@@ -317,6 +292,31 @@
 				E5ED7B571E5DFEC3002632C0 /* UIViewController+IPHAlertController.m */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		E5ED7B5B1E5E0B76002632C0 /* IPHHorizontalTableView */ = {
+			isa = PBXGroup;
+			children = (
+				E5ED7B5E1E5E0B76002632C0 /* IPHHorizontalTableView.h */,
+				E5ED7B5F1E5E0B76002632C0 /* IPHHorizontalTableView.m */,
+				E5ED7B5C1E5E0B76002632C0 /* IPHHorizontalTableView+UIScrollView.h */,
+				E5ED7B5D1E5E0B76002632C0 /* IPHHorizontalTableView+UIScrollView.m */,
+			);
+			path = IPHHorizontalTableView;
+			sourceTree = "<group>";
+		};
+		E5ED7B621E5E1A13002632C0 /* IPHConditionSelectorView */ = {
+			isa = PBXGroup;
+			children = (
+				E5ED7B651E5E1A13002632C0 /* IPHConditionProtocol.h */,
+				E5ED7B661E5E1A13002632C0 /* IPHConditionSelectorView.h */,
+				E5ED7B671E5E1A13002632C0 /* IPHConditionSelectorView.m */,
+				E5ED7B631E5E1A13002632C0 /* IPHConditionCell.h */,
+				E5ED7B641E5E1A13002632C0 /* IPHConditionCell.m */,
+				E5ED7B681E5E1A13002632C0 /* IPHConfirmCell.h */,
+				E5ED7B691E5E1A13002632C0 /* IPHConfirmCell.m */,
+			);
+			path = IPHConditionSelectorView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -455,18 +455,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5165D4C1E5860030021D8E1 /* IPHHorizontalTableView.m in Sources */,
-				E5ED7B4F1E5D797D002632C0 /* IPHHorizontalTableView+UIScrollView.m in Sources */,
 				E5165D461E5860030021D8E1 /* IPHLocationManager.m in Sources */,
+				E5ED7B611E5E0B76002632C0 /* IPHHorizontalTableView.m in Sources */,
 				E5165CE81E585FDA0021D8E1 /* ViewController.m in Sources */,
 				E5165CE51E585FDA0021D8E1 /* AppDelegate.m in Sources */,
+				E5ED7B601E5E0B76002632C0 /* IPHHorizontalTableView+UIScrollView.m in Sources */,
 				E5ED7B5A1E5DFEC3002632C0 /* UIViewController+IPHAlertController.m in Sources */,
 				E5165CE21E585FDA0021D8E1 /* main.m in Sources */,
+				E5ED7B6A1E5E1A13002632C0 /* IPHConditionCell.m in Sources */,
 				E5734B831E5C34B2004E0F2A /* IPHSearchPathUtils.m in Sources */,
 				E5734B7D1E5C2A31004E0F2A /* IPHViewNibUtils.m in Sources */,
-				E5165D4A1E5860030021D8E1 /* IPHConfirmCell.m in Sources */,
-				E5165D481E5860030021D8E1 /* IPHConditionCell.m in Sources */,
-				E5165D491E5860030021D8E1 /* IPHConditionSelectorView.m in Sources */,
+				E5ED7B6C1E5E1A13002632C0 /* IPHConfirmCell.m in Sources */,
+				E5ED7B6B1E5E1A13002632C0 /* IPHConditionSelectorView.m in Sources */,
 				E5734B791E5BF1C5004E0F2A /* UIView+IPHAdditions.m in Sources */,
 				E5ED7B591E5DFEC3002632C0 /* UIAlertController+IPHAdditions.m in Sources */,
 				E5ED7B581E5DFEC3002632C0 /* NSTimer+IPHBlockSupport.m in Sources */,

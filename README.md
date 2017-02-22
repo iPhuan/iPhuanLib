@@ -11,7 +11,35 @@ iPhuanLib是本人在平时的开发过程中知识积累后整理出来的一�
 目前集成在iPhuanLib里的类并不多，日后会不断更新资源并跟进优化，当前版本的iPhuanLib还在自测中，等到自测完成后会发布release版本，提供完整demo，并且提供Pod库支持，方便开发者下载使用。  
 
 
+目录
+-------------------------------------------------------------
+* [介绍说明](#Introduce)
+    * [Foundation](#Foundation)
+        * [IPHCommonMacros](#IPHCommonMacros)
+        * [IPHBaseModel](#IPHBaseModel)
+        * [IPHViewNibUtils](#IPHViewNibUtils)
+        * [UIView+IPHAdditions](#UIView+IPHAdditions)
+    * [Utils](#Utils)
+        * [IPHSearchPathUtils](#IPHSearchPathUtils)
+    * [Additions](#Additions)
+        * [NSTimer+IPHBlockSupport](#NSTimer+IPHBlockSupport)
+        * [UIAlertController+IPHAdditions](#UIAlertController+IPHAdditions)
+        * [UIViewController+IPHAlertController](#UIViewController+IPHAlertController)
+    * [Views](#Views)
+        * [IPHHorizontalTableView](#IPHHorizontalTableView)
+        * [IPHConditionSelectorView](#IPHConditionSelectorView)
+    * [Others](#Others)
+        * [IPHLocationManager](#IPHLocationManager)
+* [JSCoreBridge](#JSCoreBridge)
+* [风险声明](#RiskStatement)
+* [开源说明](#OpenSourceDesc)
+* [如何联系我](#ContactInfo)  
+
+
 <br />
+<br />
+
+
 <a name="Introduce">介绍说明</a>
 =============================================================  
 <br />
@@ -176,9 +204,170 @@ IPHSearchPathUtils为资源路径获取工具类，通过该工具类可以获�
 -------------------------------------------------------------  
 **Additions为扩展类库目录，包含了一些常用的扩展类。**    
 
-### <a name="NSTimer+IPHBlockSupport">IPHSearchPathUtils</a>  
-IPHSearchPathUtils为资源路径获取工具类，通过该工具类可以获取到bundle和沙盒对应资源文件的路径。  
+### <a name="NSTimer+IPHBlockSupport">NSTimer+IPHBlockSupport</a>  
+NSTimer的扩展类，使NSTimer能够通过block的方式使用，并在一定程度上减少了使用NSTimer导致循环引用的问题。  
 
+
+
+### <a name="UIAlertController+IPHAdditions">UIAlertController+IPHAdditions</a>  
+UIAlertController的扩展类，通过不同的参数来初始化不同的UIAlertController，并提供直接弹出显示的方法。  
+
+:warning:注意：
+* `IPHAlertActionHandeler` block中index的小标对应的action按钮顺序为`otherActions`，`destructiveAction`，`cancelAction`；  
+* 在iPad上请不要直接调用`popup`和`show`方法，而应该调用初始化的方法获取实例后，设置`UIAlertController`的`popoverPresentationController`的`sourceView`和`sourceRect`属性后再通过`presentViewController`弹出，否则将导致程序崩溃。因为`popup`和`show`方法中并没有对`sourceView`和`sourceRect`进行设置，也无法设置。代码实例：  
+
+
+```objective-c
+    UIAlertController *alertController = [UIAlertController
+                                            iph_actionSheetControllerWithTitle:@"提示"
+                                            message:nil
+                                            handler:^(UIAlertAction *action, NSUInteger index) {
+                                                switch (index) {
+                                                    case 0:
+                                                        // 保存图片
+                                                        break;
+                                                    case 1:
+                                                        // 分享图片
+                                                        break;
+                                                    case 2:
+                                                        // 删除图片
+                                                        break;
+                                            }
+                                        }
+                                        destructiveActionTitle:@"删除图片"
+                                        cancelActionTitle:@"取消"
+                                        otherActionTitles:@"保存图片", @"分享图片", nil];
+    UIPopoverPresentationController *popover = alertController.popoverPresentationController;
+    if (popover) {
+        popover.sourceView = self.view;
+        popover.sourceRect = self.view.bounds;
+        popover.permittedArrowDirections = UIPopoverArrowDirectionAny;
+    }
+    [self presentViewController:alertController animated:YES completion:nil];
+```    
+
+
+### <a name="UIViewController+IPHAlertController">UIViewController+IPHAlertController</a>  
+基于UIAlertController+IPHAdditions对UIViewController的扩展，可直接通过UIViewController来弹出UIAlertController的视图。  
+
+
+
+<br />
+
+<a name="Views">Views</a>
+-------------------------------------------------------------  
+**Views为自定义视图类库目录，包含了一些自定义的视图控件**   
+
+
+### <a name="IPHHorizontalTableView">IPHHorizontalTableView</a>  
+可以理解为横向TableView或者为水平的TableView。IPHHorizontalTableView是我13年突发奇想所写的一个很有创新意义的控件，它的奇妙之处在于是将一个正常的TableView逆时针旋转了90°来使用。当时在做很多项目的时候经常会遇到横向滑动的需求，比如首页的广告banner，图片预览等，而当时使用的一些自定义控件，在视图的重用上效率并不是很好，滑动的流畅度有待提高，而系统也并没有给我们提供这样的控件，我当时就想，能不能想办法直接利用系统自带控件的重用机制呢，比如TableView本身，我是不是可以将其旋转一下就可以得到我想要的横向滑动的控件？这一突发奇想激起了我极大的研究兴趣，于是我开始去尝试，发现在实现上特别简单，只需要把TableView逆时针旋转90°，然后所有的cell再顺时针旋转90°，而所有其他API用法也基本都保持和UITableView的一致。最后实现后放到项目中进行测试，发现其流畅度特别高，而且兼容性也出乎意料的稳定。  
+
+时隔4年，我再次在项目中用起了IPHHorizontalTableView，依然觉得它用起来非常的方便，因为它基本保留了UITableView能兼容的所有API，用法与UITableView的API几乎相近，而UITableView又是我们平常特别常用的一个控件。 的虽然现在系统已提供UIStackView这样的控件可实现横向滑动的效果，但是如果需要兼容9.0系统以下的版本IPHHorizontalTableView还是最佳的选择。  
+
+IPHHorizontalTableView在13年的时候只实现了最基本的功能，抽取了UITableView的部分常用API来作为IPHHorizontalTableView的API进行使用，而当前修改后的IPHHorizontalTableView已把所有能兼容使用的API都抽取了出来。  
+
+
+IPHHorizontalTableView因为被旋转，对于其`frame`,`x`和`y`,`width`和`height`都已经被互换，所以部分属性在使用上会略有不同，比如没有`rowHeight`属性而换成了`cellWidth`，没有`contentOffset`属性而是`contentOffsetX`等等，这些都是由于旋转后所做的一些兼容适配。但是开发者在看到这些属性后应该会很快明白其中的道理。所以具体IPHHorizontalTableView的API也没有必要很详细的在这里去讲解，只需要按照UITableView和UIScrollView API的用法去使用即可。   
+
+
+
+### <a name="IPHConditionSelectorView">IPHConditionSelectorView</a>   
+条件选择器控件。在做酒店相关模块写的一个控件。比如搜索酒店的条件：价格范围，星级等。通过代理的方法去实现，用法也跟UITableView相近。  
+
+***IPHConditionSelectorView：
+
+* **`- (NSInteger)numberOfSectionsInConditionSelectorView:(IPHConditionSelectorView *)selectorView;`**   
+
+> 多少种类型的条件在视图中，比如价格范围和星级，则返回2。  
+
+
+* **`- (nullable NSString *)conditionSelectorView:(IPHConditionSelectorView *)selectorView titleForHeaderInSection:(NSInteger)section;`**   
+
+> 条件类型的标题，根据不同的`section`返回“价格范围”和“星级”字符串。  
+
+
+* **`- (nullable NSArray<id <IPHConditionProtocol>> *)conditionSelectorView:(IPHConditionSelectorView *)selectorView conditionsInSection:(NSInteger)section;`**   
+
+> 供选择的条件，根据不同的`section`返回该类型中提供选择的条件。   
+
+
+* **`- (nullable id <IPHConditionProtocol>)conditionSelectorView:(IPHConditionSelectorView *)selectorView defaultConditionSelectInSection:(NSInteger)section;`**   
+
+> 默认选中的条件，根据不同的`section`返回该类型中默认选中的条件。不实现该方法则默认选中第一个。  
+
+
+* **`- (void)conditionSelectorView :(IPHConditionSelectorView *)selectorView didSelectConditions:(NSArray<NSArray<id <IPHConditionProtocol>> *> *)conditions;`**   
+
+> 选择完条件后的回调。conditions中为选中的所有条件。`section`有多少个，则conditions数组里面的元素有多少个，每个元素中又是该`section`分类中选择的条件数组。   
+
+
+* **`headerTitleColor`**   
+
+> 条件类型的标题字体颜色  
+
+
+
+* **`buttonNormalColor`**   
+
+> 条件按钮未选中状态下文字的颜色  
+
+
+* **`buttonSelectedColor`**   
+
+> 条件按钮选中状态下文字的颜色，其中选中状态下按钮的边框颜色和确定按钮的背景色都保持和该颜色值一样。   
+
+
+***IPHConditionProtocol：  
+提供给conditionSelectorView的数据源，其条件对象只需要遵循该协议就能满足。`conditionId`提供ID的支持，`isUnlimited`为该条件是否为无限制条件的标志，比如星级条件可能从一星分到五星，那么我们可能还需要添加一个条件为“不限”，表示条件不限制，这个时候我们可以添加一个不限的条件对象，`title`值为“不限”，`conditionId`设置一个固定的id，把`isUnlimited`设置为`YES`,这样我们就能轻易在选择操作结束后的回调中区分哪个条件为不限条件。  
+
+
+***IPHConfirmCell：  
+用于显示确定按钮的Cell。开发者可添加对应的IPHConfirmCell xib文件来自定义确定按钮样式，否则该按钮将通过IPHConfirmCell默认创建。
+
+
+<br />
+
+<a name="Others">Others</a>
+-------------------------------------------------------------  
+**其他写的一些未归属的类**   
+
+
+### <a name="IPHLocationManager">IPHLocationManager</a>  
+
+定位管理类。以单列形式存在，通过它可以定位获取到坐标，城市信息，详细地址等地理信息。
+
+
+
+<a name="JSCoreBridge">JSCoreBridge</a>
+=============================================================  
+<br />
+JSCoreBridge是基于iOS平台[Apache Cordova](http://cordova.apache.org/)修改的开源框架，Cordova的用处在于作为桥梁通过插件的方式实现了Web与Native之间的通信，而JSCoreBridge参考其进行删减修改（移除了开发者在平时用不上的类和方法），改写了其传统的通信机制，在保留了Cordova实用的功能前提下，精简优化了框架占用大小，并且省去了繁琐的工程设置选项，通过的新的实现方式大大提供了通信效率。JSCoreBridge开源框架力在为开发者提供更便捷的Hybird开发体验。  
+**[点击查看JSCoreBridge详细说明](https://github.com/iPhuan/JSCoreBridge.git)
+
+
+
+<br />
+:warning: <a name="RiskStatement">风险声明</a>
+-------------------------------------------------------------
+* 本框架虽然已进行过多次自测，但是并未进行大范围的试用，避免不了会有未知的bug产生，如果您使用本框架，由于未知bug所导致的风险需要您自行承担。  
+> 迎各位使用者给本人反馈在使用中遇到的各种问题和bug。
+
+
+<br />
+=============================================================  
+
+<a name="OpenSourceDesc">开源说明</a>
+-------------------------------------------------------------
+iPhuanLib框架意在分享和交流，本着开源的思想，现已上传至[GitHub](https://github.com/iPhuan/iPhuanLib.git)，之后会一直跟进更新，如果您在使用本框架，欢迎及时反馈您在使用过程中遇到的各种问题和bug，也欢迎大家跟本人沟通和分享更多互联网技术。iPhuan更多开源资源将会不定期的更新至 [iPhuanLib](https://github.com/iPhuan/iPhuanLib.git)  
+
+
+<br />
+<a name="ContactInfo">如何联系我</a>
+-------------------------------------------------------------  
+邮箱：iphuan@qq.com  
+QQ：519310392  
+
+> 添加QQ时请备注iPhuanLib
 
 
 
