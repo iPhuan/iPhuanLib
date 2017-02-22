@@ -58,7 +58,8 @@ IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字�
 > Key都为`IPHHotle`的属性名称，Value则为Json数据中对应的字段，通过该映射IPHBaseModel则自动给对应属性赋值。  
 
 
-* **`- (NSDictionary *)attributeTypesMapDictionary;`**   
+* **`- (NSDictionary *)attributeTypesMapDictionary;`**    
+
 > 个别对象属性，数组属性其对应数据的类型映射。在`attributeMapDictionary`方法的介绍中，我们有提到Json数据中`recommended_room`和`room_list`对应于字典和数组数据，相应的`IPHHotle`对象中，`recommendedRoom`对应于`IPHRoom`对象，`rooms`为一个数组，数组中的元素都为`IPHRoom`对象，那么IPHBaseModel在给`IPHHotle`初始化的时候怎么就能将单纯的字典和数组数据，转化为符合要求的对象数据呢，此时`attributeTypesMapDictionary`就起了至关重要的作用。如以下代码示例：  
 
 ```objective-c
@@ -106,6 +107,7 @@ IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字�
 
 
 * **`- (NSDictionary *)attributeDefaultValueMapDictionary;`**  
+
 > 属性默认值的映射。当属性的值在初始化后为nil时，通过该映射可以对属性设定默认值。代码示例：  
 
 
@@ -117,6 +119,7 @@ IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字�
 
 
 * **`- (NSArray<NSString *> *)filterStrings;`**  
+
 > 需要过滤的字段。当属性在初始化数据后，值为`filterStrings`数组里面的过滤字符串时，该属性会自动被设置为nil。目前过滤的字段如下：  
 
 
@@ -132,10 +135,12 @@ IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字�
 
 
 * **`- (instancetype)initWithDictionary:(NSDictionary *)dictionary;`**     
+
 > 通过一个字典对对象进行初始化。注意，`initWithDictionary:`只对`attributeMapDictionary`中映射的属性进行初始化。其他属性在通过该方法初始化后值依然为nil。  
 
 
 * **`- (NSDictionary *)toDictionary;`**   
+
 > 与`initWithDictionary:`对应，将对象转化为字典，也是基于`attributeMapDictionary`映射来进行转化的，映射中不包含某个属性，其转化后的字典也不包含对应属性的Key。  
 
 
