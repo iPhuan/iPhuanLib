@@ -41,6 +41,7 @@ IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字�
 开发者需要继承于IPHBaseModel来进行使用，以下是对各个API做的相关说明：  
 
 * **`- (NSDictionary *)attributeMapDictionary;`**  
+
 > 对象属性映射字典。开发者在子类中重写该方法，并返回一个可用的字典。其中字典的Key为属性的名称，Value为方法`initWithDictionary:`中字典参数的Key，通过该映射方法，IPHBaseModel在初始化对象时才知道怎么从数据字典中取值并进初始化。   
 > 假设Json数据中root为一个酒店信息字典，包含了`name`，`hotle_id`，`recommended_room`，`room_list`等字段，其中`recommended_room`对应于一个推荐房间的字典，包含了房间的各个信息，room_list为一个数组，数组里面也是房间的字典，我们首先建立了一个叫`IPHRoom`的对象用来接收房间的信息，再建立一个`IPHHotle`的对象用来接收整个酒店的信息，`IPHRoom`和`IPHHotle`都继承于`IPHBaseModel`，于是我们可以在`IPHHotle`对象的`attributeMapDictionary`方法中这么写：  
 
