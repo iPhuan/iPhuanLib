@@ -1,0 +1,13 @@
+//
+//  iPhuanLib.pch
+//  iPhuanLib
+//
+//  Created by iPhuan on 2017/2/18.
+//  Copyright © 2017年 iPhuan. All rights reserved.
+//
+
+#ifdef __OBJC__
+//    #import <UIKit/UIKit.h>
+//    #import <Foundation/Foundation.h>
+    #import "iPhuanLib.h"
+#endif

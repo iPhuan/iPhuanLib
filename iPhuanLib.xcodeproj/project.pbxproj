@@ -1,0 +1,738 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E5165CE21E585FDA0021D8E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165CE11E585FDA0021D8E1 /* main.m */; };
+		E5165CE51E585FDA0021D8E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165CE41E585FDA0021D8E1 /* AppDelegate.m */; };
+		E5165CE81E585FDA0021D8E1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165CE71E585FDA0021D8E1 /* ViewController.m */; };
+		E5165CEB1E585FDA0021D8E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5165CE91E585FDA0021D8E1 /* Main.storyboard */; };
+		E5165CED1E585FDA0021D8E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5165CEC1E585FDA0021D8E1 /* Assets.xcassets */; };
+		E5165CF01E585FDA0021D8E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5165CEE1E585FDA0021D8E1 /* LaunchScreen.storyboard */; };
+		E5165CFB1E585FDA0021D8E1 /* iPhuanLibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165CFA1E585FDA0021D8E1 /* iPhuanLibTests.m */; };
+		E5165D061E585FDA0021D8E1 /* iPhuanLibUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165D051E585FDA0021D8E1 /* iPhuanLibUITests.m */; };
+		E5165D411E5860030021D8E1 /* UIAlertController+IPHExtendedAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165D1D1E5860030021D8E1 /* UIAlertController+IPHExtendedAlertController.m */; };
+		E5165D431E5860030021D8E1 /* UIViewController+IPHAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165D211E5860030021D8E1 /* UIViewController+IPHAlertController.m */; };
+		E5165D461E5860030021D8E1 /* IPHLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165D2D1E5860030021D8E1 /* IPHLocationManager.m */; };
+		E5165D481E5860030021D8E1 /* IPHConditionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165D351E5860030021D8E1 /* IPHConditionCell.m */; };
+		E5165D491E5860030021D8E1 /* IPHConditionSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165D381E5860030021D8E1 /* IPHConditionSelectorView.m */; };
+		E5165D4A1E5860030021D8E1 /* IPHConfirmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165D3A1E5860030021D8E1 /* IPHConfirmCell.m */; };
+		E5165D4C1E5860030021D8E1 /* IPHHorizontalTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165D3E1E5860030021D8E1 /* IPHHorizontalTableView.m */; };
+		E5165D4F1E5860780021D8E1 /* NSTimer+IPHBlockSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165D4E1E5860780021D8E1 /* NSTimer+IPHBlockSupport.m */; };
+		E5206DCC1E58A6E300E3EE50 /* IPHBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5206DCB1E58A6E300E3EE50 /* IPHBaseModel.m */; };
+		E5734B791E5BF1C5004E0F2A /* UIView+IPHExtendedView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5734B781E5BF1C5004E0F2A /* UIView+IPHExtendedView.m */; };
+		E5734B7D1E5C2A31004E0F2A /* IPHViewNibUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E5734B7C1E5C2A31004E0F2A /* IPHViewNibUtils.m */; };
+		E5734B831E5C34B2004E0F2A /* IPHSearchPathUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E5734B821E5C34B2004E0F2A /* IPHSearchPathUtils.m */; };
+		E5ED7B4F1E5D797D002632C0 /* IPHHorizontalTableView+UIScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED7B4E1E5D797D002632C0 /* IPHHorizontalTableView+UIScrollView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E5165CF71E585FDA0021D8E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5165CD51E585FDA0021D8E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5165CDC1E585FDA0021D8E1;
+			remoteInfo = iPhuanLib;
+		};
+		E5165D021E585FDA0021D8E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5165CD51E585FDA0021D8E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5165CDC1E585FDA0021D8E1;
+			remoteInfo = iPhuanLib;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E5165CDD1E585FDA0021D8E1 /* iPhuanLib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPhuanLib.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5165CE11E585FDA0021D8E1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E5165CE31E585FDA0021D8E1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E5165CE41E585FDA0021D8E1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E5165CE61E585FDA0021D8E1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E5165CE71E585FDA0021D8E1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E5165CEA1E585FDA0021D8E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E5165CEC1E585FDA0021D8E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E5165CEF1E585FDA0021D8E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E5165CF11E585FDA0021D8E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5165CF61E585FDA0021D8E1 /* iPhuanLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iPhuanLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5165CFA1E585FDA0021D8E1 /* iPhuanLibTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iPhuanLibTests.m; sourceTree = "<group>"; };
+		E5165CFC1E585FDA0021D8E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5165D011E585FDA0021D8E1 /* iPhuanLibUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iPhuanLibUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5165D051E585FDA0021D8E1 /* iPhuanLibUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iPhuanLibUITests.m; sourceTree = "<group>"; };
+		E5165D071E585FDA0021D8E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5165D1C1E5860030021D8E1 /* UIAlertController+IPHExtendedAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+IPHExtendedAlertController.h"; sourceTree = "<group>"; };
+		E5165D1D1E5860030021D8E1 /* UIAlertController+IPHExtendedAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+IPHExtendedAlertController.m"; sourceTree = "<group>"; };
+		E5165D201E5860030021D8E1 /* UIViewController+IPHAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+IPHAlertController.h"; sourceTree = "<group>"; };
+		E5165D211E5860030021D8E1 /* UIViewController+IPHAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+IPHAlertController.m"; sourceTree = "<group>"; };
+		E5165D2C1E5860030021D8E1 /* IPHLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHLocationManager.h; sourceTree = "<group>"; };
+		E5165D2D1E5860030021D8E1 /* IPHLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHLocationManager.m; sourceTree = "<group>"; };
+		E5165D341E5860030021D8E1 /* IPHConditionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHConditionCell.h; sourceTree = "<group>"; };
+		E5165D351E5860030021D8E1 /* IPHConditionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHConditionCell.m; sourceTree = "<group>"; };
+		E5165D361E5860030021D8E1 /* IPHConditionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHConditionProtocol.h; sourceTree = "<group>"; };
+		E5165D371E5860030021D8E1 /* IPHConditionSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHConditionSelectorView.h; sourceTree = "<group>"; };
+		E5165D381E5860030021D8E1 /* IPHConditionSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHConditionSelectorView.m; sourceTree = "<group>"; };
+		E5165D391E5860030021D8E1 /* IPHConfirmCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHConfirmCell.h; sourceTree = "<group>"; };
+		E5165D3A1E5860030021D8E1 /* IPHConfirmCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHConfirmCell.m; sourceTree = "<group>"; };
+		E5165D3D1E5860030021D8E1 /* IPHHorizontalTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHHorizontalTableView.h; sourceTree = "<group>"; };
+		E5165D3E1E5860030021D8E1 /* IPHHorizontalTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHHorizontalTableView.m; sourceTree = "<group>"; };
+		E5165D4D1E5860780021D8E1 /* NSTimer+IPHBlockSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+IPHBlockSupport.h"; sourceTree = "<group>"; };
+		E5165D4E1E5860780021D8E1 /* NSTimer+IPHBlockSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+IPHBlockSupport.m"; sourceTree = "<group>"; };
+		E5206DC31E58720D00E3EE50 /* iPhuanLib-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iPhuanLib-prefix.pch"; sourceTree = "<group>"; };
+		E5206DC71E589AB100E3EE50 /* iPhuanLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iPhuanLib.h; sourceTree = "<group>"; };
+		E5206DC81E589B3A00E3EE50 /* IPHDebug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IPHDebug.h; sourceTree = "<group>"; };
+		E5206DCA1E58A6E300E3EE50 /* IPHBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHBaseModel.h; sourceTree = "<group>"; };
+		E5206DCB1E58A6E300E3EE50 /* IPHBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHBaseModel.m; sourceTree = "<group>"; };
+		E5734B761E5BEEAA004E0F2A /* IPHCommonMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IPHCommonMacros.h; sourceTree = "<group>"; };
+		E5734B771E5BF1C5004E0F2A /* UIView+IPHExtendedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+IPHExtendedView.h"; sourceTree = "<group>"; };
+		E5734B781E5BF1C5004E0F2A /* UIView+IPHExtendedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+IPHExtendedView.m"; sourceTree = "<group>"; };
+		E5734B7B1E5C2A31004E0F2A /* IPHViewNibUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHViewNibUtils.h; sourceTree = "<group>"; };
+		E5734B7C1E5C2A31004E0F2A /* IPHViewNibUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHViewNibUtils.m; sourceTree = "<group>"; };
+		E5734B811E5C34B2004E0F2A /* IPHSearchPathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHSearchPathUtils.h; sourceTree = "<group>"; };
+		E5734B821E5C34B2004E0F2A /* IPHSearchPathUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHSearchPathUtils.m; sourceTree = "<group>"; };
+		E5ED7B4D1E5D797D002632C0 /* IPHHorizontalTableView+UIScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IPHHorizontalTableView+UIScrollView.h"; sourceTree = "<group>"; };
+		E5ED7B4E1E5D797D002632C0 /* IPHHorizontalTableView+UIScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IPHHorizontalTableView+UIScrollView.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E5165CDA1E585FDA0021D8E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5165CF31E585FDA0021D8E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5165CFE1E585FDA0021D8E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E5165CD41E585FDA0021D8E1 = {
+			isa = PBXGroup;
+			children = (
+				E5165CDF1E585FDA0021D8E1 /* iPhuanLib */,
+				E5165CF91E585FDA0021D8E1 /* iPhuanLibTests */,
+				E5165D041E585FDA0021D8E1 /* iPhuanLibUITests */,
+				E5165CDE1E585FDA0021D8E1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E5165CDE1E585FDA0021D8E1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E5165CDD1E585FDA0021D8E1 /* iPhuanLib.app */,
+				E5165CF61E585FDA0021D8E1 /* iPhuanLibTests.xctest */,
+				E5165D011E585FDA0021D8E1 /* iPhuanLibUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E5165CDF1E585FDA0021D8E1 /* iPhuanLib */ = {
+			isa = PBXGroup;
+			children = (
+				E5165D131E5860030021D8E1 /* Class */,
+				E5165CE31E585FDA0021D8E1 /* AppDelegate.h */,
+				E5165CE41E585FDA0021D8E1 /* AppDelegate.m */,
+				E5165CE61E585FDA0021D8E1 /* ViewController.h */,
+				E5165CE71E585FDA0021D8E1 /* ViewController.m */,
+				E5165CE91E585FDA0021D8E1 /* Main.storyboard */,
+				E5165CEC1E585FDA0021D8E1 /* Assets.xcassets */,
+				E5165CEE1E585FDA0021D8E1 /* LaunchScreen.storyboard */,
+				E5165CF11E585FDA0021D8E1 /* Info.plist */,
+				E5165CE01E585FDA0021D8E1 /* Supporting Files */,
+			);
+			path = iPhuanLib;
+			sourceTree = "<group>";
+		};
+		E5165CE01E585FDA0021D8E1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E5165CE11E585FDA0021D8E1 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E5165CF91E585FDA0021D8E1 /* iPhuanLibTests */ = {
+			isa = PBXGroup;
+			children = (
+				E5165CFA1E585FDA0021D8E1 /* iPhuanLibTests.m */,
+				E5165CFC1E585FDA0021D8E1 /* Info.plist */,
+			);
+			path = iPhuanLibTests;
+			sourceTree = "<group>";
+		};
+		E5165D041E585FDA0021D8E1 /* iPhuanLibUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E5165D051E585FDA0021D8E1 /* iPhuanLibUITests.m */,
+				E5165D071E585FDA0021D8E1 /* Info.plist */,
+			);
+			path = iPhuanLibUITests;
+			sourceTree = "<group>";
+		};
+		E5165D131E5860030021D8E1 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				E5165D151E5860030021D8E1 /* iPhuanLib */,
+				E5165D141E5860030021D8E1 /* Demo */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		E5165D141E5860030021D8E1 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		E5165D151E5860030021D8E1 /* iPhuanLib */ = {
+			isa = PBXGroup;
+			children = (
+				E5206DC31E58720D00E3EE50 /* iPhuanLib-prefix.pch */,
+				E5165D161E5860030021D8E1 /* Category */,
+				E5165D221E5860030021D8E1 /* Common */,
+				E5165D251E5860030021D8E1 /* Foundation */,
+				E5165D2B1E5860030021D8E1 /* Others */,
+				E5165D2E1E5860030021D8E1 /* Utils */,
+				E5165D311E5860030021D8E1 /* ViewControllers */,
+				E5165D321E5860030021D8E1 /* Views */,
+			);
+			path = iPhuanLib;
+			sourceTree = "<group>";
+		};
+		E5165D161E5860030021D8E1 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E5165D4D1E5860780021D8E1 /* NSTimer+IPHBlockSupport.h */,
+				E5165D4E1E5860780021D8E1 /* NSTimer+IPHBlockSupport.m */,
+				E5165D191E5860030021D8E1 /* UIKit */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		E5165D191E5860030021D8E1 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				E5165D1C1E5860030021D8E1 /* UIAlertController+IPHExtendedAlertController.h */,
+				E5165D1D1E5860030021D8E1 /* UIAlertController+IPHExtendedAlertController.m */,
+				E5165D201E5860030021D8E1 /* UIViewController+IPHAlertController.h */,
+				E5165D211E5860030021D8E1 /* UIViewController+IPHAlertController.m */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		E5165D221E5860030021D8E1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		E5165D251E5860030021D8E1 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				E5206DC71E589AB100E3EE50 /* iPhuanLib.h */,
+				E5206DC81E589B3A00E3EE50 /* IPHDebug.h */,
+				E5734B761E5BEEAA004E0F2A /* IPHCommonMacros.h */,
+				E5206DCA1E58A6E300E3EE50 /* IPHBaseModel.h */,
+				E5206DCB1E58A6E300E3EE50 /* IPHBaseModel.m */,
+				E5734B7B1E5C2A31004E0F2A /* IPHViewNibUtils.h */,
+				E5734B7C1E5C2A31004E0F2A /* IPHViewNibUtils.m */,
+				E5734B771E5BF1C5004E0F2A /* UIView+IPHExtendedView.h */,
+				E5734B781E5BF1C5004E0F2A /* UIView+IPHExtendedView.m */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		E5165D2B1E5860030021D8E1 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				E5165D2C1E5860030021D8E1 /* IPHLocationManager.h */,
+				E5165D2D1E5860030021D8E1 /* IPHLocationManager.m */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		E5165D2E1E5860030021D8E1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E5734B811E5C34B2004E0F2A /* IPHSearchPathUtils.h */,
+				E5734B821E5C34B2004E0F2A /* IPHSearchPathUtils.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E5165D311E5860030021D8E1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E5165D321E5860030021D8E1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E5165D3C1E5860030021D8E1 /* IPHLandscapeTableView */,
+				E5165D331E5860030021D8E1 /* IPHConditionSelector */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E5165D331E5860030021D8E1 /* IPHConditionSelector */ = {
+			isa = PBXGroup;
+			children = (
+				E5165D361E5860030021D8E1 /* IPHConditionProtocol.h */,
+				E5165D371E5860030021D8E1 /* IPHConditionSelectorView.h */,
+				E5165D381E5860030021D8E1 /* IPHConditionSelectorView.m */,
+				E5165D341E5860030021D8E1 /* IPHConditionCell.h */,
+				E5165D351E5860030021D8E1 /* IPHConditionCell.m */,
+				E5165D391E5860030021D8E1 /* IPHConfirmCell.h */,
+				E5165D3A1E5860030021D8E1 /* IPHConfirmCell.m */,
+			);
+			path = IPHConditionSelector;
+			sourceTree = "<group>";
+		};
+		E5165D3C1E5860030021D8E1 /* IPHLandscapeTableView */ = {
+			isa = PBXGroup;
+			children = (
+				E5165D3D1E5860030021D8E1 /* IPHHorizontalTableView.h */,
+				E5165D3E1E5860030021D8E1 /* IPHHorizontalTableView.m */,
+				E5ED7B4D1E5D797D002632C0 /* IPHHorizontalTableView+UIScrollView.h */,
+				E5ED7B4E1E5D797D002632C0 /* IPHHorizontalTableView+UIScrollView.m */,
+			);
+			path = IPHLandscapeTableView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E5165CDC1E585FDA0021D8E1 /* iPhuanLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5165D0A1E585FDA0021D8E1 /* Build configuration list for PBXNativeTarget "iPhuanLib" */;
+			buildPhases = (
+				E5165CD91E585FDA0021D8E1 /* Sources */,
+				E5165CDA1E585FDA0021D8E1 /* Frameworks */,
+				E5165CDB1E585FDA0021D8E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iPhuanLib;
+			productName = iPhuanLib;
+			productReference = E5165CDD1E585FDA0021D8E1 /* iPhuanLib.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E5165CF51E585FDA0021D8E1 /* iPhuanLibTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5165D0D1E585FDA0021D8E1 /* Build configuration list for PBXNativeTarget "iPhuanLibTests" */;
+			buildPhases = (
+				E5165CF21E585FDA0021D8E1 /* Sources */,
+				E5165CF31E585FDA0021D8E1 /* Frameworks */,
+				E5165CF41E585FDA0021D8E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5165CF81E585FDA0021D8E1 /* PBXTargetDependency */,
+			);
+			name = iPhuanLibTests;
+			productName = iPhuanLibTests;
+			productReference = E5165CF61E585FDA0021D8E1 /* iPhuanLibTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E5165D001E585FDA0021D8E1 /* iPhuanLibUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5165D101E585FDA0021D8E1 /* Build configuration list for PBXNativeTarget "iPhuanLibUITests" */;
+			buildPhases = (
+				E5165CFD1E585FDA0021D8E1 /* Sources */,
+				E5165CFE1E585FDA0021D8E1 /* Frameworks */,
+				E5165CFF1E585FDA0021D8E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5165D031E585FDA0021D8E1 /* PBXTargetDependency */,
+			);
+			name = iPhuanLibUITests;
+			productName = iPhuanLibUITests;
+			productReference = E5165D011E585FDA0021D8E1 /* iPhuanLibUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E5165CD51E585FDA0021D8E1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = iPhuan;
+				TargetAttributes = {
+					E5165CDC1E585FDA0021D8E1 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = ZHS6TJ7QNS;
+						ProvisioningStyle = Automatic;
+					};
+					E5165CF51E585FDA0021D8E1 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = ZHS6TJ7QNS;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E5165CDC1E585FDA0021D8E1;
+					};
+					E5165D001E585FDA0021D8E1 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = ZHS6TJ7QNS;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E5165CDC1E585FDA0021D8E1;
+					};
+				};
+			};
+			buildConfigurationList = E5165CD81E585FDA0021D8E1 /* Build configuration list for PBXProject "iPhuanLib" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E5165CD41E585FDA0021D8E1;
+			productRefGroup = E5165CDE1E585FDA0021D8E1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E5165CDC1E585FDA0021D8E1 /* iPhuanLib */,
+				E5165CF51E585FDA0021D8E1 /* iPhuanLibTests */,
+				E5165D001E585FDA0021D8E1 /* iPhuanLibUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E5165CDB1E585FDA0021D8E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5165CF01E585FDA0021D8E1 /* LaunchScreen.storyboard in Resources */,
+				E5165CED1E585FDA0021D8E1 /* Assets.xcassets in Resources */,
+				E5165CEB1E585FDA0021D8E1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5165CF41E585FDA0021D8E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5165CFF1E585FDA0021D8E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E5165CD91E585FDA0021D8E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5165D4C1E5860030021D8E1 /* IPHHorizontalTableView.m in Sources */,
+				E5ED7B4F1E5D797D002632C0 /* IPHHorizontalTableView+UIScrollView.m in Sources */,
+				E5165D411E5860030021D8E1 /* UIAlertController+IPHExtendedAlertController.m in Sources */,
+				E5165D461E5860030021D8E1 /* IPHLocationManager.m in Sources */,
+				E5165CE81E585FDA0021D8E1 /* ViewController.m in Sources */,
+				E5165CE51E585FDA0021D8E1 /* AppDelegate.m in Sources */,
+				E5165CE21E585FDA0021D8E1 /* main.m in Sources */,
+				E5734B831E5C34B2004E0F2A /* IPHSearchPathUtils.m in Sources */,
+				E5734B7D1E5C2A31004E0F2A /* IPHViewNibUtils.m in Sources */,
+				E5165D431E5860030021D8E1 /* UIViewController+IPHAlertController.m in Sources */,
+				E5165D4A1E5860030021D8E1 /* IPHConfirmCell.m in Sources */,
+				E5165D481E5860030021D8E1 /* IPHConditionCell.m in Sources */,
+				E5165D4F1E5860780021D8E1 /* NSTimer+IPHBlockSupport.m in Sources */,
+				E5165D491E5860030021D8E1 /* IPHConditionSelectorView.m in Sources */,
+				E5734B791E5BF1C5004E0F2A /* UIView+IPHExtendedView.m in Sources */,
+				E5206DCC1E58A6E300E3EE50 /* IPHBaseModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5165CF21E585FDA0021D8E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5165CFB1E585FDA0021D8E1 /* iPhuanLibTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5165CFD1E585FDA0021D8E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5165D061E585FDA0021D8E1 /* iPhuanLibUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E5165CF81E585FDA0021D8E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5165CDC1E585FDA0021D8E1 /* iPhuanLib */;
+			targetProxy = E5165CF71E585FDA0021D8E1 /* PBXContainerItemProxy */;
+		};
+		E5165D031E585FDA0021D8E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5165CDC1E585FDA0021D8E1 /* iPhuanLib */;
+			targetProxy = E5165D021E585FDA0021D8E1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E5165CE91E585FDA0021D8E1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5165CEA1E585FDA0021D8E1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E5165CEE1E585FDA0021D8E1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5165CEF1E585FDA0021D8E1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E5165D081E585FDA0021D8E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E5165D091E585FDA0021D8E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E5165D0B1E585FDA0021D8E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ZHS6TJ7QNS;
+				GCC_PREFIX_HEADER = "iPhuanLib/Class/iPhuanLib/iPhuanLib-prefix.pch";
+				INFOPLIST_FILE = iPhuanLib/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = iPhuan.iPhuanLib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E5165D0C1E585FDA0021D8E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ZHS6TJ7QNS;
+				GCC_PREFIX_HEADER = "iPhuanLib/Class/iPhuanLib/iPhuanLib-prefix.pch";
+				INFOPLIST_FILE = iPhuanLib/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = iPhuan.iPhuanLib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E5165D0E1E585FDA0021D8E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = ZHS6TJ7QNS;
+				INFOPLIST_FILE = iPhuanLibTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = iPhuan.iPhuanLibTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iPhuanLib.app/iPhuanLib";
+			};
+			name = Debug;
+		};
+		E5165D0F1E585FDA0021D8E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = ZHS6TJ7QNS;
+				INFOPLIST_FILE = iPhuanLibTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = iPhuan.iPhuanLibTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iPhuanLib.app/iPhuanLib";
+			};
+			name = Release;
+		};
+		E5165D111E585FDA0021D8E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = ZHS6TJ7QNS;
+				INFOPLIST_FILE = iPhuanLibUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = iPhuan.iPhuanLibUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = iPhuanLib;
+			};
+			name = Debug;
+		};
+		E5165D121E585FDA0021D8E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = ZHS6TJ7QNS;
+				INFOPLIST_FILE = iPhuanLibUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = iPhuan.iPhuanLibUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = iPhuanLib;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E5165CD81E585FDA0021D8E1 /* Build configuration list for PBXProject "iPhuanLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5165D081E585FDA0021D8E1 /* Debug */,
+				E5165D091E585FDA0021D8E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5165D0A1E585FDA0021D8E1 /* Build configuration list for PBXNativeTarget "iPhuanLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5165D0B1E585FDA0021D8E1 /* Debug */,
+				E5165D0C1E585FDA0021D8E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5165D0D1E585FDA0021D8E1 /* Build configuration list for PBXNativeTarget "iPhuanLibTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5165D0E1E585FDA0021D8E1 /* Debug */,
+				E5165D0F1E585FDA0021D8E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5165D101E585FDA0021D8E1 /* Build configuration list for PBXNativeTarget "iPhuanLibUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5165D111E585FDA0021D8E1 /* Debug */,
+				E5165D121E585FDA0021D8E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E5165CD51E585FDA0021D8E1 /* Project object */;
+}
