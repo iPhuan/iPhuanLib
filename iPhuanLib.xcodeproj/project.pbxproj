@@ -213,7 +213,6 @@
 			children = (
 				E5A8CB251E61E8AD0046946D /* IPHBaseModel */,
 				E5A8CB271E61E8AD0046946D /* IPHHorizontalTableView */,
-				E5A8CB241E61E8AD0046946D /* IPHAlertController */,
 				E5A8CB261E61E8AD0046946D /* IPHConditionSelectorView */,
 				E5A8CB281E61E8AD0046946D /* IPHLocationManager */,
 			);
@@ -291,13 +290,6 @@
 				E5ED7B621E5E1A13002632C0 /* IPHConditionSelectorView */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		E5A8CB241E61E8AD0046946D /* IPHAlertController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = IPHAlertController;
 			sourceTree = "<group>";
 		};
 		E5A8CB251E61E8AD0046946D /* IPHBaseModel */ = {

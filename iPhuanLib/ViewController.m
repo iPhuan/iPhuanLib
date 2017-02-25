@@ -24,7 +24,6 @@
     self.title = @"iPhuanLib";
     self.demoTitles = @[@"IPHBaseModel",
                         @"IPHHorizontalTableView",
-                        @"IPHAlertController",
                         @"IPHConditionSelectorView",
                         @"IPHLocationManager"];
 }
