@@ -20,7 +20,7 @@ iPhuanLib是本人在平时的开发过程中知识积累后整理出来的一�
         * [IPHViewNibUtils](#IPHViewNibUtils)
         * [UIView+IPHAdditions](#UIView+IPHAdditions)
     * [Utils](#Utils)
-        * [IPHSearchPathUtils](#IPHSearchPathUtils)
+        * [IPHPathUtils](#IPHPathUtils)
     * [Additions](#Additions)
         * [NSTimer+IPHBlockSupport](#NSTimer+IPHBlockSupport)
         * [UIAlertController+IPHAdditions](#UIAlertController+IPHAdditions)
@@ -173,6 +173,12 @@ IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字�
 > 与`initWithDictionary:`对应，将对象转化为字典，也是基于`attributeMapDictionary`映射来进行转化的，映射中不包含某个属性，其转化后的字典也不包含对应属性的Key。  
 
 
+* **`- (NSData *)archivedData;**   
+
+> 获取适用于存档的Data数据，注意，存档时先调用该方法获取Data数据，再通过`[NSUserDefaults standardUserDefaults]`的`setObject:forKey:`方法存档。NSUserDefaults本身不支持自定义对象的存储。
+
+
+
 <br />
 :warning:注意：
 * IPHBaseModel会将Number类型的字典数据转化为字符串，你在使用IPHBaseModel创建类时，其对应的属性应当以字符串的形式创建。  
@@ -196,8 +202,8 @@ UIView+IPHAdditions为`UIView`的扩展类，包含了一些图形几何的属�
 **Utils为工具类库目录，包含了一些常用的工具类。**    
 
 <br />
-### <a name="IPHSearchPathUtils">IPHSearchPathUtils</a>  
-IPHSearchPathUtils为资源路径获取工具类，通过该工具类可以获取到bundle和沙盒对应资源文件的路径。  
+### <a name="IPHPathUtils">IPHPathUtils</a>  
+IPHPathUtils为资源路径获取工具类，通过该工具类可以获取到bundle和沙盒对应资源文件的路径。  
 
 
 <br />

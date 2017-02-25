@@ -35,7 +35,7 @@ va_end(ags);
 
 -  (void)iph_popupAlertViewWithTitle:(NSString *)title
                              message:(NSString *)message {
-    IPH_SHOW_ALERT_CONTROLLER(self, title, message, UIAlertControllerStyleAlert, nil, nil, @"取消", nil);
+    IPH_SHOW_ALERT_CONTROLLER(self, title, message, UIAlertControllerStyleAlert, nil, nil, JSC_ALERTVIEW_CANCEL_TITLE, nil);
 }
 
 - (void)iph_popupAlertViewWithTitle:(NSString *)title

@@ -1,5 +1,5 @@
 //
-//  IPHSearchPathUtils.h
+//  IPHPathUtils.h
 //  iPhuanLib
 //
 //  Created by iPhuan on 2017/2/21.

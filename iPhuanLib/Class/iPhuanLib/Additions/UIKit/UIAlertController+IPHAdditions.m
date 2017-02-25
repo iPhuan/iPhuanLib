@@ -8,6 +8,8 @@
 
 #import "UIAlertController+IPHAdditions.h"
 
+
+
 #define IPH_ALERT_CONTROLLER(VC, ti, msg, style, block, destructive, cancel, other)UIAlertController *alertController = [self iph_alertControllerWithTitle:ti  \
 message:msg  \
 preferredStyle:style \
@@ -111,7 +113,7 @@ return alertController;
 + (UIAlertController *)iph_popupAlertViewInController:(UIViewController *)viewController
                                                 title:(NSString *)title
                                               message:(NSString *)message {
-    IPH_ALERT_CONTROLLER(viewController, title, message, UIAlertControllerStyleAlert, nil, nil, @"取消", nil);
+    IPH_ALERT_CONTROLLER(viewController, title, message, UIAlertControllerStyleAlert, nil, nil, JSC_ALERTVIEW_CANCEL_TITLE, nil);
 }
 
 + (UIAlertController *)iph_popupAlertViewInController:(UIViewController *)viewController

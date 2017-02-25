@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IPHBaseModelViewController">
+            <connections>
+                <outlet property="jsonTextView" destination="2SZ-o4-Z5l" id="7vF-rU-WDF"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2SZ-o4-Z5l">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="345"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="2SZ-o4-Z5l" secondAttribute="height" multiplier="25:23" id="th4-dt-7ZI"/>
+                    </constraints>
+                    <mutableString key="text">{
+    "name": "汉庭酒店北京回龙观店",
+    "address": "回龙观东大街5号",
+    "basePrice": 208,
+    "cityCode": "(null)",
+    "cityName": "&lt;null&gt;",
+    "commentCount": 77,
+    "hasWifi": 1,
+    "recommendRoom": {
+        "area": 22,
+        "roomType": "高级大床房",
+        "price": 275,
+        "imgUrlList": [
+            {
+                "imageId": "688005e7-a7b5-4ced-ad43-2ad4f496a937",
+                "desc": "客房",
+                "type": 1,
+                "url": "c3ef3989-7862-48c0-9d15-c9b4f1901633"
+            },
+            {
+                "imageId": "688005e7-a7b5-4ced-ad43-2ad4f496a937",
+                "desc": "客房",
+                "type": 1,
+                "url": "c3ef3989-7862-48c0-9d15-c9b4f1901633"
+            }
+        ]
+    },
+    "rooms": [
+        {
+            "area": 22,
+            "roomType": "高级大床房",
+            "price": 275,
+            "imgUrlList": [
+                {
+                    "imageId": "688005e7-a7b5-4ced-ad43-2ad4f496a937",
+                    "desc": "客房",
+                    "type": 1,
+                    "url": "c3ef3989-7862-48c0-9d15-c9b4f1901633"
+                },
+                {
+                    "imageId": "688005e7-a7b5-4ced-ad43-2ad4f496a937",
+                    "desc": "客房",
+                    "type": 1,
+                    "url": "c3ef3989-7862-48c0-9d15-c9b4f1901633"
+                }
+            ]
+        },
+        {
+            "area": 30,
+            "roomType": "双床房",
+            "price": 208,
+            "imgUrlList": [
+                {
+                    "imageId": "688005e7-a7b5-4ced-ad43-2ad4f496a937",
+                    "desc": "客房",
+                    "type": 1,
+                    "url": "c3ef3989-7862-48c0-9d15-c9b4f1901633"
+                },
+                {
+                    "imageId": "688005e7-a7b5-4ced-ad43-2ad4f496a937",
+                    "desc": "客房",
+                    "type": 1,
+                    "url": "c3ef3989-7862-48c0-9d15-c9b4f1901633"
+                }
+            ]
+        },
+        {
+            "area": 30,
+            "roomType": "家庭房",
+            "price": "420",
+            "imgUrlList": [
+                {
+                    "imageId": "688005e7-a7b5-4ced-ad43-2ad4f496a937",
+                    "desc": "客房",
+                    "type": 1,
+                    "url": "c3ef3989-7862-48c0-9d15-c9b4f1901633"
+                }
+            ]
+        }
+    ]
+}</mutableString>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmK-xC-zDe">
+                    <rect key="frame" x="0.0" y="435" width="375" height="30"/>
+                    <state key="normal" title="通过toDictionary转化为字典"/>
+                    <connections>
+                        <action selector="onButtonClick:" destination="-1" eventType="touchUpInside" id="jE8-zc-tCY"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eke-Zy-LbS">
+                    <rect key="frame" x="-0.5" y="495" width="375" height="30"/>
+                    <state key="normal" title="encode对象保存到UserDefaults"/>
+                    <connections>
+                        <action selector="onButtonClick:" destination="-1" eventType="touchUpInside" id="646-66-QGc"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="taZ-WC-Qbf">
+                    <rect key="frame" x="-0.5" y="555" width="375" height="30"/>
+                    <state key="normal" title="decode对象从UserDefaults读取"/>
+                    <connections>
+                        <action selector="onButtonClick:" destination="-1" eventType="touchUpInside" id="ELP-Kl-SZy"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAD-eH-eac">
+                    <rect key="frame" x="0.0" y="375" width="375" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="6HK-iR-9Ox"/>
+                    </constraints>
+                    <state key="normal" title="通过initWithDictionary转化为对象"/>
+                    <connections>
+                        <action selector="onButtonClick:" destination="-1" eventType="touchUpInside" id="gvP-KR-E5I"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="kmK-xC-zDe" firstAttribute="width" secondItem="qAD-eH-eac" secondAttribute="width" id="6KI-yt-KJi"/>
+                <constraint firstItem="kmK-xC-zDe" firstAttribute="centerX" secondItem="qAD-eH-eac" secondAttribute="centerX" id="EbT-dh-Sl1"/>
+                <constraint firstAttribute="trailing" secondItem="2SZ-o4-Z5l" secondAttribute="trailing" id="Ia4-Ij-KGf"/>
+                <constraint firstItem="taZ-WC-Qbf" firstAttribute="centerX" secondItem="qAD-eH-eac" secondAttribute="centerX" id="JLG-1k-enP"/>
+                <constraint firstItem="Eke-Zy-LbS" firstAttribute="centerX" secondItem="qAD-eH-eac" secondAttribute="centerX" id="NM0-15-9ub"/>
+                <constraint firstItem="Eke-Zy-LbS" firstAttribute="top" secondItem="kmK-xC-zDe" secondAttribute="bottom" constant="30" id="NOn-gN-fVa"/>
+                <constraint firstItem="2SZ-o4-Z5l" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NYX-MO-Lgp"/>
+                <constraint firstItem="taZ-WC-Qbf" firstAttribute="width" secondItem="qAD-eH-eac" secondAttribute="width" id="OIc-e0-5fu"/>
+                <constraint firstItem="kmK-xC-zDe" firstAttribute="height" secondItem="qAD-eH-eac" secondAttribute="height" id="Sjy-eW-lD7"/>
+                <constraint firstItem="taZ-WC-Qbf" firstAttribute="top" secondItem="Eke-Zy-LbS" secondAttribute="bottom" constant="30" id="ZNb-2x-aKH"/>
+                <constraint firstItem="kmK-xC-zDe" firstAttribute="top" secondItem="qAD-eH-eac" secondAttribute="bottom" constant="30" id="dJP-VK-8rS"/>
+                <constraint firstItem="Eke-Zy-LbS" firstAttribute="width" secondItem="qAD-eH-eac" secondAttribute="width" id="dU1-yS-nkr"/>
+                <constraint firstItem="taZ-WC-Qbf" firstAttribute="height" secondItem="qAD-eH-eac" secondAttribute="height" id="euk-is-Sbo"/>
+                <constraint firstItem="qAD-eH-eac" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iNo-GG-QXc"/>
+                <constraint firstItem="qAD-eH-eac" firstAttribute="top" secondItem="2SZ-o4-Z5l" secondAttribute="bottom" constant="30" id="lqg-ls-Ua0"/>
+                <constraint firstItem="2SZ-o4-Z5l" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uEG-Zq-8Q8"/>
+                <constraint firstAttribute="trailing" secondItem="qAD-eH-eac" secondAttribute="trailing" id="zQ6-4f-L61"/>
+                <constraint firstItem="Eke-Zy-LbS" firstAttribute="height" secondItem="qAD-eH-eac" secondAttribute="height" id="zem-wb-4Vn"/>
+            </constraints>
+            <point key="canvasLocation" x="9.5" y="49.5"/>
+        </view>
+    </objects>
+</document>

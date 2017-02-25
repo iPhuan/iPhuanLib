@@ -9,13 +9,18 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
+// 通过定义JSC_ALERTVIEW_CANCEL_TITLE来修改默认取消按钮标题
+#ifndef JSC_ALERTVIEW_CANCEL_TITLE
+#define JSC_ALERTVIEW_CANCEL_TITLE  @"确定"
+#endif
+
 // block中index的下标对应的action按钮顺序为`otherActions`，`destructiveAction`，`cancelAction`
 typedef void(^IPHAlertActionHandeler)(UIAlertAction *action, NSUInteger index);
 
 
 @interface UIAlertController (IPHAlertView)
 
-// 默认为一个取消的按钮
+// 默认为一个显示为“确定”标题的按钮
 + (UIAlertController *)iph_popupAlertViewInController:(UIViewController *)viewController
                                                 title:(NSString *)title
                                               message:(NSString *)message;

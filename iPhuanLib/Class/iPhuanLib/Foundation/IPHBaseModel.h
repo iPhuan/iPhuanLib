@@ -46,4 +46,9 @@ IPHHotel为IPHBaseModel的子类，
 // 将对象转化为字典，只能将映射当中对应的属性转化
 - (NSDictionary *)toDictionary;
 
+
+// 获取适用于存档的Data数据
+- (NSData *)archivedData;
+
+
 @end

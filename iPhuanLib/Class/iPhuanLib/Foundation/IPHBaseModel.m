@@ -15,7 +15,6 @@
 #pragma mark - Need Override
 
 -(NSDictionary *)attributeMapDictionary {
-    IPH_OVERRIDE_WARN(@"IPHBaseModel", NSStringFromClass([self class]));
     return nil;
 }
 
@@ -97,7 +96,7 @@
     
     [typesDic enumerateKeysAndObjectsUsingBlock:^(NSString *propertyName, NSString *propertyType, BOOL *stop) {
         // 检查是否为属性名是否正确
-        SEL getSel = NSSelectorFromString(@"propertyName");
+        SEL getSel = NSSelectorFromString(propertyName);
         if (![self respondsToSelector:getSel]) {
             IPHLog(@"Error: %@ is not a property, check you return dictionary in 'arrayElementsAndObjectTypesDictionary'.", propertyName);
             return;
@@ -105,7 +104,7 @@
         
         // 检查对象是否为IPHBaseModel的子类
         Class propertyClass = NSClassFromString(propertyType);
-        if (![propertyClass isSubclassOfClass:self.class]) {
+        if (![propertyClass isSubclassOfClass:[IPHBaseModel class]]) {
             IPHLog(@"Error: %@ is not a 'IPHBaseModel' Class, check you return dictionary in 'arrayElementsAndObjectTypesDictionary'.", propertyType);
             return;
         }
@@ -119,7 +118,7 @@
             NSMutableArray *models = [[NSMutableArray alloc] initWithCapacity:arrayData.count];
             [arrayData enumerateObjectsUsingBlock:^(NSDictionary *dic, NSUInteger index, BOOL *stop) {
                 // 如果数组里面的元素不是字典，则停止处理
-                if ([dic isKindOfClass:[NSDictionary class]]) {
+                if (![dic isKindOfClass:[NSDictionary class]]) {
                     *stop = YES;
                 }
                 
@@ -151,7 +150,35 @@
 
 - (NSString *)description {
     // 只打印映射中的属性
-    NSString *desc = [NSString stringWithFormat:@"%@:{%@}",[self class], [[self toDictionary] description]];
+    NSDictionary *attrMapDic = [self attributeMapDictionary];
+    NSMutableString *attrsDesc = [NSMutableString stringWithCapacity:attrMapDic.count];
+    if (attrMapDic == nil || attrMapDic.count == 0) {
+        return nil;
+    }
+    
+    [attrMapDic enumerateKeysAndObjectsUsingBlock:^(NSString *propertyName, id obj, BOOL *stop) {
+        if ([self p_validatePropertyNamed:propertyName]) {
+            id value = [self valueForKey:propertyName];
+            
+            NSString *valueDesc = nil;
+            if (value == nil || [value isKindOfClass:[NSString class]]) {
+                valueDesc = value?:@"nil";
+            }else if ([value isKindOfClass:[NSArray class]]){
+                NSArray *array = (NSArray *)value;
+                NSMutableString *arrayDesc = [NSMutableString stringWithCapacity:array.count];
+                [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                    [arrayDesc appendFormat:@" %@", [obj description]];
+                }];
+                valueDesc = arrayDesc;
+            }else {
+                valueDesc = [value description];
+            }
+            
+            [attrsDesc appendFormat:@" [%@=%@] ",propertyName, valueDesc];
+        }
+    }];
+    
+    NSString *desc = [NSString stringWithFormat:@"%@:{%@}",[self class], attrsDesc];
     return desc;
 }
 
@@ -231,13 +258,19 @@
     return dictionary;
 }
 
+
+- (NSData *)archivedData{
+    return [NSKeyedArchiver archivedDataWithRootObject:self];
+}
+
+
 // 验证映射是否正确
 - (BOOL)p_validatePropertyNamed:(NSString *)propertyName {
     SEL getSel = NSSelectorFromString(propertyName);
     NSMethodSignature *signature = [self methodSignatureForSelector:getSel];
     if (signature) {
         BOOL available = (strcmp(signature.methodReturnType, @encode(id)) == 0);
-        NSAssert(!available, @"'%@' must be an object!", propertyName);
+        NSAssert(available, @"'%@' must be an object!", propertyName);
         return available;
     }
 

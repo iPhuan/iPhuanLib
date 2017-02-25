@@ -1,12 +1,12 @@
 //
-//  IPHSearchPathUtils.m
+//  IPHPathUtils.m
 //  iPhuanLib
 //
 //  Created by iPhuan on 2017/2/21.
 //  Copyright © 2017年 iPhuan. All rights reserved.
 //
 
-#import "IPHSearchPathUtils.h"
+#import "IPHPathUtils.h"
 
 
 #pragma mark - Bundle
