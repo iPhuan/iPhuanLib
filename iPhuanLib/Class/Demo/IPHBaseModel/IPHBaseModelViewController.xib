@@ -22,12 +22,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2SZ-o4-Z5l">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="345"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="378"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="2SZ-o4-Z5l" secondAttribute="height" multiplier="25:23" id="th4-dt-7ZI"/>
+                        <constraint firstAttribute="width" secondItem="2SZ-o4-Z5l" secondAttribute="height" multiplier="125:126" id="zF8-X7-HTH"/>
                     </constraints>
-                    <mutableString key="text">{
+                    <string key="text">{
     "name": "汉庭酒店北京回龙观店",
     "address": "回龙观东大街5号",
     "basePrice": 208,
@@ -107,33 +107,33 @@
             ]
         }
     ]
-}</mutableString>
+}</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmK-xC-zDe">
-                    <rect key="frame" x="0.0" y="435" width="375" height="30"/>
+                    <rect key="frame" x="0.0" y="468" width="375" height="30"/>
                     <state key="normal" title="通过toDictionary转化为字典"/>
                     <connections>
                         <action selector="onButtonClick:" destination="-1" eventType="touchUpInside" id="jE8-zc-tCY"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eke-Zy-LbS">
-                    <rect key="frame" x="-0.5" y="495" width="375" height="30"/>
+                    <rect key="frame" x="-0.5" y="528" width="375" height="30"/>
                     <state key="normal" title="encode对象保存到UserDefaults"/>
                     <connections>
                         <action selector="onButtonClick:" destination="-1" eventType="touchUpInside" id="646-66-QGc"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="taZ-WC-Qbf">
-                    <rect key="frame" x="-0.5" y="555" width="375" height="30"/>
+                    <rect key="frame" x="-0.5" y="588" width="375" height="30"/>
                     <state key="normal" title="decode对象从UserDefaults读取"/>
                     <connections>
                         <action selector="onButtonClick:" destination="-1" eventType="touchUpInside" id="ELP-Kl-SZy"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAD-eH-eac">
-                    <rect key="frame" x="0.0" y="375" width="375" height="30"/>
+                    <rect key="frame" x="0.0" y="408" width="375" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="6HK-iR-9Ox"/>
                     </constraints>
