@@ -89,6 +89,10 @@ static const CGFloat kIPHDefaultCellWidth = 44;
     return _tableView;
 }
 
+- (void)dealloc{
+    objc_removeAssociatedObjects(self);
+}
+
 
 #pragma mark - Set and Get
 

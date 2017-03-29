@@ -24,7 +24,7 @@ typedef void(^IPHRequestCoordinateAndAddressCompletionHandler)(CLLocationCoordin
 @property (nonatomic, strong, readonly) CLPlacemark *placemark;
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (nonatomic, copy, readonly) NSString *address; // 详细地址
-@property (nonatomic, copy, readonly) NSString *city; // 城市名，不包含字符“市”
+@property (nonatomic, copy, readonly) NSString *city; // 城市名，包含字符“市”
 
 
 + (IPHLocationManager *)sharedLocationManager;

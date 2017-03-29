@@ -6,7 +6,7 @@
 //  Copyright © 2017年 bangtai. All rights reserved.
 //
 
-#define IPH_SHOW_ALERT_CONTROLLER(VC, ti, msg, style, block, destructive, cancel, other)UIAlertController *alertController = [UIAlertController iph_alertControllerWithTitle:ti  \
+#define IPH_SHOW_ALERT_CONTROLLER(VC, ti, msg, style, block, destructive, cancel, other) UIAlertController *alertController = [UIAlertController iph_alertControllerWithTitle:ti  \
 message:msg  \
 preferredStyle:style \
 handler:block \
@@ -16,7 +16,7 @@ otherActionTitle:other \
 args:nil]; \
 [VC presentViewController:alertController animated:YES completion:nil];
 
-#define IPH_SHOW_ALERT_CONTROLLER_VA(VC, ti, msg, style, block, destructive, cancel, other, ags)va_start(ags, other);  \
+#define IPH_SHOW_ALERT_CONTROLLER_VA(VC, ti, msg, style, block, destructive, cancel, other, ags) va_start(ags, other);  \
 UIAlertController *alertController = [UIAlertController iph_alertControllerWithTitle:ti  \
 message:msg  \
 preferredStyle:style \

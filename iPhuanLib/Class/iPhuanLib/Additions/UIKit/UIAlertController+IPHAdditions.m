@@ -10,7 +10,7 @@
 
 
 
-#define IPH_ALERT_CONTROLLER(VC, ti, msg, style, block, destructive, cancel, other)UIAlertController *alertController = [self iph_alertControllerWithTitle:ti  \
+#define IPH_ALERT_CONTROLLER(VC, ti, msg, style, block, destructive, cancel, other) UIAlertController *alertController = [self iph_alertControllerWithTitle:ti  \
 message:msg  \
 preferredStyle:style \
 handler:block \
@@ -24,7 +24,7 @@ if (VC) { \
 return alertController;
 
 
-#define IPH_ALERT_CONTROLLER_VA(VC, ti, msg, style, block, destructive, cancel, other, ags)va_start(ags, other);  \
+#define IPH_ALERT_CONTROLLER_VA(VC, ti, msg, style, block, destructive, cancel, other, ags) va_start(ags, other);  \
 UIAlertController *alertController = [self iph_alertControllerWithTitle:ti  \
 message:msg  \
 preferredStyle:style \
@@ -40,7 +40,7 @@ va_end(ags); \
 return alertController;
 
 
-#pragma mark - IPHExtendedAlertController
+#pragma mark - IPHAdditions
 
 @implementation UIAlertController (IPHAdditions)
 
