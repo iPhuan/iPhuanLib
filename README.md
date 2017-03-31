@@ -59,14 +59,12 @@ IPHDebug方便开发者在Debug模式下进行项目调试和相关信息的打�
 > * `IPH_PRINT_METHOD_NAME`，Debug模式下打印函数名； 
 > * `IPH_CONDITION_PRINT`，Debug模式下根据一定的条件来打印log；  
 
-<br />
 
 ### <a name="IPHCommonMacros">IPHCommonMacros</a>  
 
 IPHCommonMacros为一些常用的宏定义命令，为开发者在编写代码时提供便捷。  
 IPHCommonMacros包含了一些单列类的宏定义，几何宏定义，条件判断宏定义等等，直接查看`IPHCommonMacros.h`文件便可一目了然。  
 
-<br />
 
 ### <a name="IPHBaseModel">IPHBaseModel</a>  
 
