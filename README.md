@@ -60,11 +60,13 @@ IPHDebug方便开发者在Debug模式下进行项目调试和相关信息的打�
 
 <br />
 ### <a name="IPHCommonMacros">IPHCommonMacros</a>  
+
 IPHCommonMacros为一些常用的宏定义命令，为开发者在编写代码时提供便捷。  
 IPHCommonMacros包含了一些单列类的宏定义，几何宏定义，条件判断宏定义等等，直接查看`IPHCommonMacros.h`文件便可一目了然。  
 
 <br />
 ### <a name="IPHBaseModel">IPHBaseModel</a>  
+
 IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字典对对象进行初始化。与大家平常使用的主流的基础模型类不同的是，IPHBaseModel做了更大的改进和优化，IPHBaseModel不仅可以直接对字符串的属性进行映射初始化，还能对对象属性，数组属性进行映射，类似于响应链的模式可进行多级的数据处理和初始化。  
   
 开发者需要继承于IPHBaseModel来进行使用，以下是对各个API做的相关说明：  
