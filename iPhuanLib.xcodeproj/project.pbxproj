@@ -25,6 +25,10 @@
 		E5A8CB341E61FB8A0046946D /* IPHHotel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A8CB331E61FB8A0046946D /* IPHHotel.m */; };
 		E5A8CB371E61FBA10046946D /* IPHRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A8CB361E61FBA10046946D /* IPHRoom.m */; };
 		E5A8CB3A1E61FBB70046946D /* IPHImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A8CB391E61FBB70046946D /* IPHImage.m */; };
+		E5EC8DDD1E8D431F00C76638 /* IPHHorizontalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EC8DDB1E8D431F00C76638 /* IPHHorizontalTableViewController.m */; };
+		E5EC8DDE1E8D431F00C76638 /* IPHHorizontalTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5EC8DDC1E8D431F00C76638 /* IPHHorizontalTableViewController.xib */; };
+		E5EC8DE21E8D4A3B00C76638 /* IPHHorizontalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EC8DE01E8D4A3B00C76638 /* IPHHorizontalTableViewCell.m */; };
+		E5EC8DE31E8D4A3B00C76638 /* IPHHorizontalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5EC8DE11E8D4A3B00C76638 /* IPHHorizontalTableViewCell.xib */; };
 		E5ED7B581E5DFEC3002632C0 /* NSTimer+IPHBlockSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED7B521E5DFEC3002632C0 /* NSTimer+IPHBlockSupport.m */; };
 		E5ED7B591E5DFEC3002632C0 /* UIAlertController+IPHAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED7B551E5DFEC3002632C0 /* UIAlertController+IPHAdditions.m */; };
 		E5ED7B5A1E5DFEC3002632C0 /* UIViewController+IPHAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED7B571E5DFEC3002632C0 /* UIViewController+IPHAlertController.m */; };
@@ -92,6 +96,12 @@
 		E5A8CB361E61FBA10046946D /* IPHRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHRoom.m; sourceTree = "<group>"; };
 		E5A8CB381E61FBB70046946D /* IPHImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHImage.h; sourceTree = "<group>"; };
 		E5A8CB391E61FBB70046946D /* IPHImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHImage.m; sourceTree = "<group>"; };
+		E5EC8DDA1E8D431F00C76638 /* IPHHorizontalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPHHorizontalTableViewController.h; path = ../../../../../../../Users/iPhuan/Documents/IPHHorizontalTableViewController.h; sourceTree = "<group>"; };
+		E5EC8DDB1E8D431F00C76638 /* IPHHorizontalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IPHHorizontalTableViewController.m; path = ../../../../../../../Users/iPhuan/Documents/IPHHorizontalTableViewController.m; sourceTree = "<group>"; };
+		E5EC8DDC1E8D431F00C76638 /* IPHHorizontalTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IPHHorizontalTableViewController.xib; path = ../../../../../../../Users/iPhuan/Documents/IPHHorizontalTableViewController.xib; sourceTree = "<group>"; };
+		E5EC8DDF1E8D4A3B00C76638 /* IPHHorizontalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPHHorizontalTableViewCell.h; path = ../../../../../../../Users/iPhuan/Documents/IPHHorizontalTableViewCell.h; sourceTree = "<group>"; };
+		E5EC8DE01E8D4A3B00C76638 /* IPHHorizontalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IPHHorizontalTableViewCell.m; path = ../../../../../../../Users/iPhuan/Documents/IPHHorizontalTableViewCell.m; sourceTree = "<group>"; };
+		E5EC8DE11E8D4A3B00C76638 /* IPHHorizontalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IPHHorizontalTableViewCell.xib; path = ../../../../../../../Users/iPhuan/Documents/IPHHorizontalTableViewCell.xib; sourceTree = "<group>"; };
 		E5ED7B511E5DFEC3002632C0 /* NSTimer+IPHBlockSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+IPHBlockSupport.h"; sourceTree = "<group>"; };
 		E5ED7B521E5DFEC3002632C0 /* NSTimer+IPHBlockSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+IPHBlockSupport.m"; sourceTree = "<group>"; };
 		E5ED7B541E5DFEC3002632C0 /* UIAlertController+IPHAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+IPHAdditions.h"; sourceTree = "<group>"; };
@@ -318,6 +328,12 @@
 		E5A8CB271E61E8AD0046946D /* IPHHorizontalTableView */ = {
 			isa = PBXGroup;
 			children = (
+				E5EC8DDA1E8D431F00C76638 /* IPHHorizontalTableViewController.h */,
+				E5EC8DDB1E8D431F00C76638 /* IPHHorizontalTableViewController.m */,
+				E5EC8DDC1E8D431F00C76638 /* IPHHorizontalTableViewController.xib */,
+				E5EC8DDF1E8D4A3B00C76638 /* IPHHorizontalTableViewCell.h */,
+				E5EC8DE01E8D4A3B00C76638 /* IPHHorizontalTableViewCell.m */,
+				E5EC8DE11E8D4A3B00C76638 /* IPHHorizontalTableViewCell.xib */,
 			);
 			path = IPHHorizontalTableView;
 			sourceTree = "<group>";
@@ -488,6 +504,8 @@
 				E5165CED1E585FDA0021D8E1 /* Assets.xcassets in Resources */,
 				E5165CEB1E585FDA0021D8E1 /* Main.storyboard in Resources */,
 				E5A8CB2D1E61EAD80046946D /* IPHBaseModelViewController.xib in Resources */,
+				E5EC8DDE1E8D431F00C76638 /* IPHHorizontalTableViewController.xib in Resources */,
+				E5EC8DE31E8D4A3B00C76638 /* IPHHorizontalTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,8 +530,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5EC8DDD1E8D431F00C76638 /* IPHHorizontalTableViewController.m in Sources */,
 				E5A8CB371E61FBA10046946D /* IPHRoom.m in Sources */,
 				E5A8CB3A1E61FBB70046946D /* IPHImage.m in Sources */,
+				E5EC8DE21E8D4A3B00C76638 /* IPHHorizontalTableViewCell.m in Sources */,
 				E5165D461E5860030021D8E1 /* IPHLocationManager.m in Sources */,
 				E5ED7B611E5E0B76002632C0 /* IPHHorizontalTableView.m in Sources */,
 				E5165CE81E585FDA0021D8E1 /* ViewController.m in Sources */,

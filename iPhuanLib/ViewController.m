@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "UIAlertController+IPHAdditions.h"
 #import "IPHBaseModelViewController.h"
+#import "IPHHorizontalTableViewController.h"
+
 
 
 
@@ -57,14 +59,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    UIViewController *VC = nil;
     switch (indexPath.row) {
         case 0:{
-            IPHBaseModelViewController *VC = [[IPHBaseModelViewController alloc] initWithNibName:@"IPHBaseModelViewController" bundle:nil];
-            [self.navigationController pushViewController:VC animated:YES];
+            VC = [[IPHBaseModelViewController alloc] initWithNibName:@"IPHBaseModelViewController" bundle:nil];
             break;
         }
         case 1:{
-            
+            VC = [[IPHHorizontalTableViewController alloc] initWithNibName:@"IPHHorizontalTableViewController" bundle:nil];
             break;
         }
         case 2:{
@@ -76,6 +78,7 @@
             break;
         }
     }
+    [self.navigationController pushViewController:VC animated:YES];
 }
 
 

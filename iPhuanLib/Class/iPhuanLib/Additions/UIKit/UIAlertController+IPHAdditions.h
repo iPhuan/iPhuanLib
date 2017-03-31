@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-// 通过定义JSC_ALERTVIEW_CANCEL_TITLE来修改默认取消按钮标题
+// 通过定义JSC_ALERTVIEW_CANCEL_TITLE来修改alertView默认取消按钮标题
 #ifndef JSC_ALERTVIEW_CANCEL_TITLE
 #define JSC_ALERTVIEW_CANCEL_TITLE  @"确定"
 #endif
+
+extern NSString *const IPHActionSheetShowErrorMessage;
 
 // block中index的下标对应的action按钮顺序为`otherActions`，`destructiveAction`，`cancelAction`
 typedef void(^IPHAlertActionHandeler)(UIAlertAction *action, NSUInteger index);
@@ -58,6 +60,7 @@ typedef void(^IPHAlertActionHandeler)(UIAlertAction *action, NSUInteger index);
 
 @interface UIAlertController (IPHActionSheet)
 
+// 默认添加cancelActionTitle “取消”按钮
 + (UIAlertController *)iph_showActionSheetInController:(UIViewController *)viewController
                                                  title:(NSString *)title
                                                message:(NSString *)message

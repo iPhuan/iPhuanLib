@@ -11,6 +11,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+extern const char IPHTableView[];
+
 @class IPHHorizontalTableView;
 @protocol IPHScrollViewDelegate;
 @protocol IPHHorizontalTableViewDataSource;
@@ -54,7 +56,7 @@ typedef NS_ENUM(NSInteger, IPHHorizontalTableViewScrollPosition) {
 
 @property (nonatomic, weak, nullable) IBOutlet id <IPHHorizontalTableViewDelegate> delegate;
 @property (nonatomic, weak, nullable) IBOutlet id <IPHHorizontalTableViewDataSource> dataSource;
-@property (nonatomic) CGFloat cellWidth; // cell的宽度，对应于UITableView的rowHeight
+@property (nonatomic) CGFloat rowWidth; // cell的宽度，对应于UITableView的rowHeight
 @property (nonatomic, strong, nullable) UIView *backgroundView;
 
 - (void)reloadData;
@@ -82,8 +84,6 @@ typedef NS_ENUM(NSInteger, IPHHorizontalTableViewScrollPosition) {
 - (void)deselectRowAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated;
 
 
-@property (nonatomic) UITableViewCellSeparatorStyle separatorStyle; // 默认为UITableViewCellSeparatorStyleNone
-@property (nonatomic, strong, nullable) UIColor *separatorColor;
 @property (nonatomic, strong, nullable) UIView *tableHeaderView; // 位于左边的headerView
 @property (nonatomic, strong, nullable) UIView *tableFooterView; // 位于右边的footerView
 

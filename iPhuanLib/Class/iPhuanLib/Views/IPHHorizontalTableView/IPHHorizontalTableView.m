@@ -11,7 +11,8 @@
 #import "IPHHorizontalTableView.h"
 #import <objc/message.h>
 
-static const CGFloat kIPHDefaultCellWidth = 44;
+static const CGFloat kIPHDefaultCellWidth = 80;
+const char IPHTableView[] = "IPHTableView";
 
 @interface IPHHorizontalTableView () <UITableViewDataSource, UITableViewDelegate,UIScrollViewDelegate>{
     UITableView *_tableView;
@@ -25,7 +26,7 @@ static const CGFloat kIPHDefaultCellWidth = 44;
 
 @implementation IPHHorizontalTableView
 
-@dynamic backgroundView, visibleCells, indexPathsForVisibleRows, allowsSelection, allowsMultipleSelection, indexPathForSelectedRow, indexPathsForSelectedRows, separatorStyle, tableHeaderView, tableFooterView;
+@dynamic backgroundView, visibleCells, indexPathsForVisibleRows, allowsSelection, allowsMultipleSelection, indexPathForSelectedRow, indexPathsForSelectedRows, tableHeaderView, tableFooterView;
 
 
 - (instancetype)init{
@@ -53,34 +54,36 @@ static const CGFloat kIPHDefaultCellWidth = 44;
 }
 
 
-- (void)awakeFromNib{
-    [super awakeFromNib];
-//    [self p_setup];
-}
-
 - (void)layoutSubviews{
     [super layoutSubviews];
-//    if (!_tableView) {
-//        [self setup];
-//    }
+    
+    if (_tableView.superview == nil) {
+        _tableView.frame = CGRectMake(0, 0, self.frame.size.height, self.frame.size.width);
+        _tableView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
+        _tableView.transform = CGAffineTransformMakeRotation(-M_PI/2);
+        [self addSubview:_tableView];
+        
+        // 需在此时设置才能生效
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.backgroundColor = [UIColor clearColor];
+        
+    }
 }
 
 - (void)p_setup{
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.height, self.frame.size.width)];
-    _tableView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
-    _tableView.backgroundColor = [UIColor clearColor];
-    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero];
     _tableView.dataSource = self;
     _tableView.delegate = self;
     _tableView.showsVerticalScrollIndicator = NO;
+    _tableView.showsHorizontalScrollIndicator = NO;
     _tableView.directionalLockEnabled = YES;
-    _tableView.transform = CGAffineTransformMakeRotation(-M_PI/2);
     
-    static const char IPHTableView[] = "IPHTableView";
     objc_setAssociatedObject(self, IPHTableView, _tableView, OBJC_ASSOCIATION_RETAIN);
+}
 
-    [self addSubview:_tableView];
-//    [self performSelector:@selector(reloadData) withObject:self afterDelay:0];
+
+- (void)dealloc{
+    objc_removeAssociatedObjects(self);
 }
 
 
@@ -89,29 +92,26 @@ static const CGFloat kIPHDefaultCellWidth = 44;
     return _tableView;
 }
 
-- (void)dealloc{
-    objc_removeAssociatedObjects(self);
-}
-
-
 #pragma mark - Set and Get
 
-- (CGFloat)cellWidth{
+- (CGFloat)rowWidth{
     return _tableView.rowHeight;
 }
 
-- (void)setCellWidth:(CGFloat)cellWidth{
-    _tableView.rowHeight = cellWidth;
+- (void)setRowWidth:(CGFloat)rowWidth{
+    _tableView.rowHeight = rowWidth;
 }
 
 
-- (void)setTableHeaderView:(UIView *)tableHeaderView{
+- (void)setTableHeaderView:(UIView *)tableHeaderView {
     tableHeaderView.transform = CGAffineTransformMakeRotation(M_PI/2);
+    tableHeaderView.frame = CGRectMake(0, 0, tableHeaderView.frame.size.width, tableHeaderView.frame.size.height);
     _tableView.tableHeaderView = tableHeaderView;
 }
 
-- (void)setTableFooterView:(UIView *)tableFooterView{
+- (void)setTableFooterView:(UIView *)tableFooterView {
     tableFooterView.transform = CGAffineTransformMakeRotation(M_PI/2);
+    tableFooterView.frame = CGRectMake(0, 0, tableFooterView.frame.size.width, tableFooterView.frame.size.height);
     _tableView.tableFooterView = tableFooterView;
 }
 
@@ -145,8 +145,7 @@ static const CGFloat kIPHDefaultCellWidth = 44;
     UITableViewCell *cell = nil;
     if (_dataSource && [_dataSource respondsToSelector:@selector(horizontalTableView:cellForRowAtIndexPath:)]) {
         cell = [_dataSource horizontalTableView:self cellForRowAtIndexPath:indexPath];
-    }
-    else {
+    } else {
         static NSString *CellIdentifier = @"Cell";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
@@ -173,7 +172,7 @@ static const CGFloat kIPHDefaultCellWidth = 44;
     return kIPHDefaultCellWidth;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([self p_delegateRespondsToSelector:@selector(horizontalTableView:didSelectRowAtIndexPath:)]) {
          [_delegate horizontalTableView:self didSelectRowAtIndexPath:indexPath];
     }
@@ -220,14 +219,14 @@ static const CGFloat kIPHDefaultCellWidth = 44;
     if ([self p_delegateRespondsToSelector:@selector(horizontalTableView:willSelectRowAtIndexPath:)]) {
         return [_delegate horizontalTableView:self willSelectRowAtIndexPath:indexPath];
     }
-    return nil;
+    return indexPath;
 }
 
 - (nullable NSIndexPath *)tableView:(UITableView *)tableView willDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([self p_delegateRespondsToSelector:@selector(horizontalTableView:willDeselectRowAtIndexPath:)]) {
         return [_delegate horizontalTableView:self willDeselectRowAtIndexPath:indexPath];
     }
-    return nil;
+    return indexPath;
 }
 
 @end

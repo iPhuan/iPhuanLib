@@ -13,8 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface IPHViewNibUtils : NSObject
 
 // the view must not have any connecting to the file owner
-+ (nullable id)loadViewFromNibNamed:(NSString*)xibName;
-+ (nullable id)loadViewFromNibNamed:(NSString*)name owner:(id)owner;
++ (nullable id)loadViewFromNibNamed:(NSString *)xibName;
++ (nullable id)loadViewFromNibNamed:(NSString *)name owner:(id)owner;
 
 @end
 

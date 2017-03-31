@@ -9,18 +9,18 @@
 #import "UIAlertController+IPHAdditions.h"
 
 
+NSString *const IPHActionSheetShowErrorMessage = @"The modalPresentationStyle of a UIAlertController with this style is UIModalPresentationPopover. You must provide location information for this popover through the alert controller's popoverPresentationController. You must provide either a sourceView and sourceRect or a barButtonItem.";
 
-#define IPH_ALERT_CONTROLLER(VC, ti, msg, style, block, destructive, cancel, other) UIAlertController *alertController = [self iph_alertControllerWithTitle:ti  \
+
+#define IPH_ALERT_CONTROLLER(VC, ti, msg, block, destructive, cancel, other) UIAlertController *alertController = [self iph_alertControllerWithTitle:ti  \
 message:msg  \
-preferredStyle:style \
+preferredStyle:UIAlertControllerStyleAlert \
 handler:block \
 destructiveActionTitle:destructive \
 cancelActionTitle:cancel \
 otherActionTitle:other \
 args:nil]; \
-if (VC) { \
 [VC presentViewController:alertController animated:YES completion:nil]; \
-} \
 return alertController;
 
 
@@ -33,8 +33,14 @@ destructiveActionTitle:destructive \
 cancelActionTitle:cancel \
 otherActionTitle:other \
 args:ags]; \
-if (VC) { \
-[VC presentViewController:alertController animated:YES completion:nil]; \
+BOOL canShowAlertController = YES; \
+if (alertController.preferredStyle == UIAlertControllerStyleActionSheet && alertController.popoverPresentationController) { \
+    canShowAlertController = NO; \
+} \
+if (canShowAlertController) { \
+    [VC presentViewController:alertController animated:YES completion:nil]; \
+}else{ \
+    IPHLog(@"Your application has presented a UIAlertController (<UIAlertController: %p>) of style UIAlertControllerStyleActionSheet. %@", alertController, IPHActionSheetShowErrorMessage); \
 } \
 va_end(ags); \
 return alertController;
@@ -113,14 +119,14 @@ return alertController;
 + (UIAlertController *)iph_popupAlertViewInController:(UIViewController *)viewController
                                                 title:(NSString *)title
                                               message:(NSString *)message {
-    IPH_ALERT_CONTROLLER(viewController, title, message, UIAlertControllerStyleAlert, nil, nil, JSC_ALERTVIEW_CANCEL_TITLE, nil);
+    IPH_ALERT_CONTROLLER(viewController, title, message, nil, nil, JSC_ALERTVIEW_CANCEL_TITLE, nil);
 }
 
 + (UIAlertController *)iph_popupAlertViewInController:(UIViewController *)viewController
                                                 title:(NSString *)title
                                               message:(NSString *)message
                                     cancelActionTitle:(NSString *)cancelActionTitle {
-    IPH_ALERT_CONTROLLER(viewController, title, message, UIAlertControllerStyleAlert, nil, nil, cancelActionTitle, nil);
+    IPH_ALERT_CONTROLLER(viewController, title, message, nil, nil, cancelActionTitle, nil);
 }
 
 + (UIAlertController *)iph_popupAlertViewInController:(UIViewController *)viewController

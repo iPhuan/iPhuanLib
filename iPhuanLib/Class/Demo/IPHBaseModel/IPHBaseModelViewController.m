@@ -8,7 +8,6 @@
 
 #import "IPHBaseModelViewController.h"
 #import "IPHHotel.h"
-#import "UIViewController+IPHAlertController.h"
 
 NSString * const kIPHHotelUserDefaultCacheKey = @"IPHHotelUserDefaultCacheKey";
 
@@ -23,7 +22,7 @@ NSString * const kIPHHotelUserDefaultCacheKey = @"IPHHotelUserDefaultCacheKey";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.title = @"IPHBaseModelDemo";
 }
 
 - (void)didReceiveMemoryWarning {

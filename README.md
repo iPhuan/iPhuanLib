@@ -224,7 +224,7 @@ UIAlertController的扩展类，通过不同的参数来初始化不同的UIAler
 
 :warning:注意：
 * `IPHAlertActionHandeler` block中`index`的下标对应的action按钮顺序为`otherActions`，`destructiveAction`，`cancelAction`；  
-* 在iPad上请不要直接调用`popup`和`show`方法，而应该调用初始化的方法获取实例后，设置`popoverPresentationController`的`sourceView`和`sourceRect`属性后再通过`presentViewController`的方式弹出，否则将导致程序崩溃。因为`popup`和`show`方法中并没有对`sourceView`和`sourceRect`进行设置，也无法设置。代码实例：  
+* 在iPad上请不要直接调用和`show`Action的方法，而应该调用初始化的方法获取实例后，设置`popoverPresentationController`的`sourceView`和`sourceRect`属性后再通过`presentViewController`的方式弹出，否则将不进行弹出操作。因为`show`方法中并没有对`sourceView`和`sourceRect`进行设置，也无法设置。代码实例：  
 
 
 ```objective-c
@@ -280,7 +280,7 @@ UIAlertController的扩展类，通过不同的参数来初始化不同的UIAler
 IPHHorizontalTableView在13年的时候只实现了最基本的功能，抽取了UITableView的部分常用API来作为IPHHorizontalTableView的API进行使用，而当前修改后的IPHHorizontalTableView已把所有能兼容使用的API都抽取了出来。  
 
 
-IPHHorizontalTableView因为被旋转，对于其`frame`,`x`和`y`,`width`和`height`都已经被互换，所以部分属性在使用上会略有不同，比如没有`rowHeight`属性而换成了`cellWidth`，没有`contentOffset`属性而是`contentOffsetX`等等，这些都是由于旋转后所做的一些兼容适配。但是开发者在看到这些属性后应该会很快明白其中的道理。所以具体IPHHorizontalTableView的API也没有必要很详细的在这里去讲解，只需要按照UITableView和UIScrollView API的用法去使用即可。   
+IPHHorizontalTableView因为被旋转，对于其`frame`,`x`和`y`,`width`和`height`都已经被互换，所以部分属性在使用上会略有不同，比如没有`rowHeight`属性而换成了`rowWidth`，没有`contentOffset`属性而是`contentOffsetX`等等，这些都是由于旋转后所做的一些兼容适配。但是开发者在看到这些属性后应该会很快明白其中的道理。所以具体IPHHorizontalTableView的API也没有必要很详细的在这里去讲解，只需引入`IPHHorizontalTableView+UIScrollView.h`头文件，按照UITableView和UIScrollView API的用法去使用即可。   
 
 
 

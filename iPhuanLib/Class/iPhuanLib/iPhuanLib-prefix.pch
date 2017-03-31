@@ -8,4 +8,5 @@
 
 #ifdef __OBJC__
     #import "iPhuanLib.h"
+    #import "UIViewController+IPHAlertController.h"
 #endif

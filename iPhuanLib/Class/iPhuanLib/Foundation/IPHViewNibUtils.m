@@ -10,11 +10,11 @@
 
 @implementation IPHViewNibUtils
 
-+ (id)loadViewFromNibNamed:(NSString*)name {
++ (id)loadViewFromNibNamed:(NSString *)name {
     return [[self class] loadViewFromNibNamed:name owner:self];
 }
 
-+ (id)loadViewFromNibNamed:(NSString*)name owner:(id)owner {
++ (id)loadViewFromNibNamed:(NSString *)name owner:(id)owner {
     NSArray *array = [[NSBundle mainBundle] loadNibNamed:name owner:owner options:nil];
     if (array && array.count > 0) {
         return array[0];

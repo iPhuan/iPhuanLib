@@ -15,7 +15,7 @@
 
 
 - (UITableView *)tableView {
-    static const char IPHTableView[] = "IPHTableView";
+//    static const char IPHTableView[] = "IPHTableView";
     UITableView *tableView = objc_getAssociatedObject(self, IPHTableView);
     return tableView;
 }
@@ -68,9 +68,11 @@
 }
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
     if (self.delegate && [self.delegate respondsToSelector:@selector(horizontalTableViewWillEndDragging:withVelocity:targetContentOffsetX:)]) {
-        CGFloat targetContentOffsetX;
-        [self.delegate horizontalTableViewWillEndDragging:self withVelocity:velocity targetContentOffsetX:&targetContentOffsetX];
-        *targetContentOffset = CGPointMake(0, targetContentOffsetX);
+        CGFloat targetContentOffsetX = CGFLOAT_MAX;
+        [self.delegate horizontalTableViewWillEndDragging:self withVelocity:CGPointMake(velocity.y, velocity.x) targetContentOffsetX:&targetContentOffsetX];
+        if (targetContentOffsetX < CGFLOAT_MAX) {
+            *targetContentOffset = CGPointMake(0, targetContentOffsetX);
+        }
     }
 }
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
@@ -86,16 +88,6 @@
 }
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
     [self p_executeDelegate:@selector(horizontalTableViewDidEndScrollingAnimation:)];
-}
-- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(horizontalTableViewShouldScrollToTop:)]) {
-        return [self.delegate horizontalTableViewShouldScrollToTop:self];
-    }
-    return YES;
-}
-
-- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView {
-    [self p_executeDelegate:@selector(horizontalTableViewDidScrollToTop:)];
 }
 
 - (void)p_executeDelegate:(SEL)selector {

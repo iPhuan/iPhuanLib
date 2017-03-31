@@ -34,6 +34,7 @@
 
 @interface UIViewController (IPHActionSheet)
 
+// 默认添加cancelActionTitle “取消”按钮
 - (void)iph_showActionSheetWithTitle:(NSString *)title
                              message:(NSString *)message
                              handler:(IPHAlertActionHandeler)handler

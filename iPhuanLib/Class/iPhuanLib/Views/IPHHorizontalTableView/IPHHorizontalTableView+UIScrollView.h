@@ -48,7 +48,5 @@ UIKIT_STATIC_INLINE IPHEdgeInsets IPHEdgeInsetsMake(CGFloat left, CGFloat right)
 - (void)horizontalTableViewWillBeginDecelerating:(IPHHorizontalTableView *)tableView;
 - (void)horizontalTableViewDidEndDecelerating:(IPHHorizontalTableView *)tableView;
 - (void)horizontalTableViewDidEndScrollingAnimation:(IPHHorizontalTableView *)tableView;
-- (BOOL)horizontalTableViewShouldScrollToTop:(IPHHorizontalTableView *)tableView;
-- (void)horizontalTableViewDidScrollToTop:(IPHHorizontalTableView *)tableView;
 
 @end
