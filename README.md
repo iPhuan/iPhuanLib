@@ -190,11 +190,13 @@ IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字�
 
 
 <br />
+
 ### <a name="IPHViewNibUtils">IPHViewNibUtils</a>   
 IPHViewNibUtils为Nib加载工具类，方便开发者从xib文件中加载视图或者object对象。  
 
 
 <br />
+
 ### <a name="UIView+IPHAdditions">UIView+IPHAdditions</a>   
 UIView+IPHAdditions为`UIView`的扩展类，包含了一些图形几何的属性和视图操作的方法。  
 
@@ -206,6 +208,7 @@ UIView+IPHAdditions为`UIView`的扩展类，包含了一些图形几何的属�
 **Utils为工具类库目录，包含了一些常用的工具类。**    
 
 <br />
+
 ### <a name="IPHPathUtils">IPHPathUtils</a>  
 IPHPathUtils为资源路径获取工具类，通过该工具类可以获取到bundle和沙盒对应资源文件的路径。  
 
@@ -218,11 +221,13 @@ IPHPathUtils为资源路径获取工具类，通过该工具类可以获取到bu
 
 <br />
 <br />
+
 ### <a name="NSTimer+IPHBlockSupport">NSTimer+IPHBlockSupport</a>  
 NSTimer的扩展类，使NSTimer能够通过block的方式使用，通过block实现在一定程度上减少了使用NSTimer导致循环引用的问题。  
 
 
 <br />
+
 ### <a name="UIAlertController+IPHAdditions">UIAlertController+IPHAdditions</a>  
 UIAlertController的扩展类，通过不同的参数来初始化不同的UIAlertController，并提供直接弹出显示的方法。  
 
@@ -262,6 +267,7 @@ UIAlertController的扩展类，通过不同的参数来初始化不同的UIAler
 
 
 <br />
+
 ### <a name="UIViewController+IPHAlertController">UIViewController+IPHAlertController</a>  
 基于UIAlertController+IPHAdditions对UIViewController的扩展，可直接通过UIViewController来弹出UIAlertController的视图。  
 
@@ -275,6 +281,7 @@ UIAlertController的扩展类，通过不同的参数来初始化不同的UIAler
 
 
 <br />
+
 ### <a name="IPHHorizontalTableView">IPHHorizontalTableView</a>  
 可以理解为横向TableView或者为水平的TableView。IPHHorizontalTableView是我13年突发奇想所写的一个很有创新意义的控件，它的奇妙之处在于是将一个正常的TableView逆时针旋转了90°来使用。  
 当时在做很多项目的时候经常会遇到横向滑动的需求，比如首页的广告banner，图片预览等，而当时使用的一些自定义控件，在视图的重用上效率并不是很好，滑动的流畅度也有待提高，而系统也并没有给我们提供这样的控件，我当时就想，能不能想办法直接利用系统自带控件的重用机制呢，那样效率会好很多，比如TableView本身，我是不是可以将其旋转一下就可以得到我想要的横向滑动的控件？这一突发奇想激起了我极大的研究兴趣，于是我开始去尝试，发现在实现上特别简单，只需要把TableView逆时针旋转90°，然后所有的cell再顺时针旋转90°，而所有其他API用法也基本都保持和UITableView的一致。我将IPHHorizontalTableView放到项目中进行测试，发现其流畅度特别高，而且兼容性也出乎意料的稳定。  
@@ -349,6 +356,7 @@ IPHHorizontalTableView因为被旋转，对于其`frame`,`x`和`y`,`width`和`he
 **其他写的一些未归属的类**  
 
 <br />
+
 ### <a name="IPHLocationManager">IPHLocationManager</a>  
 
 定位管理类。以单列形式存在，通过它可以定位获取到坐标，城市信息，详细地址等地理信息。
