@@ -50,7 +50,6 @@ iPhuanLib是本人在平时的开发过程中知识积累后整理出来的一�
 -------------------------------------------------------------  
 **Foundation为基础类库目录，一般来说整个iPhuanLib的类都依赖于Foundation基础库。**  
 
-<br />
 
 ### <a name="IPHDebug">IPHDebug</a>  
 IPHDebug方便开发者在Debug模式下进行项目调试和相关信息的打印。  
@@ -188,13 +187,11 @@ IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字�
 * 不仅仅是`initWithDictionary:`和`toDictionary`基于`attributeMapDictionary`映射来进行数据操作的。其在实现`NSCoding`和`NSCopying`协议时也都是基于`attributeMapDictionary`来处理的，所以一般建议在`attributeMapDictionary`中添加所有对象属性的映射。  
 
 
-<br />
 
 ### <a name="IPHViewNibUtils">IPHViewNibUtils</a>   
 IPHViewNibUtils为Nib加载工具类，方便开发者从xib文件中加载视图或者object对象。  
 
 
-<br />
 
 ### <a name="UIView+IPHAdditions">UIView+IPHAdditions</a>   
 UIView+IPHAdditions为`UIView`的扩展类，包含了一些图形几何的属性和视图操作的方法。  
@@ -206,7 +203,6 @@ UIView+IPHAdditions为`UIView`的扩展类，包含了一些图形几何的属�
 -------------------------------------------------------------  
 **Utils为工具类库目录，包含了一些常用的工具类。**    
 
-<br />
 
 ### <a name="IPHPathUtils">IPHPathUtils</a>  
 IPHPathUtils为资源路径获取工具类，通过该工具类可以获取到bundle和沙盒对应资源文件的路径。  
@@ -218,14 +214,11 @@ IPHPathUtils为资源路径获取工具类，通过该工具类可以获取到bu
 -------------------------------------------------------------  
 **Additions为扩展类库目录，包含了一些常用的扩展类。**    
 
-<br />
-<br />
 
 ### <a name="NSTimer+IPHBlockSupport">NSTimer+IPHBlockSupport</a>  
 NSTimer的扩展类，使NSTimer能够通过block的方式使用，通过block实现在一定程度上减少了使用NSTimer导致循环引用的问题。  
 
 
-<br />
 
 ### <a name="UIAlertController+IPHAdditions">UIAlertController+IPHAdditions</a>  
 UIAlertController的扩展类，通过不同的参数来初始化不同的UIAlertController，并提供直接弹出显示的方法。  
@@ -265,7 +258,6 @@ UIAlertController的扩展类，通过不同的参数来初始化不同的UIAler
 ```    
 
 
-<br />
 
 ### <a name="UIViewController+IPHAlertController">UIViewController+IPHAlertController</a>  
 基于UIAlertController+IPHAdditions对UIViewController的扩展，可直接通过UIViewController来弹出UIAlertController的视图。  
@@ -279,7 +271,6 @@ UIAlertController的扩展类，通过不同的参数来初始化不同的UIAler
 **Views为自定义视图类库目录，包含了一些自定义的视图控件**   
 
 
-<br />
 
 ### <a name="IPHHorizontalTableView">IPHHorizontalTableView</a>  
 可以理解为横向TableView或者为水平的TableView。IPHHorizontalTableView是我13年突发奇想所写的一个很有创新意义的控件，它的奇妙之处在于是将一个正常的TableView逆时针旋转了90°来使用。  
@@ -354,7 +345,6 @@ IPHHorizontalTableView因为被旋转，对于其`frame`,`x`和`y`,`width`和`he
 -------------------------------------------------------------  
 **其他写的一些未归属的类**  
 
-<br />
 
 ### <a name="IPHLocationManager">IPHLocationManager</a>  
 
