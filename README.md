@@ -52,7 +52,7 @@ iPhuanLib是本人在平时的开发过程中知识积累后整理出来的一�
 
 <br />
 
-# <a name="IPHDebug">IPHDebug</a>  
+#### <a name="IPHDebug">IPHDebug</a>  
 IPHDebug方便开发者在Debug模式下进行项目调试和相关信息的打印。  
 
 > * `IPHLog`，Debug模式下用来打印log；  
