@@ -9,6 +9,14 @@
 #import "IPHRoom.h"
 #import "IPHImage.h"
 
+@interface IPHRoom ()
+@property (nonatomic, readwrite, copy) NSString *roomType;
+@property (nonatomic, readwrite, copy) NSString *area;
+@property (nonatomic, readwrite, copy) NSString *price;
+@property (nonatomic, readwrite, copy) NSArray<IPHImage *> *images;
+
+@end
+
 @implementation IPHRoom
 
 - (NSDictionary *)attributeMapDictionary {
@@ -45,7 +53,7 @@
     }
     
     // 如果images元素已经为IPHImage对象，则直接赋值
-    _images = images;
+    _images = [images copy];
 }
 
 

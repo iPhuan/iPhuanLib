@@ -12,8 +12,8 @@ typedef void(^IPHOnConfirmButtonBlock)(void);
 
 
 @interface IPHConfirmCell : UITableViewCell
-@property (strong, nonatomic) UIColor *buttonBackgroundColor;
-@property (copy, nonatomic)  IPHOnConfirmButtonBlock onConfirmButtonBlock;
+@property (nonatomic, strong) UIColor *buttonBackgroundColor;
+@property (nonatomic, copy)  IPHOnConfirmButtonBlock onConfirmButtonBlock;
 
 
 @end

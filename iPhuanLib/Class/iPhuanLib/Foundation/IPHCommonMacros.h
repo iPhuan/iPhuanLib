@@ -13,7 +13,9 @@
 #define IPH_NOTIOFICATION       [NSNotificationCenter defaultCenter]
 #define IPH_USER_DEFAULT        [NSUserDefaults standardUserDefaults]
 #define IPH_FILE_MANAGER        [NSFileManager defaultManager]
+#define IPH_BUNDLE              [NSBundle mainBundle]
 #define IPH_DEVICE              [UIDevice currentDevice]
+
 
 
 #pragma mark - Geometry
@@ -30,6 +32,9 @@
 #define IPHIsAvailableString(X)        (X && ![@"" isEqualToString:X])
 #define IPHIsUnAvailableString(X)      (!X || [@"" isEqualToString:X])
 #define IPHUnNilString(X)              X?:@""
+#define IPHSetAvailableValueForString(string, value)   if (IPHIsUnAvailableString(string)) { \
+string = value; \
+}
 #define IPHIsAtLeastiOSVersion(X)      ([[[UIDevice currentDevice] systemVersion] compare:X options:NSNumericSearch] != NSOrderedAscending)
 
 

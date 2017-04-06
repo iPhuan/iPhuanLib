@@ -8,6 +8,15 @@
 
 #import "IPHImage.h"
 
+@interface IPHImage ()
+@property (nonatomic, readwrite, copy) NSString *imageId;
+@property (nonatomic, readwrite, copy) NSString *desc;
+@property (nonatomic, readwrite, copy) NSString *type;
+@property (nonatomic, readwrite, copy) NSString *url;
+
+@end
+
+
 @implementation IPHImage
 
 - (NSDictionary *)attributeMapDictionary {
@@ -16,7 +25,6 @@
              @"type": @"type",
              @"url": @"url"};
 }
-
 
 
 

@@ -10,6 +10,8 @@
 #import "UIAlertController+IPHAdditions.h"
 #import "IPHBaseModelViewController.h"
 #import "IPHHorizontalTableViewController.h"
+#import "IPHConditionSelectorViewController.h"
+
 
 
 
@@ -70,7 +72,8 @@
             break;
         }
         case 2:{
-            
+            VC = [[IPHConditionSelectorViewController alloc] initWithNibName:@"IPHConditionSelectorViewController" bundle:nil];
+
             break;
         }
         case 3:{

@@ -40,8 +40,11 @@ static NSString * const kIPHConfirmCellReuseIdentifier = @"IPHConfirmCell";
         _tableView.scrollEnabled = NO;
         [self addSubview:_tableView];
         [_tableView registerClass:[IPHConditionCell class] forCellReuseIdentifier:kIPHConditionCellReuseIdentifier];
-        UINib *nib = [UINib nibWithNibName:kIPHConfirmCellReuseIdentifier bundle:nil];
-        if (nib) {
+        
+        BOOL isConfirmCellXibExist = [IPH_FILE_MANAGER fileExistsAtPath:[IPH_BUNDLE pathForResource:kIPHConfirmCellReuseIdentifier ofType:@"xib"]];
+        
+        if (isConfirmCellXibExist) {
+            UINib *nib = [UINib nibWithNibName:kIPHConfirmCellReuseIdentifier bundle:nil];
             [_tableView registerNib:nib forCellReuseIdentifier:kIPHConfirmCellReuseIdentifier];
         }else{
             [_tableView registerClass:[IPHConfirmCell class] forCellReuseIdentifier:kIPHConfirmCellReuseIdentifier];

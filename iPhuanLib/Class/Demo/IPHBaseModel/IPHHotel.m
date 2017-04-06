@@ -8,6 +8,19 @@
 
 #import "IPHHotel.h"
 
+@interface IPHHotel ()
+@property (nonatomic, readwrite, copy) NSString *name;
+@property (nonatomic, readwrite, copy) NSString *address;
+@property (nonatomic, readwrite, copy) NSString *basePrice;
+@property (nonatomic, readwrite, copy) NSString *cityId;
+@property (nonatomic, readwrite, copy) NSString *cityName;
+@property (nonatomic, readwrite, copy) NSString *commentCount;
+@property (nonatomic, readwrite, copy) NSString *hasWifiTag;
+@property (nonatomic, readwrite, strong) IPHRoom *recommendRoom;
+@property (nonatomic, readwrite, copy) NSArray<IPHRoom *> *rooms;
+
+@end
+
 @implementation IPHHotel
 
 // 映射对象属性，key为属性的名称，Value为Json数据中对应的字段

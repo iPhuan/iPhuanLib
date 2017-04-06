@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="GZW-Ym-1gW" customClass="IPHConfirmCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GZW-Ym-1gW" id="jhX-va-IqE">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhE-XL-glX">
+                        <rect key="frame" x="20" y="4" width="280" height="38"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="lhE-XL-glX" secondAttribute="height" multiplier="140:19" id="3lB-si-531"/>
+                        </constraints>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <state key="normal" title="Button"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="lhE-XL-glX" firstAttribute="top" secondItem="jhX-va-IqE" secondAttribute="top" constant="4" id="1yi-gp-bK8"/>
+                    <constraint firstItem="lhE-XL-glX" firstAttribute="centerX" secondItem="jhX-va-IqE" secondAttribute="centerX" id="4NS-Jj-mDa"/>
+                    <constraint firstAttribute="bottom" secondItem="lhE-XL-glX" secondAttribute="bottom" constant="4" id="fuw-SC-sFd"/>
+                    <constraint firstItem="lhE-XL-glX" firstAttribute="leading" secondItem="jhX-va-IqE" secondAttribute="leading" constant="20" id="kwk-v1-grC"/>
+                    <constraint firstAttribute="trailing" secondItem="lhE-XL-glX" secondAttribute="trailing" constant="20" id="nyL-2L-oQW"/>
+                    <constraint firstItem="lhE-XL-glX" firstAttribute="centerY" secondItem="jhX-va-IqE" secondAttribute="centerY" id="peD-Nn-eVt"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="-42" y="-98"/>
+        </tableViewCell>
+    </objects>
+</document>

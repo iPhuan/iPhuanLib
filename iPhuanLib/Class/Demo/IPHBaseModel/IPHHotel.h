@@ -10,18 +10,18 @@
 @class IPHRoom;
 
 @interface IPHHotel : IPHBaseModel
-@property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *address;
-@property (nonatomic, copy) NSString *basePrice;
-@property (nonatomic, copy) NSString *cityId;
-@property (nonatomic, copy) NSString *cityName;
-@property (nonatomic, copy) NSString *commentCount;
-@property (nonatomic, copy) NSString *hasWifiTag;
-@property (nonatomic, strong) IPHRoom *recommendRoom; // 包含IPHRoom对象的属性
-@property (nonatomic, strong) NSArray<IPHRoom *> *rooms; // 包含IPHRoom元素的数组属性
+@property (nonatomic, readonly, copy) NSString *name;
+@property (nonatomic, readonly, copy) NSString *address;
+@property (nonatomic, readonly, copy) NSString *basePrice;
+@property (nonatomic, readonly, copy) NSString *cityId;
+@property (nonatomic, readonly, copy) NSString *cityName;
+@property (nonatomic, readonly, copy) NSString *commentCount;
+@property (nonatomic, readonly, copy) NSString *hasWifiTag;
+@property (nonatomic, readonly, strong) IPHRoom *recommendRoom; // 包含IPHRoom对象的属性
+@property (nonatomic, readonly, copy) NSArray<IPHRoom *> *rooms; // 包含IPHRoom元素的数组属性
 
 
 // 也可添加不在映射里的属性，比如遵循assign内存管理语义的属性
-@property (nonatomic, assign) BOOL hasWifi;
+@property (nonatomic, readonly, assign) BOOL hasWifi;
 
 @end

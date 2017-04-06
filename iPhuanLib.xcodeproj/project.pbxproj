@@ -25,10 +25,16 @@
 		E5A8CB341E61FB8A0046946D /* IPHHotel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A8CB331E61FB8A0046946D /* IPHHotel.m */; };
 		E5A8CB371E61FBA10046946D /* IPHRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A8CB361E61FBA10046946D /* IPHRoom.m */; };
 		E5A8CB3A1E61FBB70046946D /* IPHImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A8CB391E61FBB70046946D /* IPHImage.m */; };
-		E5EC8DDD1E8D431F00C76638 /* IPHHorizontalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EC8DDB1E8D431F00C76638 /* IPHHorizontalTableViewController.m */; };
-		E5EC8DDE1E8D431F00C76638 /* IPHHorizontalTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5EC8DDC1E8D431F00C76638 /* IPHHorizontalTableViewController.xib */; };
-		E5EC8DE21E8D4A3B00C76638 /* IPHHorizontalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EC8DE01E8D4A3B00C76638 /* IPHHorizontalTableViewCell.m */; };
-		E5EC8DE31E8D4A3B00C76638 /* IPHHorizontalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5EC8DE11E8D4A3B00C76638 /* IPHHorizontalTableViewCell.xib */; };
+		E5EC08E81E8E97C4000E6767 /* IPHConditionSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EC08DE1E8E97C4000E6767 /* IPHConditionSelectorViewController.m */; };
+		E5EC08E91E8E97C4000E6767 /* IPHConditionSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5EC08DF1E8E97C4000E6767 /* IPHConditionSelectorViewController.xib */; };
+		E5EC08EA1E8E97C4000E6767 /* IPHHorizontalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EC08E21E8E97C4000E6767 /* IPHHorizontalTableViewCell.m */; };
+		E5EC08EB1E8E97C4000E6767 /* IPHHorizontalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5EC08E31E8E97C4000E6767 /* IPHHorizontalTableViewCell.xib */; };
+		E5EC08EC1E8E97C4000E6767 /* IPHHorizontalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EC08E51E8E97C4000E6767 /* IPHHorizontalTableViewController.m */; };
+		E5EC08ED1E8E97C4000E6767 /* IPHHorizontalTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5EC08E61E8E97C4000E6767 /* IPHHorizontalTableViewController.xib */; };
+		E5EC08EF1E8E9804000E6767 /* IPHConditions.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5EC08EE1E8E9804000E6767 /* IPHConditions.plist */; };
+		E5EC08F21E8E98F2000E6767 /* IPHCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EC08F11E8E98F2000E6767 /* IPHCondition.m */; };
+		E5EC08F51E8E9ED8000E6767 /* IPHConditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EC08F41E8E9ED8000E6767 /* IPHConditions.m */; };
+		E5ED02F61E96576E006BFD09 /* IPHConfirmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5ED02F51E96576E006BFD09 /* IPHConfirmCell.xib */; };
 		E5ED7B581E5DFEC3002632C0 /* NSTimer+IPHBlockSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED7B521E5DFEC3002632C0 /* NSTimer+IPHBlockSupport.m */; };
 		E5ED7B591E5DFEC3002632C0 /* UIAlertController+IPHAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED7B551E5DFEC3002632C0 /* UIAlertController+IPHAdditions.m */; };
 		E5ED7B5A1E5DFEC3002632C0 /* UIViewController+IPHAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED7B571E5DFEC3002632C0 /* UIViewController+IPHAlertController.m */; };
@@ -96,12 +102,21 @@
 		E5A8CB361E61FBA10046946D /* IPHRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHRoom.m; sourceTree = "<group>"; };
 		E5A8CB381E61FBB70046946D /* IPHImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHImage.h; sourceTree = "<group>"; };
 		E5A8CB391E61FBB70046946D /* IPHImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHImage.m; sourceTree = "<group>"; };
-		E5EC8DDA1E8D431F00C76638 /* IPHHorizontalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPHHorizontalTableViewController.h; path = ../../../../../../../Users/iPhuan/Documents/IPHHorizontalTableViewController.h; sourceTree = "<group>"; };
-		E5EC8DDB1E8D431F00C76638 /* IPHHorizontalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IPHHorizontalTableViewController.m; path = ../../../../../../../Users/iPhuan/Documents/IPHHorizontalTableViewController.m; sourceTree = "<group>"; };
-		E5EC8DDC1E8D431F00C76638 /* IPHHorizontalTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IPHHorizontalTableViewController.xib; path = ../../../../../../../Users/iPhuan/Documents/IPHHorizontalTableViewController.xib; sourceTree = "<group>"; };
-		E5EC8DDF1E8D4A3B00C76638 /* IPHHorizontalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPHHorizontalTableViewCell.h; path = ../../../../../../../Users/iPhuan/Documents/IPHHorizontalTableViewCell.h; sourceTree = "<group>"; };
-		E5EC8DE01E8D4A3B00C76638 /* IPHHorizontalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IPHHorizontalTableViewCell.m; path = ../../../../../../../Users/iPhuan/Documents/IPHHorizontalTableViewCell.m; sourceTree = "<group>"; };
-		E5EC8DE11E8D4A3B00C76638 /* IPHHorizontalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IPHHorizontalTableViewCell.xib; path = ../../../../../../../Users/iPhuan/Documents/IPHHorizontalTableViewCell.xib; sourceTree = "<group>"; };
+		E5EC08DD1E8E97C4000E6767 /* IPHConditionSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHConditionSelectorViewController.h; sourceTree = "<group>"; };
+		E5EC08DE1E8E97C4000E6767 /* IPHConditionSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHConditionSelectorViewController.m; sourceTree = "<group>"; };
+		E5EC08DF1E8E97C4000E6767 /* IPHConditionSelectorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IPHConditionSelectorViewController.xib; sourceTree = "<group>"; };
+		E5EC08E11E8E97C4000E6767 /* IPHHorizontalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHHorizontalTableViewCell.h; sourceTree = "<group>"; };
+		E5EC08E21E8E97C4000E6767 /* IPHHorizontalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHHorizontalTableViewCell.m; sourceTree = "<group>"; };
+		E5EC08E31E8E97C4000E6767 /* IPHHorizontalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IPHHorizontalTableViewCell.xib; sourceTree = "<group>"; };
+		E5EC08E41E8E97C4000E6767 /* IPHHorizontalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHHorizontalTableViewController.h; sourceTree = "<group>"; };
+		E5EC08E51E8E97C4000E6767 /* IPHHorizontalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHHorizontalTableViewController.m; sourceTree = "<group>"; };
+		E5EC08E61E8E97C4000E6767 /* IPHHorizontalTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IPHHorizontalTableViewController.xib; sourceTree = "<group>"; };
+		E5EC08EE1E8E9804000E6767 /* IPHConditions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = IPHConditions.plist; sourceTree = "<group>"; };
+		E5EC08F01E8E98F2000E6767 /* IPHCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHCondition.h; sourceTree = "<group>"; };
+		E5EC08F11E8E98F2000E6767 /* IPHCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHCondition.m; sourceTree = "<group>"; };
+		E5EC08F31E8E9ED8000E6767 /* IPHConditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHConditions.h; sourceTree = "<group>"; };
+		E5EC08F41E8E9ED8000E6767 /* IPHConditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHConditions.m; sourceTree = "<group>"; };
+		E5ED02F51E96576E006BFD09 /* IPHConfirmCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IPHConfirmCell.xib; sourceTree = "<group>"; };
 		E5ED7B511E5DFEC3002632C0 /* NSTimer+IPHBlockSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+IPHBlockSupport.h"; sourceTree = "<group>"; };
 		E5ED7B521E5DFEC3002632C0 /* NSTimer+IPHBlockSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+IPHBlockSupport.m"; sourceTree = "<group>"; };
 		E5ED7B541E5DFEC3002632C0 /* UIAlertController+IPHAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+IPHAdditions.h"; sourceTree = "<group>"; };
@@ -222,9 +237,9 @@
 			isa = PBXGroup;
 			children = (
 				E5A8CB251E61E8AD0046946D /* IPHBaseModel */,
-				E5A8CB271E61E8AD0046946D /* IPHHorizontalTableView */,
-				E5A8CB261E61E8AD0046946D /* IPHConditionSelectorView */,
-				E5A8CB281E61E8AD0046946D /* IPHLocationManager */,
+				E5EC08E01E8E97C4000E6767 /* IPHHorizontalTableView */,
+				E5EC08DC1E8E97C4000E6767 /* IPHConditionSelectorView */,
+				E5EC08E71E8E97C4000E6767 /* IPHLocationManager */,
 			);
 			name = Demo;
 			path = Class/Demo;
@@ -318,27 +333,36 @@
 			path = IPHBaseModel;
 			sourceTree = "<group>";
 		};
-		E5A8CB261E61E8AD0046946D /* IPHConditionSelectorView */ = {
+		E5EC08DC1E8E97C4000E6767 /* IPHConditionSelectorView */ = {
 			isa = PBXGroup;
 			children = (
+				E5EC08DD1E8E97C4000E6767 /* IPHConditionSelectorViewController.h */,
+				E5EC08DE1E8E97C4000E6767 /* IPHConditionSelectorViewController.m */,
+				E5EC08DF1E8E97C4000E6767 /* IPHConditionSelectorViewController.xib */,
+				E5ED02F51E96576E006BFD09 /* IPHConfirmCell.xib */,
+				E5EC08F31E8E9ED8000E6767 /* IPHConditions.h */,
+				E5EC08F41E8E9ED8000E6767 /* IPHConditions.m */,
+				E5EC08F01E8E98F2000E6767 /* IPHCondition.h */,
+				E5EC08F11E8E98F2000E6767 /* IPHCondition.m */,
+				E5EC08EE1E8E9804000E6767 /* IPHConditions.plist */,
 			);
 			path = IPHConditionSelectorView;
 			sourceTree = "<group>";
 		};
-		E5A8CB271E61E8AD0046946D /* IPHHorizontalTableView */ = {
+		E5EC08E01E8E97C4000E6767 /* IPHHorizontalTableView */ = {
 			isa = PBXGroup;
 			children = (
-				E5EC8DDA1E8D431F00C76638 /* IPHHorizontalTableViewController.h */,
-				E5EC8DDB1E8D431F00C76638 /* IPHHorizontalTableViewController.m */,
-				E5EC8DDC1E8D431F00C76638 /* IPHHorizontalTableViewController.xib */,
-				E5EC8DDF1E8D4A3B00C76638 /* IPHHorizontalTableViewCell.h */,
-				E5EC8DE01E8D4A3B00C76638 /* IPHHorizontalTableViewCell.m */,
-				E5EC8DE11E8D4A3B00C76638 /* IPHHorizontalTableViewCell.xib */,
+				E5EC08E41E8E97C4000E6767 /* IPHHorizontalTableViewController.h */,
+				E5EC08E51E8E97C4000E6767 /* IPHHorizontalTableViewController.m */,
+				E5EC08E61E8E97C4000E6767 /* IPHHorizontalTableViewController.xib */,
+				E5EC08E11E8E97C4000E6767 /* IPHHorizontalTableViewCell.h */,
+				E5EC08E21E8E97C4000E6767 /* IPHHorizontalTableViewCell.m */,
+				E5EC08E31E8E97C4000E6767 /* IPHHorizontalTableViewCell.xib */,
 			);
 			path = IPHHorizontalTableView;
 			sourceTree = "<group>";
 		};
-		E5A8CB281E61E8AD0046946D /* IPHLocationManager */ = {
+		E5EC08E71E8E97C4000E6767 /* IPHLocationManager */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -458,7 +482,7 @@
 				TargetAttributes = {
 					E5165CDC1E585FDA0021D8E1 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = ZHS6TJ7QNS;
+						DevelopmentTeam = SGNJ7YF52N;
 						ProvisioningStyle = Automatic;
 					};
 					E5165CF51E585FDA0021D8E1 = {
@@ -502,10 +526,13 @@
 			files = (
 				E5165CF01E585FDA0021D8E1 /* LaunchScreen.storyboard in Resources */,
 				E5165CED1E585FDA0021D8E1 /* Assets.xcassets in Resources */,
+				E5EC08ED1E8E97C4000E6767 /* IPHHorizontalTableViewController.xib in Resources */,
 				E5165CEB1E585FDA0021D8E1 /* Main.storyboard in Resources */,
+				E5EC08EF1E8E9804000E6767 /* IPHConditions.plist in Resources */,
+				E5ED02F61E96576E006BFD09 /* IPHConfirmCell.xib in Resources */,
+				E5EC08E91E8E97C4000E6767 /* IPHConditionSelectorViewController.xib in Resources */,
 				E5A8CB2D1E61EAD80046946D /* IPHBaseModelViewController.xib in Resources */,
-				E5EC8DDE1E8D431F00C76638 /* IPHHorizontalTableViewController.xib in Resources */,
-				E5EC8DE31E8D4A3B00C76638 /* IPHHorizontalTableViewCell.xib in Resources */,
+				E5EC08EB1E8E97C4000E6767 /* IPHHorizontalTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,15 +557,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5EC8DDD1E8D431F00C76638 /* IPHHorizontalTableViewController.m in Sources */,
 				E5A8CB371E61FBA10046946D /* IPHRoom.m in Sources */,
 				E5A8CB3A1E61FBB70046946D /* IPHImage.m in Sources */,
-				E5EC8DE21E8D4A3B00C76638 /* IPHHorizontalTableViewCell.m in Sources */,
 				E5165D461E5860030021D8E1 /* IPHLocationManager.m in Sources */,
+				E5EC08EA1E8E97C4000E6767 /* IPHHorizontalTableViewCell.m in Sources */,
 				E5ED7B611E5E0B76002632C0 /* IPHHorizontalTableView.m in Sources */,
+				E5EC08E81E8E97C4000E6767 /* IPHConditionSelectorViewController.m in Sources */,
 				E5165CE81E585FDA0021D8E1 /* ViewController.m in Sources */,
 				E5165CE51E585FDA0021D8E1 /* AppDelegate.m in Sources */,
 				E5A8CB341E61FB8A0046946D /* IPHHotel.m in Sources */,
+				E5EC08F21E8E98F2000E6767 /* IPHCondition.m in Sources */,
 				E5ED7B601E5E0B76002632C0 /* IPHHorizontalTableView+UIScrollView.m in Sources */,
 				E5ED7B5A1E5DFEC3002632C0 /* UIViewController+IPHAlertController.m in Sources */,
 				E5A8CB2C1E61EAD80046946D /* IPHBaseModelViewController.m in Sources */,
@@ -552,6 +580,8 @@
 				E5ED7B591E5DFEC3002632C0 /* UIAlertController+IPHAdditions.m in Sources */,
 				E5ED7B581E5DFEC3002632C0 /* NSTimer+IPHBlockSupport.m in Sources */,
 				E5206DCC1E58A6E300E3EE50 /* IPHBaseModel.m in Sources */,
+				E5EC08F51E8E9ED8000E6767 /* IPHConditions.m in Sources */,
+				E5EC08EC1E8E97C4000E6767 /* IPHHorizontalTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,12 +730,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ZHS6TJ7QNS;
+				DEVELOPMENT_TEAM = SGNJ7YF52N;
 				GCC_PREFIX_HEADER = "iPhuanLib/Class/iPhuanLib/iPhuanLib-prefix.pch";
 				INFOPLIST_FILE = iPhuanLib/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = iPhuan.iPhuanLib;
+				PRODUCT_BUNDLE_IDENTIFIER = iPhuan.iPhuanLib1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -714,12 +744,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ZHS6TJ7QNS;
+				DEVELOPMENT_TEAM = SGNJ7YF52N;
 				GCC_PREFIX_HEADER = "iPhuanLib/Class/iPhuanLib/iPhuanLib-prefix.pch";
 				INFOPLIST_FILE = iPhuanLib/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = iPhuan.iPhuanLib;
+				PRODUCT_BUNDLE_IDENTIFIER = iPhuan.iPhuanLib1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

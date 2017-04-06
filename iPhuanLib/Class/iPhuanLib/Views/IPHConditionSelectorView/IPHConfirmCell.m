@@ -36,7 +36,7 @@ static const CGFloat kIPHConfirmButtonTag = 123;
         confirmBtn.tag = kIPHConfirmButtonTag;
         confirmBtn.backgroundColor = self.buttonBackgroundColor;
         confirmBtn.center = CGPointMake(self.width_iph/2.0f, self.height_iph/2.0f);
-        confirmBtn.layer.cornerRadius = 2;
+        confirmBtn.layer.cornerRadius = 4;
         [confirmBtn setTitle:@"确定" forState:UIControlStateNormal];
         [confirmBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [confirmBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];

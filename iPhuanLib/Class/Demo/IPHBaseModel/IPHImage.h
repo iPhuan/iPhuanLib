@@ -14,10 +14,10 @@ typedef NS_ENUM(NSUInteger, IPHImageType) {
 };
 
 @interface IPHImage : IPHBaseModel
-@property (nonatomic, copy) NSString *imageId;
-@property (nonatomic, copy) NSString *desc;
-@property (nonatomic, copy) NSString *type;
-@property (nonatomic, copy) NSString *url;
+@property (nonatomic, readonly, copy) NSString *imageId;
+@property (nonatomic, readonly, copy) NSString *desc;
+@property (nonatomic, readonly, copy) NSString *type;
+@property (nonatomic, readonly, copy) NSString *url;
 
 @property (nonatomic, assign) IPHImageType imageType;
 
