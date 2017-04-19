@@ -10,6 +10,7 @@
 
 @interface UIViewController (IPHAlertView)
 
+// 默认为一个显示为“确定”标题的按钮
 - (void)iph_popupAlertViewWithTitle:(NSString *)title
                             message:(NSString *)message;
 

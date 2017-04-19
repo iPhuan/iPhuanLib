@@ -10,8 +10,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import "IPHCommonMacros.h"
 #import "IPHDebug.h"
+#import "IPHCommonMacros.h"
 #import "IPHBaseModel.h"
 #import "IPHViewNibUtils.h"
 #import "UIView+IPHAdditions.h"

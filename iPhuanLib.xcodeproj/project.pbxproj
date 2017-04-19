@@ -17,6 +17,8 @@
 		E5165D061E585FDA0021D8E1 /* iPhuanLibUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165D051E585FDA0021D8E1 /* iPhuanLibUITests.m */; };
 		E5165D461E5860030021D8E1 /* IPHLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165D2D1E5860030021D8E1 /* IPHLocationManager.m */; };
 		E5206DCC1E58A6E300E3EE50 /* IPHBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5206DCB1E58A6E300E3EE50 /* IPHBaseModel.m */; };
+		E555D5B31EA7683E00F07D74 /* IPHLocationManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E555D5B11EA7683E00F07D74 /* IPHLocationManagerViewController.m */; };
+		E555D5B41EA7683E00F07D74 /* IPHLocationManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E555D5B21EA7683E00F07D74 /* IPHLocationManagerViewController.xib */; };
 		E5734B791E5BF1C5004E0F2A /* UIView+IPHAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E5734B781E5BF1C5004E0F2A /* UIView+IPHAdditions.m */; };
 		E5734B7D1E5C2A31004E0F2A /* IPHViewNibUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E5734B7C1E5C2A31004E0F2A /* IPHViewNibUtils.m */; };
 		E5734B831E5C34B2004E0F2A /* IPHPathUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E5734B821E5C34B2004E0F2A /* IPHPathUtils.m */; };
@@ -81,11 +83,14 @@
 		E5165D071E585FDA0021D8E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5165D2C1E5860030021D8E1 /* IPHLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHLocationManager.h; sourceTree = "<group>"; };
 		E5165D2D1E5860030021D8E1 /* IPHLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHLocationManager.m; sourceTree = "<group>"; };
-		E5206DC31E58720D00E3EE50 /* iPhuanLib-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iPhuanLib-prefix.pch"; sourceTree = "<group>"; };
 		E5206DC71E589AB100E3EE50 /* iPhuanLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iPhuanLib.h; sourceTree = "<group>"; };
 		E5206DC81E589B3A00E3EE50 /* IPHDebug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IPHDebug.h; sourceTree = "<group>"; };
 		E5206DCA1E58A6E300E3EE50 /* IPHBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHBaseModel.h; sourceTree = "<group>"; };
 		E5206DCB1E58A6E300E3EE50 /* IPHBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHBaseModel.m; sourceTree = "<group>"; };
+		E555D5B01EA7683E00F07D74 /* IPHLocationManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHLocationManagerViewController.h; sourceTree = "<group>"; };
+		E555D5B11EA7683E00F07D74 /* IPHLocationManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHLocationManagerViewController.m; sourceTree = "<group>"; };
+		E555D5B21EA7683E00F07D74 /* IPHLocationManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IPHLocationManagerViewController.xib; sourceTree = "<group>"; };
+		E555D5B51EA78AB300F07D74 /* iPhuanLib-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iPhuanLib-prefix.pch"; sourceTree = "<group>"; };
 		E5734B761E5BEEAA004E0F2A /* IPHCommonMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IPHCommonMacros.h; sourceTree = "<group>"; };
 		E5734B771E5BF1C5004E0F2A /* UIView+IPHAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+IPHAdditions.h"; sourceTree = "<group>"; };
 		E5734B781E5BF1C5004E0F2A /* UIView+IPHAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+IPHAdditions.m"; sourceTree = "<group>"; };
@@ -202,6 +207,7 @@
 		E5165CE01E585FDA0021D8E1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E555D5B51EA78AB300F07D74 /* iPhuanLib-prefix.pch */,
 				E5165CE11E585FDA0021D8E1 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -248,7 +254,6 @@
 		E5165D151E5860030021D8E1 /* iPhuanLib */ = {
 			isa = PBXGroup;
 			children = (
-				E5206DC31E58720D00E3EE50 /* iPhuanLib-prefix.pch */,
 				E5165D251E5860030021D8E1 /* Foundation */,
 				E5165D221E5860030021D8E1 /* Common */,
 				E5165D2E1E5860030021D8E1 /* Utils */,
@@ -365,6 +370,9 @@
 		E5EC08E71E8E97C4000E6767 /* IPHLocationManager */ = {
 			isa = PBXGroup;
 			children = (
+				E555D5B01EA7683E00F07D74 /* IPHLocationManagerViewController.h */,
+				E555D5B11EA7683E00F07D74 /* IPHLocationManagerViewController.m */,
+				E555D5B21EA7683E00F07D74 /* IPHLocationManagerViewController.xib */,
 			);
 			path = IPHLocationManager;
 			sourceTree = "<group>";
@@ -482,7 +490,7 @@
 				TargetAttributes = {
 					E5165CDC1E585FDA0021D8E1 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = SGNJ7YF52N;
+						DevelopmentTeam = ZHS6TJ7QNS;
 						ProvisioningStyle = Automatic;
 					};
 					E5165CF51E585FDA0021D8E1 = {
@@ -531,6 +539,7 @@
 				E5EC08EF1E8E9804000E6767 /* IPHConditions.plist in Resources */,
 				E5ED02F61E96576E006BFD09 /* IPHConfirmCell.xib in Resources */,
 				E5EC08E91E8E97C4000E6767 /* IPHConditionSelectorViewController.xib in Resources */,
+				E555D5B41EA7683E00F07D74 /* IPHLocationManagerViewController.xib in Resources */,
 				E5A8CB2D1E61EAD80046946D /* IPHBaseModelViewController.xib in Resources */,
 				E5EC08EB1E8E97C4000E6767 /* IPHHorizontalTableViewCell.xib in Resources */,
 			);
@@ -564,6 +573,7 @@
 				E5ED7B611E5E0B76002632C0 /* IPHHorizontalTableView.m in Sources */,
 				E5EC08E81E8E97C4000E6767 /* IPHConditionSelectorViewController.m in Sources */,
 				E5165CE81E585FDA0021D8E1 /* ViewController.m in Sources */,
+				E555D5B31EA7683E00F07D74 /* IPHLocationManagerViewController.m in Sources */,
 				E5165CE51E585FDA0021D8E1 /* AppDelegate.m in Sources */,
 				E5A8CB341E61FB8A0046946D /* IPHHotel.m in Sources */,
 				E5EC08F21E8E98F2000E6767 /* IPHCondition.m in Sources */,
@@ -730,12 +740,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SGNJ7YF52N;
-				GCC_PREFIX_HEADER = "iPhuanLib/Class/iPhuanLib/iPhuanLib-prefix.pch";
+				DEVELOPMENT_TEAM = ZHS6TJ7QNS;
+				GCC_PREFIX_HEADER = "iPhuanLib/iPhuanLib-prefix.pch";
 				INFOPLIST_FILE = iPhuanLib/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = iPhuan.iPhuanLib1;
+				PRODUCT_BUNDLE_IDENTIFIER = iPhuan.iPhuanLib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -744,12 +754,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SGNJ7YF52N;
-				GCC_PREFIX_HEADER = "iPhuanLib/Class/iPhuanLib/iPhuanLib-prefix.pch";
+				DEVELOPMENT_TEAM = ZHS6TJ7QNS;
+				GCC_PREFIX_HEADER = "iPhuanLib/iPhuanLib-prefix.pch";
 				INFOPLIST_FILE = iPhuanLib/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = iPhuan.iPhuanLib1;
+				PRODUCT_BUNDLE_IDENTIFIER = iPhuan.iPhuanLib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

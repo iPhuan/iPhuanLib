@@ -22,7 +22,7 @@
 /*****************************************************************************************/
 #define IPHScreenWidth         [UIScreen mainScreen].bounds.size.width
 #define IPHScreenHeight        [UIScreen mainScreen].bounds.size.height
-#define IPHScreenBounds        [UIScreen mainScreen].bounds.size.height
+#define IPHScreenBounds        [UIScreen mainScreen].bounds
 #define IPHSizeMultiple        (IPHScreenWidth/320.0)
 #define IPHFitSize(X)          ((X) * IPHSizeMultiple)
 

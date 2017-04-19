@@ -45,17 +45,29 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
 
 
 @interface IPHLocationManager ()<CLLocationManagerDelegate>
-@property (nonatomic, strong, readwrite) CLLocation *location;
-@property (nonatomic, strong, readwrite) CLPlacemark *placemark;
-@property (nonatomic, copy, readwrite) NSString *address;
-@property (nonatomic, copy, readwrite) NSString *city;
+@property (nonatomic, readwrite, strong) CLLocation *location;
+@property (nonatomic, readwrite, strong) CLPlacemark *placemark;
+@property (nonatomic, readwrite, assign) CLLocationCoordinate2D coordinate;
+@property (nonatomic, readwrite, copy) NSString *address;
+@property (nonatomic, readwrite, copy) NSString *city;
 @property (nonatomic, strong) NSMutableArray *locationManagers;
 
 @end
 
 @implementation IPHLocationManager
 
-IPH_SINGLETON(IPHLocationManager, sharedLocationManager)
+
++ (IPHLocationManager *)sharedLocationManager {
+    static IPHLocationManager *sharedLocationManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedLocationManager = [[self alloc] init];
+        sharedLocationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        sharedLocationManager.distanceFilter = 100.0f;
+    });
+    
+    return sharedLocationManager;
+}
 
 
 - (CLLocationCoordinate2D)coordinate{
@@ -133,12 +145,16 @@ IPH_SINGLETON(IPHLocationManager, sharedLocationManager)
     
     LocationManager *locationManager = [[LocationManager alloc] init];
     if (authStatus == kCLAuthorizationStatusNotDetermined) {
-        [locationManager requestWhenInUseAuthorization];
+        if (_requestAuthorizationType == IPHRequestAuthorizationTypeWhenInUse) {
+            [locationManager requestWhenInUseAuthorization];
+        } else {
+            [locationManager requestAlwaysAuthorization];
+        }
     }
     
     locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    locationManager.distanceFilter = 100;
+    locationManager.desiredAccuracy = self.desiredAccuracy;
+    locationManager.distanceFilter = self.distanceFilter;
     
     locationManager.needReverseGeocodeLocation = isNeed;
     locationManager.completionHandler = completionHandler;

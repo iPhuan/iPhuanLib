@@ -66,6 +66,13 @@ static NSString * const kIPHConfirmCellReuseIdentifier = @"IPHConfirmCell";
     }
 }
 
+- (void)dealloc {
+    [_tableView removeObserver:self forKeyPath:@"contentSize"];
+    [self removeObserver:self forKeyPath:@"headerTitleColor"];
+    [self removeObserver:self forKeyPath:@"buttonNormalColor"];
+    [self removeObserver:self forKeyPath:@"buttonSelectedColor"];
+}
+
 
 #pragma mark - show
 

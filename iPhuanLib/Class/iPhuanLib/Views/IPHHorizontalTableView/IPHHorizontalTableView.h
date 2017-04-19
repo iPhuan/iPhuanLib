@@ -1,5 +1,5 @@
 //
-//  HorizontalTableView.h
+//  IPHHorizontalTableView.h
 //  iPhuanLib
 //
 //  Created by iPhuan on 13-1-5.

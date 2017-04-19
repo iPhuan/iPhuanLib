@@ -8,16 +8,12 @@
 
 #import "ViewController.h"
 #import "UIAlertController+IPHAdditions.h"
-#import "IPHBaseModelViewController.h"
-#import "IPHHorizontalTableViewController.h"
-#import "IPHConditionSelectorViewController.h"
-
-
-
 
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) NSArray *demoTitles;
+@property (nonatomic, strong) NSArray *pushViewControllerNames;
+
 
 @end
 
@@ -30,6 +26,11 @@
                         @"IPHHorizontalTableView",
                         @"IPHConditionSelectorView",
                         @"IPHLocationManager"];
+    
+    self.pushViewControllerNames = @[@"IPHBaseModelViewController",
+                                     @"IPHHorizontalTableViewController",
+                                     @"IPHConditionSelectorViewController",
+                                     @"IPHLocationManagerViewController"];
 }
 
 
@@ -49,7 +50,6 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"iPhuanLibDemoCell" forIndexPath:indexPath];
     cell.textLabel.text = _demoTitles[indexPath.row];
     
-    
     return cell;
 }
 
@@ -60,27 +60,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    UIViewController *VC = nil;
-    switch (indexPath.row) {
-        case 0:{
-            VC = [[IPHBaseModelViewController alloc] initWithNibName:@"IPHBaseModelViewController" bundle:nil];
-            break;
-        }
-        case 1:{
-            VC = [[IPHHorizontalTableViewController alloc] initWithNibName:@"IPHHorizontalTableViewController" bundle:nil];
-            break;
-        }
-        case 2:{
-            VC = [[IPHConditionSelectorViewController alloc] initWithNibName:@"IPHConditionSelectorViewController" bundle:nil];
-
-            break;
-        }
-        case 3:{
-            
-            break;
-        }
-    }
+    NSString *viewControllerName = _pushViewControllerNames[indexPath.row];
+    UIViewController *VC = [[NSClassFromString(viewControllerName) alloc] initWithNibName:viewControllerName bundle:nil];
+    VC.title = [viewControllerName stringByReplacingOccurrencesOfString:@"ViewController" withString:@"Demo"];
     [self.navigationController pushViewController:VC animated:YES];
 }
 
