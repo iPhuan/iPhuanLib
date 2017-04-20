@@ -7,6 +7,8 @@
 //
 
 #import "IPHViewNibUtils.h"
+#import <UIKit/UINibLoading.h>
+
 
 @implementation IPHViewNibUtils
 

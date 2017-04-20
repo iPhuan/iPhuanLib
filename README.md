@@ -8,11 +8,12 @@
 <a name="iPhuanLib">iPhuanLib</a>
 =============================================================  
 iPhuanLib是本人在平时的开发过程中知识积累后整理出来的一套可直接用于开发的框架，包含了平时自己写的一些基础类，工具类，视图控件，以及基于别人的代码修改优化后的类库等。用意在于跟大家一起分享自己在平时工作中所摸索的技术和成果，同时也方便一些开发者可以直接基于iPhuanLib来快速启动项目。  
-目前集成在iPhuanLib里的类并不多，日后会不断更新资源并跟进优化，当前版本的iPhuanLib还在自测中，等到自测完成后会发布release版本，提供完整demo，并且提供Pod库支持，方便开发者下载使用。  
+目前集成在iPhuanLib里的类并不多，日后会不断更新资源并跟进优化，当前版本的iPhuanLib已发布release版本，提供了完整demo，并且提供Pod库支持，方便开发者下载使用。  
 
 
 目录
 -------------------------------------------------------------
+* [介绍说明](#GetiPhuanLib)
 * [介绍说明](#Introduce)
     * [Foundation](#Foundation)
         * [IPHCommonMacros](#IPHCommonMacros)
@@ -39,6 +40,30 @@ iPhuanLib是本人在平时的开发过程中知识积累后整理出来的一�
 <br />
 <br />
 
+
+<a name="GetiPhuanLib">如何获取iPhuanLib</a>   
+-------------------------------------------------------------
+1. 直接在GitHub上[获取](https://github.com/iPhuan/iPhuanLib.git)   
+2. 通过[CocoaPods](http://guides.cocoapods.org/using/using-cocoapods.html)添加到工程：  
+
+> * 如果你想使用完整版的iPhuanLib，添加以下命令行到Podfile：  
+
+```ruby
+pod 'iPhuanLib'
+```
+
+> * 如果你想使用iPhuanLib部分模块，可分模块添加：  
+
+```ruby
+pod 'iPhuanLib/Foundation'
+pod 'iPhuanLib/Utils'
+pod 'iPhuanLib/Additions'
+pod 'iPhuanLib/Additions/UIKit'
+pod 'iPhuanLib/Views'
+pod 'iPhuanLib/Views/IPHHorizontalTableView'
+pod 'iPhuanLib/Views/IPHConditionSelectorView'
+pod 'iPhuanLib/Others'
+```  
 
 <a name="Introduce">介绍说明</a>
 =============================================================  

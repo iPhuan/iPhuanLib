@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-// 通过定义JSC_ALERTVIEW_CANCEL_TITLE来修改alertView默认取消按钮标题
+// 可以在pch文件中通过定义JSC_ALERTVIEW_CANCEL_TITLE来修改alertView为一个点击按钮时的按钮标题
 #ifndef JSC_ALERTVIEW_CANCEL_TITLE
 #define JSC_ALERTVIEW_CANCEL_TITLE  @"确定"
 #endif

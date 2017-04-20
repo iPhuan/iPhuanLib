@@ -9,6 +9,10 @@
 #import "UIAlertController+IPHAdditions.h"
 
 
+#ifndef IPHLog
+#define IPHLog  NSLog
+#endif
+
 NSString *const IPHActionSheetShowErrorMessage = @"The modalPresentationStyle of a UIAlertController with this style is UIModalPresentationPopover. You must provide location information for this popover through the alert controller's popoverPresentationController. You must provide either a sourceView and sourceRect or a barButtonItem.";
 
 

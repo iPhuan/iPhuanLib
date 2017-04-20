@@ -9,6 +9,10 @@
 #import "IPHBaseModel.h"
 #import <objc/message.h>
 
+#ifndef IPHLog
+#define IPHLog  NSLog
+#endif
+
 
 @implementation IPHBaseModel
 

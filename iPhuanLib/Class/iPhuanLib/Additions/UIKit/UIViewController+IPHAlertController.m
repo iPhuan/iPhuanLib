@@ -6,6 +6,13 @@
 //  Copyright © 2017年 bangtai. All rights reserved.
 //
 
+#import "UIViewController+IPHAlertController.h"
+
+
+#ifndef IPHLog
+#define IPHLog  NSLog
+#endif
+
 #define IPH_SHOW_ALERT_CONTROLLER(VC, ti, msg, block, destructive, cancel, other) UIAlertController *alertController = [UIAlertController iph_alertControllerWithTitle:ti  \
 message:msg  \
 preferredStyle:UIAlertControllerStyleAlert \
@@ -37,9 +44,6 @@ IPHLog(@"Your application has presented a UIAlertController (<UIAlertController:
 } \
 va_end(ags); \
 
-
-
-#import "UIViewController+IPHAlertController.h"
 
 @implementation UIViewController (IPHAlertView)
 
