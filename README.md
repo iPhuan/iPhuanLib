@@ -13,7 +13,7 @@ iPhuanLib是本人在平时的开发过程中知识积累后整理出来的一�
 
 目录
 -------------------------------------------------------------
-* [介绍说明](#GetiPhuanLib)
+* [如何获取iPhuanLib](#GetiPhuanLib)
 * [介绍说明](#Introduce)
     * [Foundation](#Foundation)
         * [IPHCommonMacros](#IPHCommonMacros)
@@ -64,6 +64,9 @@ pod 'iPhuanLib/Views/IPHHorizontalTableView'
 pod 'iPhuanLib/Views/IPHConditionSelectorView'
 pod 'iPhuanLib/Others'
 ```  
+
+<br />
+
 
 <a name="Introduce">介绍说明</a>
 =============================================================  
@@ -207,6 +210,7 @@ IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字�
 
 
 <br />
+
 :warning:注意：
 * IPHBaseModel会将Number类型的字典数据转化为字符串，你在使用IPHBaseModel创建类时，其对应的属性应当以字符串的形式创建。  
 * 不仅仅是`initWithDictionary:`和`toDictionary`基于`attributeMapDictionary`映射来进行数据操作的。其在实现`NSCoding`和`NSCopying`协议时也都是基于`attributeMapDictionary`来处理的，所以一般建议在`attributeMapDictionary`中添加所有对象属性的映射。  
@@ -377,17 +381,22 @@ IPHHorizontalTableView因为被旋转，对于其`frame`,`x`和`y`,`width`和`he
 
 
 <br />
+
 <a name="JSCoreBridge">JSCoreBridge</a>
 =============================================================  
+
 <br />
+
 JSCoreBridge是基于iOS平台[Apache Cordova](http://cordova.apache.org/)修改的开源框架，Cordova的用处在于作为桥梁通过插件的方式实现了Web与Native之间的通信，而JSCoreBridge参考其进行删减修改（移除了开发者在平时用不上的类和方法），改写了其传统的通信机制，在保留了Cordova实用的功能前提下，精简优化了框架占用大小，并且省去了繁琐的工程设置选项，通过的新的实现方式大大提供了通信效率。JSCoreBridge开源框架力在为开发者提供更便捷的Hybird开发体验。 
 
 <br />
+
 **[点击查看JSCoreBridge详细说明](https://github.com/iPhuan/JSCoreBridge.git)**
 
 
 
 <br />
+
 :warning: <a name="RiskStatement">风险声明</a>
 -------------------------------------------------------------
 * 本框架虽然已进行过多次自测，但是并未进行大范围的试用，避免不了会有未知的bug产生，如果您使用本框架，由于未知bug所导致的风险需要您自行承担。 
@@ -396,7 +405,6 @@ JSCoreBridge是基于iOS平台[Apache Cordova](http://cordova.apache.org/)修改
 
 
 <br />
-=============================================================  
 
 <a name="OpenSourceDesc">开源说明</a>
 -------------------------------------------------------------
@@ -404,6 +412,7 @@ iPhuanLib框架意在分享和交流，本着开源的思想，现已上传至[G
 
 
 <br />
+
 <a name="ContactInfo">如何联系我</a>
 -------------------------------------------------------------  
 邮箱：iphuan@qq.com  
