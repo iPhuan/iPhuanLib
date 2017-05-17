@@ -54,26 +54,26 @@ return alertController;
 
 @implementation UIAlertController (IPHAdditions)
 
-+ (UIAlertController *)iph_alertControllerWithTitle:(NSString *)title
-                                            message:(NSString *)message
-                                     preferredStyle:(UIAlertControllerStyle)preferredStyle
-                                            handler:(IPHAlertActionHandeler)handler
-                             destructiveActionTitle:(NSString *)destructiveActionTitle
-                                  cancelActionTitle:(NSString *)cancelActionTitle
-                                  otherActionTitles:(NSString *)otherActionTitles, ... {
++ (instancetype)iph_alertControllerWithTitle:(NSString *)title
+                                     message:(NSString *)message
+                              preferredStyle:(UIAlertControllerStyle)preferredStyle
+                                     handler:(IPHAlertActionHandeler)handler
+                      destructiveActionTitle:(NSString *)destructiveActionTitle
+                           cancelActionTitle:(NSString *)cancelActionTitle
+                           otherActionTitles:(NSString *)otherActionTitles, ... {
     va_list args;
     UIViewController *VC = nil;
     IPH_ALERT_CONTROLLER_VA(VC, title, message, preferredStyle, handler, destructiveActionTitle, cancelActionTitle, otherActionTitles, args);
 }
 
-+ (UIAlertController *)iph_alertControllerWithTitle:(NSString *)title
-                                            message:(NSString *)message
-                                     preferredStyle:(UIAlertControllerStyle)preferredStyle
-                                            handler:(IPHAlertActionHandeler)handler
-                             destructiveActionTitle:(NSString *)destructiveActionTitle
-                                  cancelActionTitle:(NSString *)cancelActionTitle
-                                   otherActionTitle:(NSString *)otherActionTitle
-                                               args:(va_list)args {
++ (instancetype)iph_alertControllerWithTitle:(NSString *)title
+                                     message:(NSString *)message
+                              preferredStyle:(UIAlertControllerStyle)preferredStyle
+                                     handler:(IPHAlertActionHandeler)handler
+                      destructiveActionTitle:(NSString *)destructiveActionTitle
+                           cancelActionTitle:(NSString *)cancelActionTitle
+                            otherActionTitle:(NSString *)otherActionTitle
+                                        args:(va_list)args {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:preferredStyle];
     NSInteger index = -1;
     if (otherActionTitle) {
@@ -120,46 +120,46 @@ return alertController;
 
 @implementation UIAlertController (IPHAlertView)
 
-+ (UIAlertController *)iph_popupAlertViewInController:(UIViewController *)viewController
-                                                title:(NSString *)title
-                                              message:(NSString *)message {
++ (instancetype)iph_popupAlertViewInController:(UIViewController *)viewController
+                                         title:(NSString *)title
+                                       message:(NSString *)message {
     IPH_ALERT_CONTROLLER(viewController, title, message, nil, nil, JSC_ALERTVIEW_CANCEL_TITLE, nil);
 }
 
-+ (UIAlertController *)iph_popupAlertViewInController:(UIViewController *)viewController
-                                                title:(NSString *)title
-                                              message:(NSString *)message
-                                    cancelActionTitle:(NSString *)cancelActionTitle {
++ (instancetype)iph_popupAlertViewInController:(UIViewController *)viewController
+                                         title:(NSString *)title
+                                       message:(NSString *)message
+                             cancelActionTitle:(NSString *)cancelActionTitle {
     IPH_ALERT_CONTROLLER(viewController, title, message, nil, nil, cancelActionTitle, nil);
 }
 
-+ (UIAlertController *)iph_popupAlertViewInController:(UIViewController *)viewController
-                                                title:(NSString *)title
-                                              message:(NSString *)message
-                                              handler:(IPHAlertActionHandeler)handler
-                                    cancelActionTitle:(NSString *)cancelActionTitle
-                                    otherActionTitles:(NSString *)otherActionTitles, ... {
++ (instancetype)iph_popupAlertViewInController:(UIViewController *)viewController
+                                         title:(NSString *)title
+                                       message:(NSString *)message
+                                       handler:(IPHAlertActionHandeler)handler
+                             cancelActionTitle:(NSString *)cancelActionTitle
+                             otherActionTitles:(NSString *)otherActionTitles, ... {
     va_list args;
     IPH_ALERT_CONTROLLER_VA(viewController, title, message, UIAlertControllerStyleAlert, handler, nil, cancelActionTitle, otherActionTitles, args);
 }
 
-+ (UIAlertController *)iph_popupAlertViewInController:(UIViewController *)viewController
-                                                title:(NSString *)title
-                                              message:(NSString *)message
-                                              handler:(IPHAlertActionHandeler)handler
-                               destructiveActionTitle:(NSString *)destructiveActionTitle
-                                    cancelActionTitle:(NSString *)cancelActionTitle
-                                    otherActionTitles:(NSString *)otherActionTitles, ... {
++ (instancetype)iph_popupAlertViewInController:(UIViewController *)viewController
+                                         title:(NSString *)title
+                                       message:(NSString *)message
+                                       handler:(IPHAlertActionHandeler)handler
+                        destructiveActionTitle:(NSString *)destructiveActionTitle
+                             cancelActionTitle:(NSString *)cancelActionTitle
+                             otherActionTitles:(NSString *)otherActionTitles, ... {
     va_list args;
     IPH_ALERT_CONTROLLER_VA(viewController, title, message, UIAlertControllerStyleAlert, handler, destructiveActionTitle, cancelActionTitle, otherActionTitles, args);
 }
 
-+ (UIAlertController *)iph_alertViewControllerWithTitle:(NSString *)title
-                                                message:(NSString *)message
-                                                handler:(IPHAlertActionHandeler)handler
-                                 destructiveActionTitle:(NSString *)destructiveActionTitle
-                                      cancelActionTitle:(NSString *)cancelActionTitle
-                                      otherActionTitles:(NSString *)otherActionTitles, ... {
++ (instancetype)iph_alertViewControllerWithTitle:(NSString *)title
+                                         message:(NSString *)message
+                                         handler:(IPHAlertActionHandeler)handler
+                          destructiveActionTitle:(NSString *)destructiveActionTitle
+                               cancelActionTitle:(NSString *)cancelActionTitle
+                               otherActionTitles:(NSString *)otherActionTitles, ... {
     va_list args;
     UIViewController *VC = nil;
     IPH_ALERT_CONTROLLER_VA(VC, title, message, UIAlertControllerStyleAlert, handler, destructiveActionTitle, cancelActionTitle, otherActionTitles, args);
@@ -172,42 +172,42 @@ return alertController;
 
 @implementation UIAlertController (IPHActionSheet)
 
-+ (UIAlertController *)iph_showActionSheetInController:(UIViewController *)viewController
-                                                 title:(NSString *)title
-                                               message:(NSString *)message
-                                               handler:(IPHAlertActionHandeler)handler
-                                     otherActionTitles:(NSString *)otherActionTitles, ... {
++ (instancetype)iph_showActionSheetInController:(UIViewController *)viewController
+                                          title:(NSString *)title
+                                        message:(NSString *)message
+                                        handler:(IPHAlertActionHandeler)handler
+                              otherActionTitles:(NSString *)otherActionTitles, ... {
     va_list args;
     IPH_ALERT_CONTROLLER_VA(viewController, title, message, UIAlertControllerStyleActionSheet, handler, nil, @"取消", otherActionTitles, args);
 }
 
-+ (UIAlertController *)iph_showActionSheetInController:(UIViewController *)viewController
-                                                 title:(NSString *)title
-                                               message:(NSString *)message
-                                               handler:(IPHAlertActionHandeler)handler
-                                destructiveActionTitle:(NSString *)destructiveActionTitle
-                                     cancelActionTitle:(NSString *)cancelActionTitle
-                                     otherActionTitles:(NSString *)otherActionTitles, ... {
++ (instancetype)iph_showActionSheetInController:(UIViewController *)viewController
+                                          title:(NSString *)title
+                                        message:(NSString *)message
+                                        handler:(IPHAlertActionHandeler)handler
+                         destructiveActionTitle:(NSString *)destructiveActionTitle
+                              cancelActionTitle:(NSString *)cancelActionTitle
+                              otherActionTitles:(NSString *)otherActionTitles, ... {
     va_list args;
     IPH_ALERT_CONTROLLER_VA(viewController, title, message, UIAlertControllerStyleActionSheet, handler, destructiveActionTitle, cancelActionTitle, otherActionTitles, args);
 }
 
-+ (UIAlertController *)iph_actionSheetControllerWithTitle:(NSString *)title
-                                                  message:(NSString *)message
-                                                  handler:(IPHAlertActionHandeler)handler
-                                        cancelActionTitle:(NSString *)cancelActionTitle
-                                        otherActionTitles:(NSString *)otherActionTitles, ... {
++ (instancetype)iph_actionSheetControllerWithTitle:(NSString *)title
+                                           message:(NSString *)message
+                                           handler:(IPHAlertActionHandeler)handler
+                                 cancelActionTitle:(NSString *)cancelActionTitle
+                                 otherActionTitles:(NSString *)otherActionTitles, ... {
     va_list args;
     UIViewController *VC = nil;
     IPH_ALERT_CONTROLLER_VA(VC, title, message, UIAlertControllerStyleActionSheet, handler, nil, cancelActionTitle, otherActionTitles, args);
 }
 
-+ (UIAlertController *)iph_actionSheetControllerWithTitle:(NSString *)title
-                                                  message:(NSString *)message
-                                                  handler:(IPHAlertActionHandeler)handler
-                                   destructiveActionTitle:(NSString *)destructiveActionTitle
-                                        cancelActionTitle:(NSString *)cancelActionTitle
-                                        otherActionTitles:(NSString *)otherActionTitles, ... {
++ (instancetype)iph_actionSheetControllerWithTitle:(NSString *)title
+                                           message:(NSString *)message
+                                           handler:(IPHAlertActionHandeler)handler
+                            destructiveActionTitle:(NSString *)destructiveActionTitle
+                                 cancelActionTitle:(NSString *)cancelActionTitle
+                                 otherActionTitles:(NSString *)otherActionTitles, ... {
     va_list args;
     UIViewController *VC = nil;
     IPH_ALERT_CONTROLLER_VA(VC, title, message, UIAlertControllerStyleActionSheet, handler, destructiveActionTitle, cancelActionTitle, otherActionTitles, args);

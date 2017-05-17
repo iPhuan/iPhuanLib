@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IPHAvailability.h"
 
 @interface NSTimer (IPHBlockSupport)
 

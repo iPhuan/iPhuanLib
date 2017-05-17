@@ -57,11 +57,11 @@ NSString * const kIPHHotelUserDefaultCacheKey = @"IPHHotelUserDefaultCacheKey";
                 return;
             }
             // 支持编码后通过archivedData存档
-            [IPH_USER_DEFAULT setObject:[_hotel archivedData] forKey:kIPHHotelUserDefaultCacheKey];
+            [[NSUserDefaults standardUserDefaults] setObject:[_hotel archivedData] forKey:kIPHHotelUserDefaultCacheKey];
             [self iph_popupAlertViewWithTitle:@"存档成功！" message:nil];
             break;
         case 14:{
-            NSData *hotelData = [IPH_USER_DEFAULT objectForKey:kIPHHotelUserDefaultCacheKey];
+            NSData *hotelData = [[NSUserDefaults standardUserDefaults] objectForKey:kIPHHotelUserDefaultCacheKey];
             self.hotel = [NSKeyedUnarchiver unarchiveObjectWithData:hotelData];
             [self iph_popupAlertViewWithTitle:@"IPHHotel" message:[_hotel description]];
             break;

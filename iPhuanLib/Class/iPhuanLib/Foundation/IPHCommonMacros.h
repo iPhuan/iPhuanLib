@@ -6,15 +6,15 @@
 //  Copyright © 2017年 iPhuan. All rights reserved.
 //
 
-#pragma mark - System Singleton
+#pragma mark - System Singleton // 建议在之后的开发过程中直接使用系统方法去获取单列而废弃宏的用法，以减少工程的耦合性
 /*****************************************************************************************/
-#define IPH_APPLICATION         [UIApplication sharedApplication]
-#define IPH_APP_WINDOW          IPH_APPLICATION.keyWindow
-#define IPH_NOTIOFICATION       [NSNotificationCenter defaultCenter]
-#define IPH_USER_DEFAULT        [NSUserDefaults standardUserDefaults]
-#define IPH_FILE_MANAGER        [NSFileManager defaultManager]
-#define IPH_BUNDLE              [NSBundle mainBundle]
-#define IPH_DEVICE              [UIDevice currentDevice]
+#define IPH_APPLICATION         [UIApplication sharedApplication]       // Deprecated
+#define IPH_APP_WINDOW          IPH_APPLICATION.keyWindow               // Deprecated
+#define IPH_NOTIOFICATION       [NSNotificationCenter defaultCenter]    // Deprecated
+#define IPH_USER_DEFAULT        [NSUserDefaults standardUserDefaults]   // Deprecated
+#define IPH_FILE_MANAGER        [NSFileManager defaultManager]          // Deprecated
+#define IPH_BUNDLE              [NSBundle mainBundle]                   // Deprecated
+#define IPH_DEVICE              [UIDevice currentDevice]                // Deprecated
 
 
 

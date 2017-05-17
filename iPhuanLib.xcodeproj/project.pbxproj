@@ -107,6 +107,7 @@
 		E5A8CB361E61FBA10046946D /* IPHRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHRoom.m; sourceTree = "<group>"; };
 		E5A8CB381E61FBB70046946D /* IPHImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHImage.h; sourceTree = "<group>"; };
 		E5A8CB391E61FBB70046946D /* IPHImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHImage.m; sourceTree = "<group>"; };
+		E5EA07D31ECC150600FC7A9D /* IPHAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHAvailability.h; sourceTree = "<group>"; };
 		E5EC08DD1E8E97C4000E6767 /* IPHConditionSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHConditionSelectorViewController.h; sourceTree = "<group>"; };
 		E5EC08DE1E8E97C4000E6767 /* IPHConditionSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHConditionSelectorViewController.m; sourceTree = "<group>"; };
 		E5EC08DF1E8E97C4000E6767 /* IPHConditionSelectorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IPHConditionSelectorViewController.xib; sourceTree = "<group>"; };
@@ -276,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				E5206DC71E589AB100E3EE50 /* iPhuanLib.h */,
+				E5EA07D31ECC150600FC7A9D /* IPHAvailability.h */,
 				E5206DC81E589B3A00E3EE50 /* IPHDebug.h */,
 				E5734B761E5BEEAA004E0F2A /* IPHCommonMacros.h */,
 				E5206DCA1E58A6E300E3EE50 /* IPHBaseModel.h */,

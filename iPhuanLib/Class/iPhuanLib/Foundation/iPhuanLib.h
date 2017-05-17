@@ -11,6 +11,7 @@
 #import <UIKit/UIKit.h>
 
 #import "IPHDebug.h"
+#import "IPHAvailability.h"
 #import "IPHCommonMacros.h"
 #import "IPHBaseModel.h"
 #import "IPHViewNibUtils.h"

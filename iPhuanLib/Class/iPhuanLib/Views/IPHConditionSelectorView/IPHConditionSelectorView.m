@@ -41,7 +41,7 @@ static NSString * const kIPHConfirmCellReuseIdentifier = @"IPHConfirmCell";
         [self addSubview:_tableView];
         [_tableView registerClass:[IPHConditionCell class] forCellReuseIdentifier:kIPHConditionCellReuseIdentifier];
         
-        BOOL isConfirmCellXibExist = [IPH_FILE_MANAGER fileExistsAtPath:[IPH_BUNDLE pathForResource:kIPHConfirmCellReuseIdentifier ofType:@"xib"]];
+        BOOL isConfirmCellXibExist = [[NSFileManager defaultManager] fileExistsAtPath:[[NSBundle mainBundle] pathForResource:kIPHConfirmCellReuseIdentifier ofType:@"xib"]];
         
         if (isConfirmCellXibExist) {
             UINib *nib = [UINib nibWithNibName:kIPHConfirmCellReuseIdentifier bundle:nil];
@@ -78,7 +78,7 @@ static NSString * const kIPHConfirmCellReuseIdentifier = @"IPHConfirmCell";
 
 
 - (void)show{
-    UIView *superView = IPH_APP_WINDOW;
+    UIView *superView = [UIApplication sharedApplication].keyWindow;
     UIView *maskView = [[UIView alloc] initWithFrame:superView.bounds];
     maskView.tag = kIPHMaskViewTag;
     maskView.backgroundColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.7f];
