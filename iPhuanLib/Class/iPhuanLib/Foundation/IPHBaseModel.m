@@ -9,10 +9,6 @@
 #import "IPHBaseModel.h"
 #import <objc/message.h>
 
-#ifndef IPHLog
-#define IPHLog  NSLog
-#endif
-
 
 @implementation IPHBaseModel
 
@@ -36,6 +32,12 @@
     return @[@"NIL", @"Nil", @"nil", @"NULL", @"Null", @"null", @"(NULL)", @"(Null)", @"(null)", @"<NULL>", @"<Null>", @"<null>"];
 }
 
+- (__kindof IPHBaseModel *)handleAttributeValue:(__kindof IPHBaseModel *)object forAttributeName:(NSString *)attributeName {
+    
+    // 父类不做任何处理，只返回原始值
+    return object;
+}
+
 
 #pragma mark - init
 
@@ -47,12 +49,12 @@
 }
 
 - (void)p_setAttributes:(NSDictionary*)dataDictionary {
-    if (dataDictionary == nil) {
+    if (dataDictionary.count == 0) {
         return;
     }
     
     NSDictionary *attrMapDic = [self attributeMapDictionary];
-    if (attrMapDic == nil || attrMapDic.count == 0) {
+    if (attrMapDic.count == 0) {
         return;
     }
     
@@ -75,9 +77,9 @@
                 value = defaultValueDic[propertyName];
             }
             
-            SEL setSel = [self p_setterSelForPropertyName:propertyName];
+            SEL setSel = [self p_setterSelectorWithPropertyName:propertyName];
             //使用objc_msgSend而不使用setValue是为了保证可以通过重写Set的方法自行给给数组和IPHBaseModel对象处理数据。
-            ((id (*)(id, SEL, id))objc_msgSend)(self, setSel, value);
+            ((void (*)(id, SEL, id))objc_msgSend)(self, setSel, value);
         }
     }];
     
@@ -85,10 +87,19 @@
     [self p_setArrayAndObjectAttributes];
 }
 
--(SEL)p_setterSelForPropertyName:(NSString *)propertyName{
-    NSString *capital = [[propertyName substringToIndex:1] uppercaseString];
-    NSString *setSelStr = [NSString stringWithFormat:@"set%@%@:", capital, [propertyName substringFromIndex:1]];
-    return NSSelectorFromString(setSelStr);
+// 验证映射是否正确
+- (BOOL)p_validatePropertyNamed:(NSString *)propertyName {
+    SEL getSel = NSSelectorFromString(propertyName);
+    NSMethodSignature *signature = [self methodSignatureForSelector:getSel];
+    NSAssert(signature, @"'%@' is not a property, check you return dictionary in 'attributeMapDictionary'.", propertyName);
+    
+    if (signature) {
+        BOOL available = (strcmp(signature.methodReturnType, @encode(id)) == 0);
+        NSAssert(available, @"'%@' must be an object!", propertyName);
+        return available;
+    }
+    
+    return NO;
 }
 
 - (void)p_setArrayAndObjectAttributes {
@@ -99,17 +110,19 @@
     }
     
     [typesDic enumerateKeysAndObjectsUsingBlock:^(NSString *propertyName, NSString *propertyType, BOOL *stop) {
-        // 检查是否为属性名是否正确
+        // 检查属性名是否正确
         SEL getSel = NSSelectorFromString(propertyName);
-        if (![self respondsToSelector:getSel]) {
-            IPHLog(@"Error: %@ is not a property, check you return dictionary in 'arrayElementsAndObjectTypesDictionary'.", propertyName);
+        BOOL canResponds = [self respondsToSelector:getSel];
+        NSAssert(canResponds, @"'%@' is not a property, check you return dictionary in 'attributeTypesMapDictionary'.", propertyName);
+        if (!canResponds) {
             return;
         }
         
         // 检查对象是否为IPHBaseModel的子类
         Class propertyClass = NSClassFromString(propertyType);
-        if (![propertyClass isSubclassOfClass:[IPHBaseModel class]]) {
-            IPHLog(@"Error: %@ is not a 'IPHBaseModel' Class, check you return dictionary in 'arrayElementsAndObjectTypesDictionary'.", propertyType);
+        BOOL isSubclass = [propertyClass isSubclassOfClass:[IPHBaseModel class]];
+        NSAssert(isSubclass, @"'%@' is not a 'IPHBaseModel' Class, check you return dictionary in 'attributeTypesMapDictionary'.", propertyType);
+        if (!isSubclass) {
             return;
         }
         
@@ -128,6 +141,7 @@
                 
                 @autoreleasepool {
                     id model = [[propertyClass alloc] initWithDictionary:dic];
+                    model = [self handleAttributeValue:model forAttributeName:propertyName];
                     [models addObject:model];
                 }
             }];
@@ -138,6 +152,7 @@
             
         }else if ([originalValue isKindOfClass:[NSDictionary class]]) {
             transformedValue = [[propertyClass alloc] initWithDictionary:originalValue];
+            transformedValue = [self handleAttributeValue:transformedValue forAttributeName:propertyName];
         }
         
         if (transformedValue) {
@@ -147,56 +162,32 @@
 
 }
 
-
-
-
 #pragma mark - Override
 
 - (NSString *)description {
-    // 只打印映射中的属性
-    NSDictionary *attrMapDic = [self attributeMapDictionary];
-    NSMutableString *attrsDesc = [NSMutableString stringWithCapacity:attrMapDic.count];
-    if (attrMapDic == nil || attrMapDic.count == 0) {
-        return nil;
+    NSDictionary *dic = [self p_toDictionaryForDescription:YES];
+    if (dic == nil) {
+        return [NSString stringWithFormat:@"{%@}", self];
     }
     
-    [attrMapDic enumerateKeysAndObjectsUsingBlock:^(NSString *propertyName, id obj, BOOL *stop) {
-        if ([self p_validatePropertyNamed:propertyName]) {
-            id value = [self valueForKey:propertyName];
-            
-            NSString *valueDesc = nil;
-            if (value == nil || [value isKindOfClass:[NSString class]]) {
-                valueDesc = value?:@"nil";
-            }else if ([value isKindOfClass:[NSArray class]]){
-                NSArray *array = (NSArray *)value;
-                NSMutableString *arrayDesc = [NSMutableString stringWithCapacity:array.count];
-                [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                    [arrayDesc appendFormat:@" %@", [obj description]];
-                }];
-                valueDesc = arrayDesc;
-            }else {
-                valueDesc = [value description];
-            }
-            
-            [attrsDesc appendFormat:@" [%@=%@] ",propertyName, valueDesc];
-        }
-    }];
-    
-    NSString *desc = [NSString stringWithFormat:@"%@:{%@}",[self class], attrsDesc];
+    NSString *desc = [dic description];
+    desc = [NSString stringWithCString:[desc cStringUsingEncoding:NSUTF8StringEncoding] encoding:NSNonLossyASCIIStringEncoding];
     return desc;
 }
 
 - (id)copyWithZone:(NSZone *)zone {
     id object = [[self class] allocWithZone:zone];
-    
-    // 只copy映射中的属性
-    NSDictionary *attrMapDic = [self attributeMapDictionary];
-    if (attrMapDic == nil || attrMapDic.count == 0) {
+    if (object == nil) {
         return object;
     }
     
-    [attrMapDic enumerateKeysAndObjectsUsingBlock:^(NSString *propertyName, id obj, BOOL *stop) {
-        if ([self p_validatePropertyNamed:propertyName]) {
+    NSArray *propertyNames = [self p_propertyNames];
+    if (propertyNames.count == 0) {
+        return object;
+    }
+    
+    [propertyNames enumerateObjectsUsingBlock:^(NSString *propertyName, NSUInteger index, BOOL *stop) {
+        if ([self p_hasSetterSelectorForPropertyNamed:propertyName]) {
             id value = [self valueForKey:propertyName];
             [object setValue:value forKey:propertyName];
         }
@@ -208,14 +199,13 @@
 - (id)initWithCoder:(NSCoder *)decoder {
     self = [super init];
     if (self) {
-        // 只decode映射中的属性
-        NSDictionary *attrMapDic = [self attributeMapDictionary];
-        if (attrMapDic == nil || attrMapDic.count == 0) {
+        NSArray *propertyNames = [self p_propertyNames];
+        if (propertyNames.count == 0) {
             return self;
         }
         
-        [attrMapDic enumerateKeysAndObjectsUsingBlock:^(NSString *propertyName, id obj, BOOL *stop) {
-            if ([self p_validatePropertyNamed:propertyName]) {
+        [propertyNames enumerateObjectsUsingBlock:^(NSString *propertyName, NSUInteger index, BOOL *stop) {
+            if ([self p_hasSetterSelectorForPropertyNamed:propertyName]) {
                 id value = [decoder decodeObjectForKey:propertyName];
                 [self setValue:value forKey:propertyName];
             }
@@ -225,38 +215,66 @@
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
-    // 只encode映射中的属性
-    NSDictionary *attrMapDic = [self attributeMapDictionary];
-    if (attrMapDic == nil || attrMapDic.count == 0) {
+    NSArray *propertyNames = [self p_propertyNames];
+    if (propertyNames.count == 0) {
         return;
     }
     
-    [attrMapDic enumerateKeysAndObjectsUsingBlock:^(NSString *propertyName, id obj, BOOL *stop) {
-        if ([self p_validatePropertyNamed:propertyName]) {
+    [propertyNames enumerateObjectsUsingBlock:^(NSString *propertyName, NSUInteger index, BOOL *stop) {
+        if ([self p_hasSetterSelectorForPropertyNamed:propertyName]) {
             id value = [self valueForKey:propertyName];
-            if (value) {
-                [encoder encodeObject:value forKey:propertyName];
-            }
+            [encoder encodeObject:value forKey:propertyName];
         }
     }];
 }
 
 #pragma mark - Public
-
 - (NSDictionary *)toDictionary {
-    // 只转化映射中的属性
-    NSDictionary *attrMapDic = [self attributeMapDictionary];
-    if (attrMapDic == nil || attrMapDic.count == 0) {
+    return [self p_toDictionaryForDescription:NO];
+}
+
+- (NSDictionary *)p_toDictionaryForDescription:(BOOL)yesOrNo {
+    NSArray *propertyNames = [self p_propertyNames];
+    if (propertyNames.count == 0) {
         return nil;
     }
     
-    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] initWithCapacity:attrMapDic.count];
-    [attrMapDic enumerateKeysAndObjectsUsingBlock:^(NSString *propertyName, id obj, BOOL *stop) {
-        if ([self p_validatePropertyNamed:propertyName]) {
-            id value = [self valueForKey:propertyName];
-            value = value?:@"";
-            dictionary[propertyName] = value;
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] initWithCapacity:propertyNames.count];
+    [propertyNames enumerateObjectsUsingBlock:^(NSString *propertyName, NSUInteger index, BOOL *stop) {
+        id value = [self valueForKey:propertyName];
+        if (value == nil) {
+            if (yesOrNo) {
+                value = @"nil";
+            } else {
+                return;
+            }
         }
+        
+        if ([value isKindOfClass:[NSArray class]]) {
+            NSArray *arrayData = (NSArray *)value;
+            NSMutableArray *dataDics = [[NSMutableArray alloc] initWithCapacity:arrayData.count];
+            [arrayData enumerateObjectsUsingBlock:^(IPHBaseModel *model, NSUInteger index, BOOL *stop) {
+                // 如果数组里面的元素不是IPHBaseModel对象，则停止处理
+                if (![model isKindOfClass:[IPHBaseModel class]]) {
+                    *stop = YES;
+                }
+                
+                @autoreleasepool {
+                    NSDictionary *dataDic = [model toDictionary];
+                    [dataDics addObject:dataDic];
+                }
+            }];
+            
+            if (dataDics.count > 0) {
+                value = [dataDics copy];
+            }
+            
+        }else if ([value isKindOfClass:[IPHBaseModel class]]) {
+            value = [value toDictionary];
+        }
+        
+        dictionary[propertyName] = value;
+
     }];
     
     return dictionary;
@@ -264,24 +282,38 @@
 
 
 - (NSData *)archivedData{
-    return [NSKeyedArchiver archivedDataWithRootObject:self];
-}
-
-
-// 验证映射是否正确
-- (BOOL)p_validatePropertyNamed:(NSString *)propertyName {
-    SEL getSel = NSSelectorFromString(propertyName);
-    NSMethodSignature *signature = [self methodSignatureForSelector:getSel];
-    if (signature) {
-        BOOL available = (strcmp(signature.methodReturnType, @encode(id)) == 0);
-        NSAssert(available, @"'%@' must be an object!", propertyName);
-        return available;
+    if (self) {
+        return [NSKeyedArchiver archivedDataWithRootObject:self];
     }
-
-    return NO;
+    return nil;
 }
 
 
+#pragma mark - Private
 
+- (NSArray *)p_propertyNames {
+    NSMutableArray *propertyNames = [[NSMutableArray alloc] init];
+    unsigned int propertyCount = 0;
+    objc_property_t *properties = class_copyPropertyList([self class], &propertyCount);
+    for (unsigned int i = 0; i < propertyCount; ++i) {
+        objc_property_t property = properties[i];
+        const char * name = property_getName(property);
+        [propertyNames addObject:[NSString stringWithUTF8String:name]];
+    }
+    free(properties);
+    return [propertyNames copy];
+}
+
+
+- (BOOL)p_hasSetterSelectorForPropertyNamed:(NSString*)propertyName {
+    SEL sel = [self p_setterSelectorWithPropertyName:propertyName];
+    return [self respondsToSelector:sel];
+}
+
+- (SEL)p_setterSelectorWithPropertyName:(NSString*)propertyName {
+    NSString *capital = [[propertyName substringToIndex:1] uppercaseString];
+    NSString *setSel = [NSString stringWithFormat:@"set%@%@:", capital, [propertyName substringFromIndex:1]];
+    return NSSelectorFromString(setSel);
+}
 
 @end

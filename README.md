@@ -35,6 +35,8 @@ iPhuanLib是本人在平时的开发过程中知识积累后整理出来的一�
 * [风险声明](#RiskStatement)
 * [开源说明](#OpenSourceDesc)
 * [如何联系我](#ContactInfo)  
+* [版本更新记录](#UpdateInfo)  
+
 
 
 <br />
@@ -421,6 +423,28 @@ QQ：519310392
 > 添加QQ时请备注iPhuanLib
 
 
+<br />
+<br />
+<br />
+
+<a name="UpdateInfo">版本更新记录</a>
+=============================================================  
+
+### [V1.0.0](https://github.com/iPhuan/iPhuanLib/tree/1.0.0)
+更新日期：2017年6月14日  
+更新说明：  
+> * 发布iPhuanLib第一个版本。  
+
+-------------------------------------------------------------  
+
+### [V1.0.1](https://github.com/iPhuan/iPhuanLib/tree/1.0.1)
+更新日期：2017年6月14日  
+更新说明：  
+> * 新增JSCCordova，JSCCordova能帮助JSCoreBridge更兼容Cordova用法。  
+
+文档相应介绍：[点击查看](#4.4)  
+
+------------------------------------------------------------- 
 
 
 

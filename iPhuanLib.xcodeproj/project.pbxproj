@@ -27,6 +27,12 @@
 		E5A8CB341E61FB8A0046946D /* IPHHotel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A8CB331E61FB8A0046946D /* IPHHotel.m */; };
 		E5A8CB371E61FBA10046946D /* IPHRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A8CB361E61FBA10046946D /* IPHRoom.m */; };
 		E5A8CB3A1E61FBB70046946D /* IPHImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A8CB391E61FBB70046946D /* IPHImage.m */; };
+		E5BD77B11EF0134B008ECF32 /* NSObject+IPHBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BD77B01EF0134B008ECF32 /* NSObject+IPHBaseModel.m */; };
+		E5CA982A1EF1163D00DD1D78 /* IPHBaseModelProtocalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CA98221EF1163D00DD1D78 /* IPHBaseModelProtocalViewController.m */; };
+		E5CA982B1EF1163D00DD1D78 /* IPHBaseModelProtocalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5CA98231EF1163D00DD1D78 /* IPHBaseModelProtocalViewController.xib */; };
+		E5CA982C1EF1163D00DD1D78 /* IPHOverseasHotel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CA98251EF1163D00DD1D78 /* IPHOverseasHotel.m */; };
+		E5CA982D1EF1163D00DD1D78 /* IPHAppImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CA98271EF1163D00DD1D78 /* IPHAppImage.m */; };
+		E5CA982E1EF1163D00DD1D78 /* IPHDeluxeRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CA98291EF1163D00DD1D78 /* IPHDeluxeRoom.m */; };
 		E5EC08E81E8E97C4000E6767 /* IPHConditionSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EC08DE1E8E97C4000E6767 /* IPHConditionSelectorViewController.m */; };
 		E5EC08E91E8E97C4000E6767 /* IPHConditionSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5EC08DF1E8E97C4000E6767 /* IPHConditionSelectorViewController.xib */; };
 		E5EC08EA1E8E97C4000E6767 /* IPHHorizontalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EC08E21E8E97C4000E6767 /* IPHHorizontalTableViewCell.m */; };
@@ -107,6 +113,18 @@
 		E5A8CB361E61FBA10046946D /* IPHRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHRoom.m; sourceTree = "<group>"; };
 		E5A8CB381E61FBB70046946D /* IPHImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHImage.h; sourceTree = "<group>"; };
 		E5A8CB391E61FBB70046946D /* IPHImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHImage.m; sourceTree = "<group>"; };
+		E5BD77AC1EF00BD0008ECF32 /* IPHBaseModelProtocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHBaseModelProtocal.h; sourceTree = "<group>"; };
+		E5BD77AF1EF0134B008ECF32 /* NSObject+IPHBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+IPHBaseModel.h"; sourceTree = "<group>"; };
+		E5BD77B01EF0134B008ECF32 /* NSObject+IPHBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+IPHBaseModel.m"; sourceTree = "<group>"; };
+		E5CA98211EF1163D00DD1D78 /* IPHBaseModelProtocalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHBaseModelProtocalViewController.h; sourceTree = "<group>"; };
+		E5CA98221EF1163D00DD1D78 /* IPHBaseModelProtocalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHBaseModelProtocalViewController.m; sourceTree = "<group>"; };
+		E5CA98231EF1163D00DD1D78 /* IPHBaseModelProtocalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IPHBaseModelProtocalViewController.xib; sourceTree = "<group>"; };
+		E5CA98241EF1163D00DD1D78 /* IPHOverseasHotel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHOverseasHotel.h; sourceTree = "<group>"; };
+		E5CA98251EF1163D00DD1D78 /* IPHOverseasHotel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHOverseasHotel.m; sourceTree = "<group>"; };
+		E5CA98261EF1163D00DD1D78 /* IPHAppImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHAppImage.h; sourceTree = "<group>"; };
+		E5CA98271EF1163D00DD1D78 /* IPHAppImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHAppImage.m; sourceTree = "<group>"; };
+		E5CA98281EF1163D00DD1D78 /* IPHDeluxeRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHDeluxeRoom.h; sourceTree = "<group>"; };
+		E5CA98291EF1163D00DD1D78 /* IPHDeluxeRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHDeluxeRoom.m; sourceTree = "<group>"; };
 		E5EA07D31ECC150600FC7A9D /* IPHAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHAvailability.h; sourceTree = "<group>"; };
 		E5EC08DD1E8E97C4000E6767 /* IPHConditionSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPHConditionSelectorViewController.h; sourceTree = "<group>"; };
 		E5EC08DE1E8E97C4000E6767 /* IPHConditionSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPHConditionSelectorViewController.m; sourceTree = "<group>"; };
@@ -243,6 +261,7 @@
 		E5165D141E5860030021D8E1 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				E5CA98201EF1163D00DD1D78 /* IPHBaseModelProtocal */,
 				E5A8CB251E61E8AD0046946D /* IPHBaseModel */,
 				E5EC08E01E8E97C4000E6767 /* IPHHorizontalTableView */,
 				E5EC08DC1E8E97C4000E6767 /* IPHConditionSelectorView */,
@@ -256,7 +275,6 @@
 			isa = PBXGroup;
 			children = (
 				E5165D251E5860030021D8E1 /* Foundation */,
-				E5165D221E5860030021D8E1 /* Common */,
 				E5165D2E1E5860030021D8E1 /* Utils */,
 				E5ED7B501E5DFEC3002632C0 /* Additions */,
 				E5165D321E5860030021D8E1 /* Views */,
@@ -264,13 +282,6 @@
 				E5165D2B1E5860030021D8E1 /* Others */,
 			);
 			path = iPhuanLib;
-			sourceTree = "<group>";
-		};
-		E5165D221E5860030021D8E1 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		E5165D251E5860030021D8E1 /* Foundation */ = {
@@ -282,6 +293,9 @@
 				E5734B761E5BEEAA004E0F2A /* IPHCommonMacros.h */,
 				E5206DCA1E58A6E300E3EE50 /* IPHBaseModel.h */,
 				E5206DCB1E58A6E300E3EE50 /* IPHBaseModel.m */,
+				E5BD77AC1EF00BD0008ECF32 /* IPHBaseModelProtocal.h */,
+				E5BD77AF1EF0134B008ECF32 /* NSObject+IPHBaseModel.h */,
+				E5BD77B01EF0134B008ECF32 /* NSObject+IPHBaseModel.m */,
 				E5734B7B1E5C2A31004E0F2A /* IPHViewNibUtils.h */,
 				E5734B7C1E5C2A31004E0F2A /* IPHViewNibUtils.m */,
 				E5734B771E5BF1C5004E0F2A /* UIView+IPHAdditions.h */,
@@ -338,6 +352,22 @@
 				E5A8CB391E61FBB70046946D /* IPHImage.m */,
 			);
 			path = IPHBaseModel;
+			sourceTree = "<group>";
+		};
+		E5CA98201EF1163D00DD1D78 /* IPHBaseModelProtocal */ = {
+			isa = PBXGroup;
+			children = (
+				E5CA98211EF1163D00DD1D78 /* IPHBaseModelProtocalViewController.h */,
+				E5CA98221EF1163D00DD1D78 /* IPHBaseModelProtocalViewController.m */,
+				E5CA98231EF1163D00DD1D78 /* IPHBaseModelProtocalViewController.xib */,
+				E5CA98241EF1163D00DD1D78 /* IPHOverseasHotel.h */,
+				E5CA98251EF1163D00DD1D78 /* IPHOverseasHotel.m */,
+				E5CA98281EF1163D00DD1D78 /* IPHDeluxeRoom.h */,
+				E5CA98291EF1163D00DD1D78 /* IPHDeluxeRoom.m */,
+				E5CA98261EF1163D00DD1D78 /* IPHAppImage.h */,
+				E5CA98271EF1163D00DD1D78 /* IPHAppImage.m */,
+			);
+			path = IPHBaseModelProtocal;
 			sourceTree = "<group>";
 		};
 		E5EC08DC1E8E97C4000E6767 /* IPHConditionSelectorView */ = {
@@ -492,7 +522,7 @@
 				TargetAttributes = {
 					E5165CDC1E585FDA0021D8E1 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = ZHS6TJ7QNS;
+						DevelopmentTeam = 83WKLTMWJV;
 						ProvisioningStyle = Automatic;
 					};
 					E5165CF51E585FDA0021D8E1 = {
@@ -534,6 +564,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5CA982B1EF1163D00DD1D78 /* IPHBaseModelProtocalViewController.xib in Resources */,
 				E5165CF01E585FDA0021D8E1 /* LaunchScreen.storyboard in Resources */,
 				E5165CED1E585FDA0021D8E1 /* Assets.xcassets in Resources */,
 				E5EC08ED1E8E97C4000E6767 /* IPHHorizontalTableViewController.xib in Resources */,
@@ -570,7 +601,9 @@
 			files = (
 				E5A8CB371E61FBA10046946D /* IPHRoom.m in Sources */,
 				E5A8CB3A1E61FBB70046946D /* IPHImage.m in Sources */,
+				E5CA982E1EF1163D00DD1D78 /* IPHDeluxeRoom.m in Sources */,
 				E5165D461E5860030021D8E1 /* IPHLocationManager.m in Sources */,
+				E5CA982A1EF1163D00DD1D78 /* IPHBaseModelProtocalViewController.m in Sources */,
 				E5EC08EA1E8E97C4000E6767 /* IPHHorizontalTableViewCell.m in Sources */,
 				E5ED7B611E5E0B76002632C0 /* IPHHorizontalTableView.m in Sources */,
 				E5EC08E81E8E97C4000E6767 /* IPHConditionSelectorViewController.m in Sources */,
@@ -581,11 +614,14 @@
 				E5EC08F21E8E98F2000E6767 /* IPHCondition.m in Sources */,
 				E5ED7B601E5E0B76002632C0 /* IPHHorizontalTableView+UIScrollView.m in Sources */,
 				E5ED7B5A1E5DFEC3002632C0 /* UIViewController+IPHAlertController.m in Sources */,
+				E5BD77B11EF0134B008ECF32 /* NSObject+IPHBaseModel.m in Sources */,
 				E5A8CB2C1E61EAD80046946D /* IPHBaseModelViewController.m in Sources */,
 				E5165CE21E585FDA0021D8E1 /* main.m in Sources */,
 				E5ED7B6A1E5E1A13002632C0 /* IPHConditionCell.m in Sources */,
 				E5734B831E5C34B2004E0F2A /* IPHPathUtils.m in Sources */,
 				E5734B7D1E5C2A31004E0F2A /* IPHViewNibUtils.m in Sources */,
+				E5CA982C1EF1163D00DD1D78 /* IPHOverseasHotel.m in Sources */,
+				E5CA982D1EF1163D00DD1D78 /* IPHAppImage.m in Sources */,
 				E5ED7B6C1E5E1A13002632C0 /* IPHConfirmCell.m in Sources */,
 				E5ED7B6B1E5E1A13002632C0 /* IPHConditionSelectorView.m in Sources */,
 				E5734B791E5BF1C5004E0F2A /* UIView+IPHAdditions.m in Sources */,
@@ -742,7 +778,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ZHS6TJ7QNS;
+				DEVELOPMENT_TEAM = 83WKLTMWJV;
 				GCC_PREFIX_HEADER = "iPhuanLib/iPhuanLib-prefix.pch";
 				INFOPLIST_FILE = iPhuanLib/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -756,7 +792,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ZHS6TJ7QNS;
+				DEVELOPMENT_TEAM = 83WKLTMWJV;
 				GCC_PREFIX_HEADER = "iPhuanLib/iPhuanLib-prefix.pch";
 				INFOPLIST_FILE = iPhuanLib/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

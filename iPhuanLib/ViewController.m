@@ -23,11 +23,13 @@
     [super viewDidLoad];
     self.title = @"iPhuanLib";
     self.demoTitles = @[@"IPHBaseModel",
+                        @"IPHBaseModelProtocal",
                         @"IPHHorizontalTableView",
                         @"IPHConditionSelectorView",
                         @"IPHLocationManager"];
     
     self.pushViewControllerNames = @[@"IPHBaseModelViewController",
+                                     @"IPHBaseModelProtocalViewController",
                                      @"IPHHorizontalTableViewController",
                                      @"IPHConditionSelectorViewController",
                                      @"IPHLocationManagerViewController"];

@@ -12,21 +12,21 @@
 #define IPHScreenWidth         [UIScreen mainScreen].bounds.size.width
 #define IPHScreenHeight        [UIScreen mainScreen].bounds.size.height
 #define IPHScreenBounds        [UIScreen mainScreen].bounds
-#define IPHSizeMultiple        (IPHScreenWidth/320.0)
-#define IPHFitSize(X)          ((X) * IPHSizeMultiple)
-#define IPH6SizeMultiple       (IPHScreenWidth/375.0)
+#define IPH6SizeMultiple       (IPHScreenWidth <= 375?1.0:(IPHScreenWidth/375.0))
 #define IPH6FitSize(X)         ((X) * IPH6SizeMultiple)
+
 
 
 #pragma mark - Conditional Judgment
 /*****************************************************************************************/
-#define IPHIsAvailableString(X)        (X && ![@"" isEqualToString:X])
-#define IPHIsUnAvailableString(X)      (!X || [@"" isEqualToString:X])
-#define IPHUnNilString(X)              X?:@""
+#define IPHIsAvailableString(X)        ([X isKindOfClass:[NSString class]] && ![@"" isEqualToString:X])
+#define IPHIsUnAvailableString(X)      (![X isKindOfClass:[NSString class]] || [@"" isEqualToString:X])
+#define IPHUnNilString(X)              ([X isKindOfClass:[NSString class]]?X:@"")
 #define IPHSetAvailableValueForString(string, value)   if (IPHIsUnAvailableString(string)) { \
 string = value; \
 }
 #define IPHIsAtLeastiOSVersion(X)      ([[[UIDevice currentDevice] systemVersion] compare:X options:NSNumericSearch] != NSOrderedAscending)
+
 
 
 #pragma mark - Color
@@ -34,6 +34,8 @@ string = value; \
 #define IPHRGBColor(r,g,b)         [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1.0f]
 #define IPHRGBAColor(r,g,b,a)      [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 #define IPHHexColor(c)             [UIColor colorWithRed:((c>>16)&0xFF)/255.0f green:((c>>8)&0xFF)/255.0f blue:(c&0xFF)/255.0f alpha:1.0f]
+
+
 
 #pragma mark - Others
 /*****************************************************************************************/
@@ -56,14 +58,22 @@ string = value; \
 }
 
 
+
+
+
 #pragma mark - Deprecated
 
 #pragma mark - System Singleton // 建议在之后的开发过程中直接使用系统方法去获取单列而废弃宏的用法，以减少工程的耦合性
 /*****************************************************************************************/
-#define IPH_APPLICATION         [UIApplication sharedApplication]       // Deprecated
-#define IPH_APP_WINDOW          IPH_APPLICATION.keyWindow               // Deprecated
-#define IPH_NOTIOFICATION       [NSNotificationCenter defaultCenter]    // Deprecated
-#define IPH_USER_DEFAULT        [NSUserDefaults standardUserDefaults]   // Deprecated
-#define IPH_FILE_MANAGER        [NSFileManager defaultManager]          // Deprecated
-#define IPH_BUNDLE              [NSBundle mainBundle]                   // Deprecated
-#define IPH_DEVICE              [UIDevice currentDevice]                // Deprecated
+#define IPH_APPLICATION         [UIApplication sharedApplication]       // First deprecated in iPhuanLib 1.0.1
+#define IPH_APP_WINDOW          IPH_APPLICATION.keyWindow               // First deprecated in iPhuanLib 1.0.1
+#define IPH_NOTIOFICATION       [NSNotificationCenter defaultCenter]    // First deprecated in iPhuanLib 1.0.1
+#define IPH_USER_DEFAULT        [NSUserDefaults standardUserDefaults]   // First deprecated in iPhuanLib 1.0.1
+#define IPH_FILE_MANAGER        [NSFileManager defaultManager]          // First deprecated in iPhuanLib 1.0.1
+#define IPH_BUNDLE              [NSBundle mainBundle]                   // First deprecated in iPhuanLib 1.0.1
+#define IPH_DEVICE              [UIDevice currentDevice]                // First deprecated in iPhuanLib 1.0.1
+
+#pragma mark - Geometry // 请使用IPH6SizeMultiple和IPH6FitSize()，符合设计规范
+/*****************************************************************************************/
+#define IPHSizeMultiple        (IPHScreenWidth/320.0)                   // First deprecated in iPhuanLib 1.0.1
+#define IPHFitSize(X)          ((X) * IPHSizeMultiple)                  // First deprecated in iPhuanLib 1.0.1
