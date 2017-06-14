@@ -15,24 +15,6 @@
 
 
 
-/*
-如果属性为对象或者数组，且对象为IPHBaseModel的子类或者数组的元素也都为IPHBaseModel的子类，可通过该映射来为对应属性初始化对应类型的数据，Key为属性的名称，当属性为IPHBaseModel子类时Value为该属性的类名，当属性为数组时，Value为该数组中元素的类名。
-如：
-@interface IPHTestModel : IPHBaseModel
-@property (nonatomic, readonly, strong) IPHHotel *hotel;
-@property (nonatomic, readonly, copy) NSArray<IPHHotel *> *hotels;
- 
-IPHHotel为IPHBaseModel的子类，
-- (NSDictionary *)attributeTypesMapDictionary {
-    return @{@"hotel": @"IPHHotel",
-             @"hotels": @"IPHHotel"};
-}
-通过该映射，在通过initWithDictionary方法给IPHTestModel对象初始化的时候，除了普通的字符串属性可以直接赋值外，对象属性和数组属性也能正确的初始化为对应类型的数据，hotel属性里面是IPHHotel对象而不是没有转化过的字典，hotels元素里面也都对应为IPHHotel对象。
-*/
-- (NSDictionary *)attributeTypesMapDictionary; // 在子类中重写该方法
-
-
-
 // 当属性的值为空时通过该映射来设定对应属性的默认值，
 - (NSDictionary *)attributeDefaultValueMapDictionary; // 在子类中重写该方法
 
@@ -40,6 +22,24 @@ IPHHotel为IPHBaseModel的子类，
 
 // 如果用于初始化的数据中，对应字段的字符串包含数组里过滤的字符串，则该字典的对应属性将直接设为nil
 - (NSArray<NSString *> *)filterStrings; // 在子类中重写该方法
+
+
+
+/*
+ 如果属性为对象或者数组，且对象为IPHBaseModel的子类或者数组的元素也都为IPHBaseModel的子类，可通过该映射来为对应属性初始化对应类型的数据，Key为属性的名称，当属性为IPHBaseModel子类时Value为该属性的类名，当属性为数组时，Value为该数组中元素的类名。
+ 如：
+ @interface IPHTestModel : IPHBaseModel
+ @property (nonatomic, readonly, strong) IPHHotel *hotel;
+ @property (nonatomic, readonly, copy) NSArray<IPHHotel *> *hotels;
+ 
+ IPHHotel为IPHBaseModel的子类，
+ - (NSDictionary *)attributeTypesMapDictionary {
+ return @{@"hotel": @"IPHHotel",
+ @"hotels": @"IPHHotel"};
+ }
+ 通过该映射，在通过initWithDictionary方法给IPHTestModel对象初始化的时候，除了普通的字符串属性可以直接赋值外，对象属性和数组属性也能正确的初始化为对应类型的数据，hotel属性里面是IPHHotel对象而不是没有转化过的字典，hotels元素里面也都对应为IPHHotel对象。
+ */
+- (NSDictionary *)attributeTypesMapDictionary; // 在子类中重写该方法
 
 
 

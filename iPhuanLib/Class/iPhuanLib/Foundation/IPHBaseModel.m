@@ -18,10 +18,6 @@
     return nil;
 }
 
-- (NSDictionary *)attributeTypesMapDictionary {
-    return nil;
-}
-
 
 - (NSDictionary *)attributeDefaultValueMapDictionary {
     return nil;
@@ -30,6 +26,10 @@
 - (NSArray *)filterStrings{
     // 当值为以下字符串时直接设为nil
     return @[@"NIL", @"Nil", @"nil", @"NULL", @"Null", @"null", @"(NULL)", @"(Null)", @"(null)", @"<NULL>", @"<Null>", @"<null>"];
+}
+
+- (NSDictionary *)attributeTypesMapDictionary {
+    return nil;
 }
 
 - (__kindof IPHBaseModel *)handleAttributeValue:(__kindof IPHBaseModel *)object forAttributeName:(NSString *)attributeName {

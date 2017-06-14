@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithIphDictionary:(nullable NSDictionary *)dictionary;
 + (instancetype)iph_objectWithDictionary:(nullable NSDictionary *)dictionary;
 
-// 将一个遵循IPHBaseModelProtocal协议的对象反向转化为字典；如果对象不遵循IPHBaseModelProtocal协议，或者对象的属性不遵循IPHBaseModelProtocal协议，则都进行字典转化
+// 将一个遵循IPHBaseModelProtocal协议的对象反向转化为字典；如果对象不遵循IPHBaseModelProtocal协议，或者对象的属性不遵循IPHBaseModelProtocal协议，则都不进行字典转化
 - (nullable NSDictionary *)iph_toDictionary;
 
 // 通过iph_toDictionary方法转化为字典，并输出该字典的UTF-8的description

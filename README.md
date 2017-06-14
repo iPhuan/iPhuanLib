@@ -18,6 +18,7 @@ iPhuanLib是本人在平时的开发过程中知识积累后整理出来的一�
     * [Foundation](#Foundation)
         * [IPHCommonMacros](#IPHCommonMacros)
         * [IPHBaseModel](#IPHBaseModel)
+        * [IPHBaseModelProtocal](#IPHBaseModelProtocal)
         * [IPHViewNibUtils](#IPHViewNibUtils)
         * [UIView+IPHAdditions](#UIView+IPHAdditions)
     * [Utils](#Utils)
@@ -97,6 +98,11 @@ IPHCommonMacros包含了一些单列类的宏定义，几何宏定义，条件�
 
 ### <a name="IPHBaseModel">IPHBaseModel</a>  
 
+**名词说明：**  
+**A类属性：** 
+> * 1、如果一个对象的属性为IPHBaseModel的子类，或者遵循IPHBaseModelProtocal协议，在本文档中称为A类属性；   
+> * 2、如果一个对象的属性为数组类型，且该数组中所有的元素都为1中所提的A类属性，则该属性也被称为A类属性。
+
 IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字典对对象进行初始化。与大家平常使用的主流的基础模型类不同的是，IPHBaseModel做了更大的改进和优化，IPHBaseModel不仅可以直接对字符串的属性进行映射初始化，还能对对象属性，数组属性进行映射，类似于响应链的模式可进行多级的数据处理和初始化。  
   
 开发者需要继承于IPHBaseModel来进行使用，以下是对各个API做的相关说明：  
@@ -117,53 +123,6 @@ IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字�
 ```   
 
 > Key都为`IPHHotle`的属性名称，Value则为Json数据中对应的字段，通过该映射IPHBaseModel则自动给对应属性赋值。  
-
-
-* **`- (NSDictionary *)attributeTypesMapDictionary;`**    
-
-> 个别对象属性，数组属性其对应数据的类型映射。在`attributeMapDictionary`方法的介绍中，我们有提到Json数据中`recommended_room`和`room_list`对应于字典和数组数据，相应的`IPHHotle`对象中，`recommendedRoom`对应于`IPHRoom`对象，`rooms`为一个数组，数组中的元素都为`IPHRoom`对象，那么IPHBaseModel在给`IPHHotle`初始化的时候怎么就能将单纯的字典和数组数据，转化为符合要求的对象数据呢，此时`attributeTypesMapDictionary`就起了至关重要的作用。如以下代码示例：  
-
-```objective-c
-    - (NSDictionary*)attributeTypesMapDictionary{
-        return @{@"recommendedRoom":@"IPHRoom",
-                 @"rooms":@"IPHRoom"};
-    }
-```  
-
-> 我们在映射中指定了`recommendedRoom`和`rooms`属性其数据类型为`IPHRoom`对象，通过该映射IPHBaseModel才能对二级数据进行处理，否则只能直接赋值没有经过处理的字典和数组数据。  
-
-> 同理，在`IPHRoom`中我们同样可以拥有对象和数组属性，当然前提是数据类型都为`IPHBaseModel`的子类对象，通过这种响应链方式的映射关系，一级一级的将数据初始化下去。   
-
-> 当然该映射你也可以不重写返回空字典，然后自己手动对`recommended_room`和`room_list`字段的数据进行特殊处理。IPHBaseModel在初始化数据的时候调用了属性的Set方法，所以你只需要重写set方法，代码示例：  
-
-```objective-c
-    - (void)setRooms:(NSArray *)rooms{
-        id obj = nil;
-        if ([rooms isKindOfClass:[NSArray class]] && rooms.count > 0) {
-            obj = rooms[0];
-        }
-
-        // 如果rooms元素的类型为字典则手动进行数据处理
-        if ([obj isKindOfClass:[NSDictionary class]]) {
-            NSMutableArray *roomList = [[NSMutableArray alloc] initWithCapacity:rooms.count];
-            for (NSDictionary *roomDic in rooms) {
-            IPHRoom *room = [[IPHRoom alloc] initWithDictionary:roomDic];
-
-            // 特殊数据处理
-            room.hotel = self;
-            [roomList addObject:room];
-            }
-            _rooms = [[NSArray alloc] initWithArray:roomList];
-            return;
-        }
-
-        // 如果rooms元素已经为IPHRoom对象，则直接赋值
-        _rooms = rooms;
-    }
-```    
-
-> 一般建议通过`attributeTypesMapDictionary`映射的方式让IPHBaseModel自动处理数据，除非你对数据的处理有特别要求，比如代码示例，需要单独再给数组中的`IPHRoom`对象设定`hotel`，此时可以进行手动处理。  
-> IPHBaseModel目前只支持对IPHBaseModel对象的属性，以及存储IPHBaseModel对象的数组属性进行再次数据处理后赋值，这两种类型已基本满足大部分开发者的需求。  
 
 
 
@@ -195,6 +154,73 @@ IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字�
 
 
 
+* **`- (NSDictionary *)attributeTypesMapDictionary;`**    
+
+> A类属性其对应数据的类型映射。在`attributeMapDictionary`方法的介绍中，我们有提到Json数据中`recommended_room`和`room_list`对应于字典和数组数据，相应的`IPHHotle`对象中，`recommendedRoom`对应于`IPHRoom`对象，`rooms`为一个数组，数组中的元素都为`IPHRoom`对象，那么IPHBaseModel在给`IPHHotle`初始化的时候怎么就能将单纯的字典和数组数据，转化为符合要求的对象数据呢，此时`attributeTypesMapDictionary`就起了至关重要的作用。如以下代码示例：  
+
+```objective-c
+    - (NSDictionary*)attributeTypesMapDictionary{
+        return @{@"recommendedRoom":@"IPHRoom",
+                @"rooms":@"IPHRoom"};
+        }
+```  
+
+> 我们在映射中指定了`recommendedRoom`和`rooms`属性其数据类型为`IPHRoom`对象，通过该映射IPHBaseModel才能对二级数据进行处理，否则只能直接赋值没有经过处理的字典和数组数据。  
+
+> 同理，在`IPHRoom`中我们同样可以拥有A类属性，通过这种响应链方式的映射关系，一级一级的将数据初始化下去。   
+
+> 当然该映射你也可以不重写返回空字典，然后自己手动对`recommended_room`和`room_list`字段的数据进行特殊处理。IPHBaseModel在初始化数据的时候调用了属性的Set方法，所以你只需要重写set方法，代码示例：  
+
+```objective-c
+    - (void)setRooms:(NSArray *)rooms{
+        id obj = nil;
+        if ([rooms isKindOfClass:[NSArray class]] && rooms.count > 0) {
+            obj = rooms[0];
+        }
+
+        // 如果rooms元素的类型为字典则手动进行数据处理
+        if ([obj isKindOfClass:[NSDictionary class]]) {
+            NSMutableArray *roomList = [[NSMutableArray alloc] initWithCapacity:rooms.count];
+            for (NSDictionary *roomDic in rooms) {
+                IPHRoom *room = [[IPHRoom alloc] initWithDictionary:roomDic];
+
+                // 特殊数据处理
+                room.hotel = self;
+                [roomList addObject:room];
+            }
+            _rooms = [[NSArray alloc] initWithArray:roomList];
+            return;
+        }
+
+    // 如果rooms元素已经为IPHRoom对象，则直接赋值
+    _rooms = rooms;
+    }
+```    
+
+> 一般建议通过`attributeTypesMapDictionary`映射的方式让IPHBaseModel自动处理数据，除非你对数据的处理有特别要求，比如代码示例，需要单独再给数组中的`IPHRoom`对象设定`hotel`，此时可以进行手动处理。  
+> 1.0.1版本对于数据的特殊处理做了很好的优化，详细用法请参考`handleAttributeValue:forAttributeName`。
+> IPHBaseModel目前只支持对A类属性进行数据再次处理，这两种类型已基本满足大部分开发者的需求。  
+
+
+<a name="">handleAttributeValue</a>    
+* **`- (__kindof IPHBaseModel *)handleAttributeValue:(__kindof IPHBaseModel *)object forAttributeName:(NSString *)attributeName;`**   
+
+> 对应于`attributeTypesMapDictionary`，1.0.1新增方法，为了方便解决特殊数据处理问题。当IPHBaseModel通过`attributeTypesMapDictionary`映射将对应字典转化为A类属性值之后，会调用该方法，将对象传递过来允许开发人员在该方法中对该对象数据进行二次处理，处理完后IPHBaseModel才将最终的值赋给A类属性。object即为传递过来的对象，通过attributeName可判断对应于哪个A类属性。如`setRooms`示例中的特殊处理可以通过`handleAttributeValue:forAttributeName`方法快速实现：   
+
+```objective-c
+    - (__kindof IPHBaseModel *)handleAttributeValue:(__kindof IPHBaseModel *)object forAttributeName:(NSString *)attributeName {
+        if ([@"rooms" isEqualToString:attributeName]) {
+            IPHRoom *room = object;
+            room.hotel = self;
+            return room;
+        }
+        return object;
+    }
+
+```    
+
+
+
 * **`- (instancetype)initWithDictionary:(NSDictionary *)dictionary;`**     
 
 > 通过一个字典对对象进行初始化。注意，`initWithDictionary:`只对`attributeMapDictionary`中映射的属性进行初始化。其他属性在通过该方法初始化后值依然为nil。  
@@ -202,7 +228,7 @@ IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字�
 
 * **`- (NSDictionary *)toDictionary;`**   
 
-> 与`initWithDictionary:`对应，将对象转化为字典，也是基于`attributeMapDictionary`映射来进行转化的，映射中不包含某个属性，其转化后的字典也不包含对应属性的Key。  
+> 与`initWithDictionary:`对应，反向将对象转化为字典。如果对象的属性为A类属性则可继续进行字典转化。
 
 
 * **`- (NSData *)archivedData;`**   
@@ -215,7 +241,73 @@ IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字�
 
 :warning:注意：
 * IPHBaseModel会将Number类型的字典数据转化为字符串，你在使用IPHBaseModel创建类时，其对应的属性应当以字符串的形式创建。  
-* 不仅仅是`initWithDictionary:`和`toDictionary`基于`attributeMapDictionary`映射来进行数据操作的。其在实现`NSCoding`和`NSCopying`协议时也都是基于`attributeMapDictionary`来处理的，所以一般建议在`attributeMapDictionary`中添加所有对象属性的映射。  
+
+
+
+
+### <a name="IPHBaseModelProtocal">IPHBaseModelProtocal</a>    
+
+1.0.1版本新增协议类，1.0.0时`IPHBaseModel`基础模型是通过继承来实现，为了便于开发者对对象进行扩展，现提供协议的方式来实现基础模型。    
+对象需遵循`IPHBaseModelProtocal`协议并结合`NSObject+IPHBaseModel`分类一起使用来达到`IPHBaseModel`实现的效果。`IPHBaseModelProtocal`协议方法就不需要再详细介绍，和`IPHBaseModel`中对应的方法使用一致，具体对`NSObject+IPHBaseModel`分类的方法进行说明。   
+
+
+* **`- (instancetype)initWithIphDictionary:(nullable NSDictionary *)dictionary;`**    
+
+> 在使用上和`IPHBaseModel`一致，需要注意的是只有遵循`IPHBaseModelProtocal`协议的对象，才可以通过该方法正常初始化。   
+
+
+* **`- (nullable NSDictionary *)iph_toDictionary;`**    
+
+> 将一个遵循`IPHBaseModelProtocal`协议的对象反向转化为字典。如果对象不遵循`IPHBaseModelProtocal`协议，则直接返回nil；如果对象的属性为A类属性则可继续进行字典转化。  
+
+
+* **`- (nullable NSString *)iph_description;`**     
+
+> 通过`iph_toDictionary`方法转化为字典，并输出该字典的UTF-8的`description`，开发者可在对象中重写`description`方法，并调用`iph_description`，如：   
+    
+```objective-c
+    - (NSString *)description {
+        return [self iph_description];
+    }
+ 
+```      
+
+
+* **`- (id)iph_copyWithZone:(NSZone *)zone;`**     
+
+> 提供`copyWithZone:`批量处理方法，如你希望某个对象遵循`NSCopying`协议，可调用该方法来进行快速处理，如：   
+
+```objective-c
+    - (id)copyWithZone:(NSZone *)zone {
+        return [self iph_copyWithZone:zone];
+    }
+
+```      
+
+
+
+* **`- (void)iph_decodeWithCoder:(NSCoder *)decoder;`**     
+* **`- (void)iph_encodeWithCoder:(NSCoder *)encoder;`**     
+
+
+> 提供`initWithCoder:`和`encodeWithCoder:`批量处理方法，如你希望某个对象遵循`NSCoding`协议，可调用该方法来进行快速处理，如：   
+
+```objective-c
+    - (instancetype)initWithCoder:(NSCoder *)aDecoder {
+        self = [super init];
+        if (self) {
+            [self iph_decodeWithCoder:aDecoder];
+        }
+        return self;
+    }
+
+    - (void)encodeWithCoder:(NSCoder *)aCoder {
+        [self iph_encodeWithCoder:aCoder];
+    }
+
+
+``` 
+
 
 
 
@@ -431,27 +523,22 @@ QQ：519310392
 =============================================================  
 
 ### [V1.0.0](https://github.com/iPhuan/iPhuanLib/tree/1.0.0)
-更新日期：2017年6月14日  
+更新日期：2017年4月20日  
 更新说明：  
-> * 发布iPhuanLib第一个版本。  
+> * 发布`iPhuanLib`第一个版本。  
 
 -------------------------------------------------------------  
 
 ### [V1.0.1](https://github.com/iPhuan/iPhuanLib/tree/1.0.1)
 更新日期：2017年6月14日  
 更新说明：  
-> * 新增JSCCordova，JSCCordova能帮助JSCoreBridge更兼容Cordova用法。  
-
-文档相应介绍：[点击查看](#4.4)  
+> * 解决`IPHBaseModel`通过`initWithDictionary:`初始化数据时，执行`objc_msgSend`崩溃的问题；    
+> * 优化实现`NSCopying`协议，`NSCoding`协议，`toDictionary`方法的数据处理不受限于`attributeMapDictionary:`映射；
+> * [新增`handleAttributeValue:forAttributeName`数据处理方法，优化模型转化的特殊数据处理；](#handleAttributeValue)  
+> * [新增`IPHBaseModel`基础模型协议实现方式的支持，提高对象的扩展灵活性；](#IPHBaseModelProtocal)    
+> * 优化相关宏定义（废弃相关单列宏的使用；废弃IPHFitSize，新增IPH6FitSize；优化字符串是否可用的相关宏定义判断）。
 
 ------------------------------------------------------------- 
-
-
-
-
-
-
-
 
 
 
