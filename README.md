@@ -102,10 +102,11 @@ IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字�
   
 开发者需要继承于IPHBaseModel来进行使用，以下是对各个API做的相关说明：  
 
-**A类属性：** 
+**A类属性说明：** 
 > * 1、如果一个对象的属性为IPHBaseModel的子类，或者遵循IPHBaseModelProtocal协议，在本文档中称为A类属性；   
 > * 2、如果一个对象的属性为数组类型，且该数组中所有的元素都为1中所提的A类属性，则该属性也被称为A类属性。  
 
+<br />
 
 
 * **`- (NSDictionary *)attributeMapDictionary;`**  
@@ -193,20 +194,20 @@ IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字�
             return;
         }
 
-    // 如果rooms元素已经为IPHRoom对象，则直接赋值
-    _rooms = rooms;
+        // 如果rooms元素已经为IPHRoom对象，则直接赋值
+        _rooms = rooms;
     }
 ```    
 
 > 一般建议通过`attributeTypesMapDictionary`映射的方式让IPHBaseModel自动处理数据，除非你对数据的处理有特别要求，比如代码示例，需要单独再给数组中的`IPHRoom`对象设定`hotel`，此时可以进行手动处理。  
-> 1.0.1版本对于数据的特殊处理做了很好的优化，详细用法请参考`handleAttributeValue:forAttributeName`。
+> 1.0.1版本对于数据的特殊处理做了很好的优化，详细用法请参考`handleAttributeValue:forAttributeName:`。
 > IPHBaseModel目前只支持对A类属性进行数据再次处理，这两种类型已基本满足大部分开发者的需求。  
 
 
-<a name="">handleAttributeValue</a>    
+<a name="handleAttributeValue"></a>    
 * **`- (__kindof IPHBaseModel *)handleAttributeValue:(__kindof IPHBaseModel *)object forAttributeName:(NSString *)attributeName;`**   
 
-> 对应于`attributeTypesMapDictionary`，1.0.1新增方法，为了方便解决特殊数据处理问题。当IPHBaseModel通过`attributeTypesMapDictionary`映射将对应字典转化为A类属性值之后，会调用该方法，将对象传递过来允许开发人员在该方法中对该对象数据进行二次处理，处理完后IPHBaseModel才将最终的值赋给A类属性。object即为传递过来的对象，通过attributeName可判断对应于哪个A类属性。如`setRooms`示例中的特殊处理可以通过`handleAttributeValue:forAttributeName`方法快速实现：   
+> 对应于`attributeTypesMapDictionary`，1.0.1新增方法，为了方便解决特殊数据处理问题。当IPHBaseModel通过`attributeTypesMapDictionary`映射将对应字典转化为A类属性值之后，会调用该方法，将对象传递过来允许开发人员在该方法中对该对象数据进行二次处理，处理完后IPHBaseModel才将最终的值赋给A类属性。object即为传递过来的对象，通过attributeName可判断对应于哪个A类属性。如`setRooms:`示例中的特殊处理可以通过`handleAttributeValue:forAttributeName:`方法快速实现：   
 
 ```objective-c
     - (__kindof IPHBaseModel *)handleAttributeValue:(__kindof IPHBaseModel *)object forAttributeName:(NSString *)attributeName {
@@ -535,9 +536,9 @@ QQ：519310392
 更新说明：  
 > * 解决`IPHBaseModel`通过`initWithDictionary:`初始化数据时，执行`objc_msgSend`崩溃的问题；    
 > * 优化实现`NSCopying`协议，`NSCoding`协议，`toDictionary`方法的数据处理不受限于`attributeMapDictionary:`映射；
-> * [新增`handleAttributeValue:forAttributeName`数据处理方法，优化模型转化的特殊数据处理；](#handleAttributeValue)  
+> * [新增`handleAttributeValue:forAttributeName:`数据处理方法，优化模型转化的特殊数据处理；](#handleAttributeValue)  
 > * [新增`IPHBaseModel`基础模型协议实现方式的支持，提高对象的扩展灵活性；](#IPHBaseModelProtocal)    
-> * 优化相关宏定义（废弃相关单列宏的使用；废弃IPHFitSize，新增IPH6FitSize；优化字符串是否可用的相关宏定义判断）。
+> * 优化相关宏定义（废弃相关单列宏的使用；废弃`IPHFitSize`，新增`IPH6FitSize`；优化字符串是否可用的相关宏定义判断）。
 
 ------------------------------------------------------------- 
 
