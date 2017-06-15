@@ -14,8 +14,8 @@
 #define IPHScreenBounds        [UIScreen mainScreen].bounds
 #define IPH6SizeMultiple       (IPHScreenWidth <= 375?1.0:(IPHScreenWidth/375.0))
 #define IPH6FitSize(X)         ((X) * IPH6SizeMultiple)
-#define IPH6TopMultiple        (IPHScreenWidth/375.0)
-#define IPH6FitTop(X)          ((X) * IPH6TopMultiple)
+#define IPH6RatioMultiple      (IPHScreenWidth/375.0)
+#define IPH6RatioFitSize(X)    ((X) * IPH6RatioMultiple)
 
 
 
