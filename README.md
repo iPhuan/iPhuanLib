@@ -553,7 +553,7 @@ QQ：519310392
 > * [新增`handleAttributeValue:forAttributeName:`数据处理方法，优化模型转化的特殊数据处理；](#handleAttributeValue)  
 > * [新增`setup`初始化操作方法；](#setup) 
 > * [新增`IPHBaseModel`基础模型协议实现方式的支持，提高对象的扩展灵活性；](#IPHBaseModelProtocal)    
-> * 优化相关宏定义（废弃相关单列宏的使用；废弃`IPHFitSize`，新增`IPH6FitSize`和`IPH6FitTop`；优化字符串是否可用的相关宏定义判断）。
+> * 优化相关宏定义（废弃相关单列宏的使用；废弃`IPHFitSize`，新增`IPH6FitSize`和`IPH6RatioFitSize`；优化字符串是否可用的相关宏定义判断）。
 
 ------------------------------------------------------------- 
 
