@@ -22,6 +22,9 @@
     self = [self init];
     if (self) {
         [self p_setAttributes:dictionary];
+        if ([self respondsToSelector:@selector(setup)]) {
+            [(id)self setup];
+        }
     }
     return self;
 }

@@ -58,6 +58,11 @@
     return @[@"NIL", @"Nil", @"nil", @"NULL", @"Null", @"null", @"(NULL)", @"(Null)", @"(null)", @"<NULL>", @"<Null>", @"<null>"];
 }
 
+- (void)setup {
+    // 在setup进行其他初始化操作
+    self.country = @"美国";
+}
+
 
 #pragma mark - NSCopying
 // 实现NSCopying协议

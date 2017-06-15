@@ -68,7 +68,7 @@ static NSString * const kIPHHotelUserDefaultCacheKey = @"IPHHotelUserDefaultCach
             if (![self p_isHotelInitialized]) {
                 return;
             }
-            _hotel.country = @"美国";
+            _hotel.country = @"中国";
             IPHOverseasHotel *hotel = [_hotel copy];
             [self iph_popupAlertViewWithTitle:@"IPHOverseasHotel" message:[hotel description]];
             break;

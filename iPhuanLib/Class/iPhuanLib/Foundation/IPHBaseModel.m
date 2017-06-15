@@ -38,12 +38,17 @@
     return object;
 }
 
+- (void)setup {
+    // 父类不做任何处理
+}
+
 
 #pragma mark - init
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     if (self = [self init]) {
         [self p_setAttributes:dictionary];
+        [self setup];
     }
     return self;
 }

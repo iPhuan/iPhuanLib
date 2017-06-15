@@ -66,4 +66,9 @@ return @[@"NIL", @"Nil", @"nil", @"NULL", @"Null", @"null", @"(NULL)", @"(Null)"
  */
 - (id <IPHBaseModelProtocal>)handleAttributeValue:(id <IPHBaseModelProtocal>)object forAttributeName:(NSString *)attributeName;
 
+
+// 对象通过initWithIphDictionary或者iph_objectWithDictionary初始化后会调用该方法，开发者可在该方法中进行相关初始化操作
+- (void)setup;
+
+
 @end

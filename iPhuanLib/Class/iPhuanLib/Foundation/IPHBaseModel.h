@@ -57,6 +57,10 @@
 - (__kindof IPHBaseModel *)handleAttributeValue:(__kindof IPHBaseModel *)object forAttributeName:(NSString *)attributeName; // 在子类中重写该方法
 
 
+// IPHBaseModel通过initWithDictionary初始化对象后会调用该方法，开发者可在该方法中进行相关初始化操作
+- (void)setup;
+
+
 
 // 通过数据字典初始化对象，基于attributeMapDictionary映射来初始化对应的属性
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
