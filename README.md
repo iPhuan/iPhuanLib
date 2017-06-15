@@ -256,7 +256,7 @@ IPHBaseModel为基础模型类，主要方便开发者可直接通过数据字�
 <br />
 
 :warning:注意：
-* IPHBaseModel会将Number类型的字典数据转化为字符串，你在使用IPHBaseModel创建类时，其对应的属性应当以字符串的形式创建。  
+* `IPHBaseModel`会将`Number`类型的字典数据转化为字符串，你在使用`IPHBaseModel`创建类时，其对应的属性应当以字符串的形式创建。  
 
 
 
