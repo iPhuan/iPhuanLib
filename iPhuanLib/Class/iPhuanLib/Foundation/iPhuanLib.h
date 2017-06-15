@@ -14,6 +14,7 @@
 #import "IPHAvailability.h"
 #import "IPHCommonMacros.h"
 #import "IPHBaseModel.h"
+#import "NSObject+IPHBaseModel.h"
 #import "IPHViewNibUtils.h"
 #import "UIView+IPHAdditions.h"
 
