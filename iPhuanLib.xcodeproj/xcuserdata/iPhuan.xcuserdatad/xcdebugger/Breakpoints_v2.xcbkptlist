@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iPhuanLib/Class/Demo/IPHBaseModelProtocal/IPHDeluxeRoom.m"
-            timestampString = "519121153.815905"
+            timestampString = "519203983.227638"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "98"
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iPhuanLib/Class/iPhuanLib/Foundation/IPHBaseModel.m"
-            timestampString = "519125630.812565"
+            timestampString = "519203983.227638"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "304"
-            endingLineNumber = "304"
+            startingLineNumber = "327"
+            endingLineNumber = "327"
             landmarkName = "-p_propertyNames"
             landmarkType = "7">
          </BreakpointContent>

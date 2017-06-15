@@ -59,6 +59,8 @@
     }
     
     NSDictionary *attrMapDic = [self attributeMapDictionary];
+    NSAssert(attrMapDic.count, @"'%@' must return a available dictionary in 'attributeMapDictionary' protocol method", NSStringFromClass([self class]));
+
     if (attrMapDic.count == 0) {
         return;
     }
@@ -146,8 +148,10 @@
                 
                 @autoreleasepool {
                     id model = [[propertyClass alloc] initWithDictionary:dic];
-                    model = [self handleAttributeValue:model forAttributeName:propertyName];
-                    [models addObject:model];
+                    model = [self p_handleAttributeValue:model forAttributeName:propertyName];
+                    if (model) {
+                        [models addObject:model];
+                    }
                 }
             }];
             
@@ -157,7 +161,7 @@
             
         }else if ([originalValue isKindOfClass:[NSDictionary class]]) {
             transformedValue = [[propertyClass alloc] initWithDictionary:originalValue];
-            transformedValue = [self handleAttributeValue:transformedValue forAttributeName:propertyName];
+            transformedValue = [self p_handleAttributeValue:transformedValue forAttributeName:propertyName];
         }
         
         if (transformedValue) {
@@ -165,6 +169,18 @@
         }
     }];
 
+}
+
+- (__kindof IPHBaseModel *)p_handleAttributeValue:(__kindof IPHBaseModel *)object forAttributeName:(NSString *)attributeName {
+    id returnValue = object;
+    id model = [self handleAttributeValue:object forAttributeName:attributeName];
+    NSAssert(model, @"The return value of method 'handleAttributeValue:forAttributeName:' cannot be nil");
+    
+    if (model) {
+        returnValue = model;
+    }
+
+    return returnValue;
 }
 
 #pragma mark - Override
@@ -266,7 +282,9 @@
                 
                 @autoreleasepool {
                     NSDictionary *dataDic = [model toDictionary];
-                    [dataDics addObject:dataDic];
+                    if (dataDic) {
+                        [dataDics addObject:dataDic];
+                    }
                 }
             }];
             

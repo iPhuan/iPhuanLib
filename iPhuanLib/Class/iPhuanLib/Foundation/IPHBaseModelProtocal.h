@@ -12,7 +12,7 @@
 
 @required
 // 返回对象属性的映射字典，Key为属性的名称，Value为映射的数据字典的Key；方法initWithDictionary就是基于该映射来实现的，基于该映射来通过一个字典来初始化该对象。
-- (NSDictionary *)attributeMapDictionary;
+- (nonnull NSDictionary *)attributeMapDictionary;
 
 
 
@@ -25,14 +25,14 @@
              @"cityName": @"城市未知"};
 }
 */
-- (NSDictionary *)attributeDefaultValueMapDictionary;
+- (nullable NSDictionary *)attributeDefaultValueMapDictionary;
 
 
 /*
 如果用于初始化的数据中，对应字段的字符串包含数组里过滤的字符串，则该字段的对应属性将直接设为nil，默认会过滤以下字符串：
 return @[@"NIL", @"Nil", @"nil", @"NULL", @"Null", @"null", @"(NULL)", @"(Null)", @"(null)", @"<NULL>", @"<Null>", @"<null>"];
   */
-- (NSArray<NSString *> *)filterStrings;
+- (nullable NSArray<NSString *> *)filterStrings;
 
 
 /*
@@ -49,7 +49,7 @@ return @[@"NIL", @"Nil", @"nil", @"NULL", @"Null", @"null", @"(NULL)", @"(Null)"
  }
  通过该映射，在通过initWithDictionary方法给IPHTestModel对象初始化的时候，除了普通的字符串属性可以直接赋值外，对象属性和数组属性也能正确的初始化为对应类型的数据，hotel属性里面是IPHHotel对象而不是没有转化过的字典，hotels元素里面也都对应为IPHHotel对象。
  */
-- (NSDictionary *)attributeTypesMapDictionary;
+- (nullable NSDictionary *)attributeTypesMapDictionary;
 
 
 
@@ -64,7 +64,7 @@ return @[@"NIL", @"Nil", @"nil", @"NULL", @"Null", @"null", @"(NULL)", @"(Null)"
     return object;
  }
  */
-- (id <IPHBaseModelProtocal>)handleAttributeValue:(id <IPHBaseModelProtocal>)object forAttributeName:(NSString *)attributeName;
+- (nonnull id <IPHBaseModelProtocal>)handleAttributeValue:(nonnull id <IPHBaseModelProtocal>)object forAttributeName:(nonnull NSString *)attributeName;
 
 
 // 对象通过initWithIphDictionary或者iph_objectWithDictionary初始化后会调用该方法，开发者可在该方法中进行相关初始化操作

@@ -35,18 +35,20 @@
     }
     
     BOOL conformsToProtocol = [self conformsToProtocol:@protocol(IPHBaseModelProtocal)];
-    NSAssert(conformsToProtocol, @"%@ must follow the 'IPHBaseModelProtocal' protocol", NSStringFromClass([self class]));
+    NSAssert(conformsToProtocol, @"'%@' must follow the 'IPHBaseModelProtocal' protocol", NSStringFromClass([self class]));
     if (!conformsToProtocol) {
         return;
     }
     
     BOOL canInit = [self respondsToSelector:@selector(attributeMapDictionary)];
-    NSAssert(canInit, @"%@ must implement the 'attributeMapDictionary' protocol method", NSStringFromClass([self class]));
+    NSAssert(canInit, @"'%@' must implement the 'attributeMapDictionary' protocol method", NSStringFromClass([self class]));
     if (!canInit) {
         return;
     }
     
     NSDictionary *attrMapDic = [(id)self attributeMapDictionary];
+    NSAssert(attrMapDic.count, @"'%@' must return a available dictionary in 'attributeMapDictionary' protocol method", NSStringFromClass([self class]));
+
     if (attrMapDic.count == 0) {
         return;
     }
@@ -143,7 +145,6 @@
         id originalValue = [self valueForKey:propertyName];
         id transformedValue = nil;
         
-        BOOL canHandleAttributeValue = [self respondsToSelector:@selector(handleAttributeValue:forAttributeName:)];
         //如果是数组，需要遍历后转化为对象
         if ([originalValue isKindOfClass:[NSArray class]]) {
             NSArray *arrayData = (NSArray *)originalValue;
@@ -156,10 +157,10 @@
                 
                 @autoreleasepool {
                     id model = [[propertyClass alloc] initWithIphDictionary:dic];
-                    if (canHandleAttributeValue) {
-                        model = [(id)self handleAttributeValue:model forAttributeName:propertyName];
+                    model = [self p_handleAttributeValue:model forAttributeName:propertyName];
+                    if (model) {
+                        [models addObject:model];
                     }
-                    [models addObject:model];
                 }
             }];
             
@@ -169,9 +170,8 @@
             
         }else if ([originalValue isKindOfClass:[NSDictionary class]]) {
             transformedValue = [[propertyClass alloc] initWithIphDictionary:originalValue];
-            if (canHandleAttributeValue) {
-                transformedValue = [(id)self handleAttributeValue:transformedValue forAttributeName:propertyName];
-            }
+            transformedValue = [self p_handleAttributeValue:transformedValue forAttributeName:propertyName];
+
         }
         
         if (transformedValue) {
@@ -180,6 +180,22 @@
     }];
     
 }
+
+- (id <IPHBaseModelProtocal>)p_handleAttributeValue:(id <IPHBaseModelProtocal>)object forAttributeName:(nonnull NSString *)attributeName {
+    id returnValue = object;
+    BOOL canHandleAttributeValue = [self respondsToSelector:@selector(handleAttributeValue:forAttributeName:)];
+    if (canHandleAttributeValue) {
+        id model = [(id)self handleAttributeValue:returnValue forAttributeName:attributeName];
+        NSAssert(model, @"The return value of protocal method 'handleAttributeValue:forAttributeName:' cannot be nil");
+
+        if (model) {
+            returnValue = model;
+        }
+    }
+    
+    return returnValue;
+}
+
 
 #pragma mark - Public
 
@@ -220,7 +236,9 @@
                 
                 @autoreleasepool {
                     NSDictionary *dataDic = [model iph_toDictionary];
-                    [dataDics addObject:dataDic];
+                    if (dataDic) {
+                        [dataDics addObject:dataDic];
+                    }
                 }
             }];
             
