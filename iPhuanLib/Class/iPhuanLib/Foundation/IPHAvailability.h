@@ -32,6 +32,3 @@
 #else
 #define IPH_DEPRECATED(version, msg) __attribute__((deprecated()))
 #endif
-
-
-//IPH_DEPRECATED(1.0.1, "Do not use this"))
