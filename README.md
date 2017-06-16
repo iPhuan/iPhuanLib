@@ -546,7 +546,7 @@ QQ：519310392
 -------------------------------------------------------------  
 
 ### [V1.0.1](https://github.com/iPhuan/iPhuanLib/tree/1.0.1)
-更新日期：2017年6月15日  
+更新日期：2017年6月16日  
 更新说明：  
 > * 解决`IPHBaseModel`通过`initWithDictionary:`初始化数据时，执行`objc_msgSend`崩溃的问题；    
 > * 优化实现`NSCopying`协议，`NSCoding`协议，`toDictionary`方法的数据处理不受限于`attributeMapDictionary:`映射；
