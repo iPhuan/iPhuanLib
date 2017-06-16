@@ -11,7 +11,7 @@
 @protocol IPHBaseModelProtocal <NSObject>
 
 @required
-// 返回对象属性的映射字典，Key为属性的名称，Value为映射的数据字典的Key；方法initWithDictionary就是基于该映射来实现的，基于该映射来通过一个字典来初始化该对象。
+// 返回对象属性的映射字典，Key为属性的名称，Value为映射的数据字典的Key；方法initWithIphDictionary就是基于该映射来实现的，基于该映射来通过一个字典来初始化该对象。
 - (nonnull NSDictionary *)attributeMapDictionary;
 
 
@@ -36,18 +36,18 @@ return @[@"NIL", @"Nil", @"nil", @"NULL", @"Null", @"null", @"(NULL)", @"(Null)"
 
 
 /*
- 如果属性为对象或者数组，且对象为IPHBaseModel的子类或者数组的元素也都为IPHBaseModel的子类，可通过该映射来为对应属性初始化对应类型的数据，Key为属性的名称，当属性为IPHBaseModel子类时Value为该属性的类名，当属性为数组时，Value为该数组中元素的类名。
+ 如果属性为对象或者数组，且属性本身或者其元素遵循IPHBaseModelProtocal协议，可通过该映射来为对应属性初始化对应类型的数据，Key为属性的名称，当属性为遵循IPHBaseModelProtocal协议的对象时Value为该属性的类名，当属性为数组时，Value为该数组中元素的类名。
  如：
- @interface IPHTestModel : IPHBaseModel
- @property (nonatomic, readonly, strong) IPHHotel *hotel;
+ @interface IPHTestModel : NSObject <IPHBaseModelProtocal>
+ @property (nonatomic, readonly, copy) IPHHotel *hotel;
  @property (nonatomic, readonly, copy) NSArray<IPHHotel *> *hotels;
  
- IPHHotel为IPHBaseModel的子类，
+IPHHotel遵循IPHBaseModelProtocal协议
  - (NSDictionary *)attributeTypesMapDictionary {
- return @{@"hotel": @"IPHHotel",
- @"hotels": @"IPHHotel"};
+    return @{@"hotel": @"IPHHotel",
+            @"hotels": @"IPHHotel"};
  }
- 通过该映射，在通过initWithDictionary方法给IPHTestModel对象初始化的时候，除了普通的字符串属性可以直接赋值外，对象属性和数组属性也能正确的初始化为对应类型的数据，hotel属性里面是IPHHotel对象而不是没有转化过的字典，hotels元素里面也都对应为IPHHotel对象。
+ 通过该映射，在通过initWithIphDictionary方法给IPHTestModel对象初始化的时候，除了普通的字符串属性可以直接赋值外，对象属性和数组属性也能正确的初始化为对应类型的数据，hotel属性里面是IPHHotel对象而不是没有转化过的字典，hotels元素里面也都对应为IPHHotel对象。
  */
 - (nullable NSDictionary *)attributeTypesMapDictionary;
 

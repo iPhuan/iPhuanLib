@@ -1,9 +1,9 @@
 //
 //  UIViewController+IPHAlertController.m
-//  wifiapp
+//  iPhuanLib
 //
 //  Created by iPhuan on 2017/1/15.
-//  Copyright © 2017年 bangtai. All rights reserved.
+//  Copyright © 2017年 iPhuan. All rights reserved.
 //
 
 #import "UIViewController+IPHAlertController.h"
@@ -60,7 +60,7 @@ va_end(ags); \
 
 - (void)iph_popupAlertViewWithTitle:(NSString *)title
                             message:(NSString *)message
-                            handler:(IPHAlertActionHandeler)handler
+                            handler:(IPHAlertActionHandler)handler
                   cancelActionTitle:(NSString *)cancelActionTitle
                   otherActionTitles:(NSString *)otherActionTitles, ... {
     va_list args;
@@ -69,7 +69,7 @@ va_end(ags); \
 
 - (void)iph_popupAlertViewWithTitle:(NSString *)title
                             message:(NSString *)message
-                            handler:(IPHAlertActionHandeler)handler
+                            handler:(IPHAlertActionHandler)handler
              destructiveActionTitle:(NSString *)destructiveActionTitle
                   cancelActionTitle:(NSString *)cancelActionTitle
                   otherActionTitles:(NSString *)otherActionTitles, ... {
@@ -83,7 +83,7 @@ va_end(ags); \
 
 - (void)iph_showActionSheetWithTitle:(NSString *)title
                              message:(NSString *)message
-                             handler:(IPHAlertActionHandeler)handler
+                             handler:(IPHAlertActionHandler)handler
                    otherActionTitles:(NSString *)otherActionTitles, ... {
     va_list args;
     IPH_SHOW_ALERT_CONTROLLER_VA(self, title, message, UIAlertControllerStyleActionSheet, handler, nil, @"取消", otherActionTitles, args);
@@ -91,7 +91,7 @@ va_end(ags); \
 
 - (void)iph_showActionSheetWithTitle:(NSString *)title
                              message:(NSString *)message
-                             handler:(IPHAlertActionHandeler)handler
+                             handler:(IPHAlertActionHandler)handler
               destructiveActionTitle:(NSString *)destructiveActionTitle
                    cancelActionTitle:(NSString *)cancelActionTitle
                    otherActionTitles:(NSString *)otherActionTitles, ... {

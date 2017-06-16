@@ -1,9 +1,9 @@
 //
 //  UIViewController+IPHAlertController.h
-//  wifiapp
+//  iPhuanLib
 //
 //  Created by iPhuan on 2017/1/15.
-//  Copyright © 2017年 bangtai. All rights reserved.
+//  Copyright © 2017年 iPhuan. All rights reserved.
 //
 
 #import "UIAlertController+IPHAdditions.h"
@@ -20,13 +20,13 @@
 
 - (void)iph_popupAlertViewWithTitle:(NSString *)title
                             message:(NSString *)message
-                            handler:(IPHAlertActionHandeler)handler
+                            handler:(IPHAlertActionHandler)handler
                   cancelActionTitle:(NSString *)cancelActionTitle
                   otherActionTitles:(NSString *)otherActionTitles, ... NS_REQUIRES_NIL_TERMINATION;
 
 - (void)iph_popupAlertViewWithTitle:(NSString *)title
                             message:(NSString *)message
-                            handler:(IPHAlertActionHandeler)handler
+                            handler:(IPHAlertActionHandler)handler
              destructiveActionTitle:(NSString *)destructiveActionTitle
                   cancelActionTitle:(NSString *)cancelActionTitle
                   otherActionTitles:(NSString *)otherActionTitles, ... NS_REQUIRES_NIL_TERMINATION;
@@ -38,12 +38,12 @@
 // 默认添加cancelActionTitle “取消”按钮
 - (void)iph_showActionSheetWithTitle:(NSString *)title
                              message:(NSString *)message
-                             handler:(IPHAlertActionHandeler)handler
+                             handler:(IPHAlertActionHandler)handler
                    otherActionTitles:(NSString *)otherActionTitles, ... NS_REQUIRES_NIL_TERMINATION;
 
 - (void)iph_showActionSheetWithTitle:(NSString *)title
                              message:(NSString *)message
-                             handler:(IPHAlertActionHandeler)handler
+                             handler:(IPHAlertActionHandler)handler
               destructiveActionTitle:(NSString *)destructiveActionTitle
                    cancelActionTitle:(NSString *)cancelActionTitle
                    otherActionTitles:(NSString *)otherActionTitles, ... NS_REQUIRES_NIL_TERMINATION;
