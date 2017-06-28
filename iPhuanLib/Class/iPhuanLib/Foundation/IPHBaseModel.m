@@ -316,15 +316,27 @@
 
 - (NSArray *)p_propertyNames {
     NSMutableArray *propertyNames = [[NSMutableArray alloc] init];
+    Class class = self.class;
+    while (class != [NSObject class]) {
+        [propertyNames addObjectsFromArray:[self p_propertyNamesForClass:class]];
+        class = [class superclass];
+    }
+    
+    return [propertyNames copy];
+    
+}
+
+- (NSArray *)p_propertyNamesForClass:(Class)class {
+    NSMutableArray *propertyNames = [[NSMutableArray alloc] init];
     unsigned int propertyCount = 0;
-    objc_property_t *properties = class_copyPropertyList([self class], &propertyCount);
+    objc_property_t *properties = class_copyPropertyList(class, &propertyCount);
     for (unsigned int i = 0; i < propertyCount; ++i) {
         objc_property_t property = properties[i];
         const char * name = property_getName(property);
         [propertyNames addObject:[NSString stringWithUTF8String:name]];
     }
     free(properties);
-    return [propertyNames copy];
+    return propertyNames;
 }
 
 

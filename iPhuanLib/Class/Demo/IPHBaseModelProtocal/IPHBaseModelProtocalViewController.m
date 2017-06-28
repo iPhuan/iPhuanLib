@@ -26,6 +26,7 @@ static NSString * const kIPHHotelUserDefaultCacheKey = @"IPHHotelUserDefaultCach
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    
     // Dispose of any resources that can be recreated.
 }
 

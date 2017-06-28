@@ -57,22 +57,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iPhuanLib/Class/iPhuanLib/Foundation/IPHBaseModel.m"
-            timestampString = "519203983.227638"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "327"
-            endingLineNumber = "327"
-            landmarkName = "-p_propertyNames"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "iPhuanLib/Class/Demo/IPHBaseModelProtocal/IPHBaseModelProtocalViewController.m"
             timestampString = "519122760.735917"
             startingColumnNumber = "9223372036854775807"
