@@ -42,7 +42,7 @@ string = value; \
 #pragma mark - Others
 /*****************************************************************************************/
 #define IPHImageNamed(name)                                [UIImage imageNamed:name]
-#define IPH_OVERRIDE_WARN(baseClassName, subClassName)      { NSAssert([baseClassName isEqualToString:subClassName], @"Subclass should override the method!");}
+#define IPH_OVERRIDE_WARN(baseClassName, subClassName)      { NSAssert([baseClassName isEqualToString:subClassName], @"Subclass should override the method '%s'", __PRETTY_FUNCTION__);}
 
 
 

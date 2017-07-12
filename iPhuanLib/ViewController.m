@@ -33,6 +33,7 @@
                                      @"IPHHorizontalTableViewController",
                                      @"IPHConditionSelectorViewController",
                                      @"IPHLocationManagerViewController"];
+    
 }
 
 

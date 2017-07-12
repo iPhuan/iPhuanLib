@@ -17,6 +17,12 @@ typedef NS_ENUM(NSUInteger, IPHRequestAuthorizationType) {
     IPHRequestAuthorizationTypeAlways
 };
 
+typedef NS_ENUM(NSUInteger, IPHAuthorizationStatus) {
+    IPHAuthorizationStatusNotDetermined = 0,  // 未决定状态，等同于kCLAuthorizationStatusNotDetermined
+    IPHAuthorizationStatusDenied,  // 已禁用，包含kCLAuthorizationStatusRestricted和kCLAuthorizationStatusDenied
+    IPHAuthorizationStatusAuthorized  // 已授权，包含kCLAuthorizationStatusAuthorizedAlways，kCLAuthorizationStatusAuthorizedWhenInUse，kCLAuthorizationStatusAuthorized
+};
+
 typedef void(^IPHRequestLocationCompletionHandler)(NSError *error);
 typedef void(^IPHRequestCoordinateCompletionHandler)(CLLocationCoordinate2D coordinate, NSError *error);
 typedef void(^IPHRequestAddressCompletionHandler)(NSString *address, NSError *error);
@@ -27,6 +33,9 @@ typedef void(^IPHRequestCoordinateAndAddressCompletionHandler)(CLLocationCoordin
 @property (nonatomic, assign) IPHRequestAuthorizationType requestAuthorizationType; // 默认IPHRequestAuthorizationTypeWhenInUse，调用requestWhenInUseAuthorization来请求权限
 @property(nonatomic, assign) CLLocationAccuracy desiredAccuracy; // 设置CLLocationManager的desiredAccuracy，默认kCLLocationAccuracyBest
 @property(nonatomic, assign) CLLocationDistance distanceFilter; // 设置CLLocationManager的distanceFilter，默认100m更新位置信息
+
+@property (nonatomic, readonly, assign) IPHAuthorizationStatus authorizationStatus;  // 授权状态
+
 
 // 以下各个属性不一定都获取到值，请谨慎使用
 @property (nonatomic, readonly, strong) CLLocation *location;

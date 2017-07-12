@@ -137,14 +137,13 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
         return;
     }
         
-    CLAuthorizationStatus authStatus = [LocationManager authorizationStatus];
-    if (authStatus == kCLAuthorizationStatusRestricted || authStatus == kCLAuthorizationStatusDenied) {
+    if (self.authorizationStatus == IPHAuthorizationStatusDenied) {
         [self p_executeBlock:completionHandler withLocalizedDescription:@"Location services refused"];
         return;
     }
     
     LocationManager *locationManager = [[LocationManager alloc] init];
-    if (authStatus == kCLAuthorizationStatusNotDetermined) {
+    if (self.authorizationStatus == IPHAuthorizationStatusNotDetermined) {
         if (_requestAuthorizationType == IPHRequestAuthorizationTypeWhenInUse) {
             [locationManager requestWhenInUseAuthorization];
         } else {
@@ -234,6 +233,19 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
     [self.locationManagers removeObject:manager];
     [locationManager stopUpdatingLocation];
     [locationManager executeBlockWithError:error];
+}
+
+#pragma mark - Get
+
+- (IPHAuthorizationStatus)authorizationStatus {
+    CLAuthorizationStatus authStatus = [LocationManager authorizationStatus];
+    if (authStatus == kCLAuthorizationStatusNotDetermined) {
+        return IPHAuthorizationStatusNotDetermined;
+    } else if (authStatus == kCLAuthorizationStatusRestricted || authStatus == kCLAuthorizationStatusDenied) {
+        return IPHAuthorizationStatusDenied;
+    } else {
+        return IPHAuthorizationStatusAuthorized;
+    }
 }
 
 
