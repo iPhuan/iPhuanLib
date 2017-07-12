@@ -15,6 +15,7 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
 @interface IPHCLLocationManager : CLLocationManager
 
 @property (nonatomic, assign) BOOL needReverseGeocodeLocation;
+@property (nonatomic, assign) BOOL hasGetLocation;
 @property (nonatomic, copy) IPHRequestLocationCompletionHandler completionHandler;
 
 - (void)executeBlockWithError:(NSError *)error;
@@ -175,6 +176,12 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray<CLLocation *> *)locations{
     IPHCLLocationManager *locationManager = (IPHCLLocationManager *)manager;
+    
+    // 如果已经获取了位置则return掉，防止多次调用
+    if (locationManager.hasGetLocation) {
+        return;
+    }
+    
     [self.locationManagers removeObject:manager];
     
     [locationManager stopUpdatingLocation];
@@ -195,6 +202,7 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
     }
     
     self.location = availableLocation;
+    locationManager.hasGetLocation = YES;
     
     [locationManager executeBlockWithError:nil hasReverseGeocodeLocation:NO];
     
