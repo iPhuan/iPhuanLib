@@ -12,7 +12,7 @@
 NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location.request";
 
 
-@interface LocationManager : CLLocationManager
+@interface IPHCLLocationManager : CLLocationManager
 
 @property (nonatomic, assign) BOOL needReverseGeocodeLocation;
 @property (nonatomic, copy) IPHRequestLocationCompletionHandler completionHandler;
@@ -22,7 +22,7 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
 
 @end
 
-@implementation LocationManager
+@implementation IPHCLLocationManager
 
 - (void)executeBlockWithError:(NSError *)error {
     if (_completionHandler) {
@@ -132,7 +132,7 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
 #pragma mark - Private methods
 
 - (void)p_requestLocationNeedReverseGeocodeLocation:(BOOL)isNeed completionHandler:(IPHRequestLocationCompletionHandler)completionHandler{
-    if (![LocationManager locationServicesEnabled]) {
+    if (![IPHCLLocationManager locationServicesEnabled]) {
         [self p_executeBlock:completionHandler withLocalizedDescription:@"Location services disabled"];
         return;
     }
@@ -142,7 +142,7 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
         return;
     }
     
-    LocationManager *locationManager = [[LocationManager alloc] init];
+    IPHCLLocationManager *locationManager = [[IPHCLLocationManager alloc] init];
     if (self.authorizationStatus == IPHAuthorizationStatusNotDetermined) {
         if (_requestAuthorizationType == IPHRequestAuthorizationTypeWhenInUse) {
             [locationManager requestWhenInUseAuthorization];
@@ -174,7 +174,7 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
 
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray<CLLocation *> *)locations{
-    LocationManager *locationManager = (LocationManager *)manager;
+    IPHCLLocationManager *locationManager = (IPHCLLocationManager *)manager;
     [self.locationManagers removeObject:manager];
     
     [locationManager stopUpdatingLocation];
@@ -229,7 +229,7 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
 
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error{
-    LocationManager *locationManager = (LocationManager *)manager;
+    IPHCLLocationManager *locationManager = (IPHCLLocationManager *)manager;
     [self.locationManagers removeObject:manager];
     [locationManager stopUpdatingLocation];
     [locationManager executeBlockWithError:error];
@@ -238,7 +238,7 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
 #pragma mark - Get
 
 - (IPHAuthorizationStatus)authorizationStatus {
-    CLAuthorizationStatus authStatus = [LocationManager authorizationStatus];
+    CLAuthorizationStatus authStatus = [IPHCLLocationManager authorizationStatus];
     if (authStatus == kCLAuthorizationStatusNotDetermined) {
         return IPHAuthorizationStatusNotDetermined;
     } else if (authStatus == kCLAuthorizationStatusRestricted || authStatus == kCLAuthorizationStatusDenied) {
