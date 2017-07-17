@@ -72,7 +72,10 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
 
 
 - (CLLocationCoordinate2D)coordinate{
-    return _location.coordinate;
+    if (_location) {
+        return _location.coordinate;
+    }
+    return kCLLocationCoordinate2DInvalid;
 }
 
 - (NSMutableArray *)locationManagers{
