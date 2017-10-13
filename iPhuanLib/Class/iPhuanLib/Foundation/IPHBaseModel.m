@@ -303,6 +303,54 @@
     return dictionary;
 }
 
+- (NSDictionary *)toDataDictionary {
+    NSDictionary *attributeMapDictionary = [self attributeMapDictionary];
+    NSArray *propertyNames = attributeMapDictionary.allKeys;
+    if (propertyNames.count == 0) {
+        return nil;
+    }
+    
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] initWithCapacity:propertyNames.count];
+    [propertyNames enumerateObjectsUsingBlock:^(NSString *propertyName, NSUInteger index, BOOL *stop) {
+        id value = [self valueForKey:propertyName];
+        if (value == nil) {
+            return;
+        }
+        
+        if ([value isKindOfClass:[NSArray class]]) {
+            NSArray *arrayData = (NSArray *)value;
+            NSMutableArray *dataDics = [[NSMutableArray alloc] initWithCapacity:arrayData.count];
+            [arrayData enumerateObjectsUsingBlock:^(IPHBaseModel *model, NSUInteger index, BOOL *stop) {
+                // 如果数组里面的元素不是IPHBaseModel对象，则停止处理
+                if (![model isKindOfClass:[IPHBaseModel class]]) {
+                    *stop = YES;
+                }
+                
+                @autoreleasepool {
+                    NSDictionary *dataDic = [model toDataDictionary];
+                    if (dataDic) {
+                        [dataDics addObject:dataDic];
+                    }
+                }
+            }];
+            
+            if (dataDics.count > 0) {
+                value = [dataDics copy];
+            }
+            
+        }else if ([value isKindOfClass:[IPHBaseModel class]]) {
+            value = [value toDataDictionary];
+        }
+        
+        NSString *key = attributeMapDictionary[propertyName];
+        dictionary[key] = value;
+        
+    }];
+    
+    return dictionary;
+}
+
+
 
 - (NSData *)archivedData{
     if (self) {

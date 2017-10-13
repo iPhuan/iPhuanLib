@@ -257,6 +257,59 @@
     return dictionary;
 }
 
+- (NSDictionary *)iph_toDataDictionary {
+    // 如果对象不遵循HHTBaseModelProtocal协议，则不转化
+    if (![self conformsToProtocol:@protocol(IPHBaseModelProtocal)]) {
+        return nil;
+    }
+    
+    NSDictionary *attributeMapDictionary = [(id)self attributeMapDictionary];
+    NSArray *propertyNames = attributeMapDictionary.allKeys;
+    if (propertyNames.count == 0) {
+        return nil;
+    }
+    
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] initWithCapacity:propertyNames.count];
+    [propertyNames enumerateObjectsUsingBlock:^(NSString *propertyName, NSUInteger index, BOOL *stop) {
+        id value = [self valueForKey:propertyName];
+        if (value == nil) {
+            return;
+        }
+        
+        if ([value isKindOfClass:[NSArray class]]) {
+            NSArray *arrayData = (NSArray *)value;
+            NSMutableArray *dataDics = [[NSMutableArray alloc] initWithCapacity:arrayData.count];
+            [arrayData enumerateObjectsUsingBlock:^(id model, NSUInteger index, BOOL *stop) {
+                // 如果数组里面的对象不遵循HHTBaseModelProtocal协议，则停止处理
+                if (![model conformsToProtocol:@protocol(IPHBaseModelProtocal)]) {
+                    *stop = YES;
+                }
+                
+                @autoreleasepool {
+                    NSDictionary *dataDic = [model iph_toDataDictionary];
+                    if (dataDic) {
+                        [dataDics addObject:dataDic];
+                    }
+                }
+            }];
+            
+            if (dataDics.count > 0) {
+                value = [dataDics copy];
+            }
+            
+        }else if ([value conformsToProtocol:@protocol(IPHBaseModelProtocal)]) {
+            value = [value iph_toDataDictionary];
+        }
+        
+        NSString *key = attributeMapDictionary[propertyName];
+        dictionary[key] = value;
+        
+    }];
+    
+    return dictionary;
+}
+
+
 - (NSString *)iph_description {
     NSDictionary *dic = [self p_toDictionaryForDescription:YES];
     if (dic == nil) {

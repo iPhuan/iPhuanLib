@@ -278,7 +278,6 @@
 				E5165D2E1E5860030021D8E1 /* Utils */,
 				E5ED7B501E5DFEC3002632C0 /* Additions */,
 				E5165D321E5860030021D8E1 /* Views */,
-				E5165D311E5860030021D8E1 /* ViewControllers */,
 				E5165D2B1E5860030021D8E1 /* Others */,
 			);
 			path = iPhuanLib;
@@ -320,13 +319,6 @@
 				E5734B821E5C34B2004E0F2A /* IPHPathUtils.m */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		E5165D311E5860030021D8E1 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		E5165D321E5860030021D8E1 /* Views */ = {

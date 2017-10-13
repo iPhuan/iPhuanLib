@@ -35,8 +35,8 @@
  
  IPHHotel为IPHBaseModel的子类，
  - (NSDictionary *)attributeTypesMapDictionary {
- return @{@"hotel": @"IPHHotel",
- @"hotels": @"IPHHotel"};
+     return @{@"hotel": @"IPHHotel",
+             @"hotels": @"IPHHotel"};
  }
  通过该映射，在通过initWithDictionary方法给IPHTestModel对象初始化的时候，除了普通的字符串属性可以直接赋值外，对象属性和数组属性也能正确的初始化为对应类型的数据，hotel属性里面是IPHHotel对象而不是没有转化过的字典，hotels元素里面也都对应为IPHHotel对象。
  */
@@ -70,6 +70,9 @@
 
 // 将对象转化为字典
 - (nullable NSDictionary *)toDictionary;
+
+// 将对象转化为字典（以attributeTypesMapDictionary字典的value作为key)
+- (nullable NSDictionary *)toDataDictionary;
 
 
 
