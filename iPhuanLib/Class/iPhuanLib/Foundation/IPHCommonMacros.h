@@ -12,10 +12,16 @@
 #define IPHScreenWidth         [UIScreen mainScreen].bounds.size.width
 #define IPHScreenHeight        [UIScreen mainScreen].bounds.size.height
 #define IPHScreenBounds        [UIScreen mainScreen].bounds
-#define IPH6SizeMultiple       (IPHScreenWidth <= 375?1.0:(IPHScreenWidth/375.0))
-#define IPH6FitSize(X)         ((X) * IPH6SizeMultiple)
-#define IPH6RatioMultiple      (IPHScreenWidth/375.0)
-#define IPH6RatioFitSize(X)    ((X) * IPH6RatioMultiple)
+
+
+#define HHT6PSizeMultiple      (HHTScreenWidth <= 375?1.0:(HHTScreenWidth/375.0))
+#define HHT6PFitSize(X)        ((X) * HHT6PSizeMultiple)   // 以6为参考，5和6保持一样的值，6P等比缩放
+
+#define HHTRatioMultiple       (HHTScreenWidth/375.0)
+#define HHTRatioFitSize(X)     ((X) * HHTRatioMultiple)  // 以6为参考，5和6P等比缩放
+
+#define HHT5SizeMultiple       (HHTScreenWidth >= 375?1.0:(HHTScreenWidth/375.0))
+#define HHT5FitSize(X)         ((X) * HHT5SizeMultiple)   // 以6为参考，6和6P保持一样的值，5等比缩放
 
 
 
@@ -42,7 +48,7 @@ string = value; \
 #pragma mark - Others
 /*****************************************************************************************/
 #define IPHImageNamed(name)                                [UIImage imageNamed:name]
-#define IPH_OVERRIDE_WARN(baseClassName, subClassName)      { NSAssert([baseClassName isEqualToString:subClassName], @"Subclass should override the method '%s'", __PRETTY_FUNCTION__);}
+#define IPH_OVERRIDE_WARN(baseClassName, subClassName)      { NSAssert(![baseClassName isEqualToString:subClassName], @"Subclass should override the method '%s'", __PRETTY_FUNCTION__);}
 
 
 
@@ -79,3 +85,12 @@ string = value; \
 /*****************************************************************************************/
 #define IPHSizeMultiple        (IPHScreenWidth/320.0)                   // First deprecated in iPhuanLib 1.0.1
 #define IPHFitSize(X)          ((X) * IPHSizeMultiple)                  // First deprecated in iPhuanLib 1.0.1
+
+
+#pragma mark - Deprecated
+/*****************************************************************************************/
+#define HHT6SizeMultiple       (HHTScreenWidth <= 375?1.0:(HHTScreenWidth/375.0))
+#define HHT6FitSize(X)         ((X) * HHT6SizeMultiple)   // 请使用HHT6PFitSize
+
+#define HHT6RatioMultiple      (HHTScreenWidth/375.0)
+#define HHT6RatioFitSize(X)    ((X) * HHT6RatioMultiple)  // 请使用HHTRatioFitSize
