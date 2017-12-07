@@ -8,6 +8,13 @@
 
 #import "IPHLocationManager.h"
 
+#ifndef IPHIsAvailableString
+#define IPHIsAvailableString(X)        ([X isKindOfClass:[NSString class]] && ![@"" isEqualToString:X])
+#endif
+
+#ifndef IPHUnNilString
+#define IPHUnNilString(X)              ([X isKindOfClass:[NSString class]]?X:@"")
+#endif
 
 NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location.request";
 
@@ -16,10 +23,9 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
 
 @property (nonatomic, assign) BOOL needReverseGeocodeLocation;
 @property (nonatomic, assign) BOOL hasGetLocation;
-@property (nonatomic, copy) IPHRequestLocationCompletionHandler completionHandler;
+@property (nonatomic, copy) IPHLocateCompletionHandler completionHandler;
 
 - (void)executeBlockWithError:(NSError *)error;
-- (void)executeBlockWithError:(NSError *)error hasReverseGeocodeLocation:(BOOL)yesOrNo;
 
 @end
 
@@ -27,16 +33,6 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
 
 - (void)executeBlockWithError:(NSError *)error {
     if (_completionHandler) {
-        _completionHandler(error);
-    }
-}
-
-- (void)executeBlockWithError:(NSError *)error hasReverseGeocodeLocation:(BOOL)yesOrNo{
-    if (!_completionHandler) {
-        return;
-    }
-    
-    if (yesOrNo == _needReverseGeocodeLocation) {
         _completionHandler(error);
     }
 }
@@ -52,17 +48,19 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
 @property (nonatomic, readwrite, copy) NSString *address;
 @property (nonatomic, readwrite, copy) NSString *city;
 @property (nonatomic, strong) NSMutableArray *locationManagers;
+@property (nonatomic, strong) CLLocationManager *requestAuthorizationManager;
 
 @end
 
 @implementation IPHLocationManager
 
 
-+ (IPHLocationManager *)sharedLocationManager {
++ (IPHLocationManager *)sharedManager {
     static IPHLocationManager *sharedLocationManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedLocationManager = [[self alloc] init];
+        sharedLocationManager.requestAuthorizationType = IPHRequestAuthorizationTypeWhenInUse;
         sharedLocationManager.desiredAccuracy = kCLLocationAccuracyBest;
         sharedLocationManager.distanceFilter = 100.0f;
     });
@@ -87,14 +85,24 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
 
 #pragma mark - Public methods
 
+- (void)requestAuthorizationOnly {
+    if (self.authorizationStatus == IPHAuthorizationStatusNotDetermined) {
+        if (_requestAuthorizationType == IPHRequestAuthorizationTypeWhenInUse) {
+            [self.requestAuthorizationManager requestWhenInUseAuthorization];
+        } else {
+            [self.requestAuthorizationManager requestAlwaysAuthorization];
+        }
+    }
+}
+
 - (void)requestLocation{
-    [self p_requestLocationNeedReverseGeocodeLocation:YES completionHandler:nil];
+    [self p_requestLocationNeedReverseGeocodeLocation:NO completionHandler:nil];
 }
 
 - (void)requestLocationWithCompletionHandler:(IPHRequestLocationCompletionHandler)completionHandler{
-    [self p_requestLocationNeedReverseGeocodeLocation:YES completionHandler:^(NSError *error){
+    [self p_requestLocationNeedReverseGeocodeLocation:NO completionHandler:^(NSError *error){
         if (completionHandler) {
-            completionHandler(error);
+            completionHandler(self.location, error);
         }
     }];}
 
@@ -104,6 +112,10 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
             completionHandler(self.coordinate, error);
         }
     }];
+}
+
+- (void)requestReversedGeocodeLocation {
+    [self p_requestLocationNeedReverseGeocodeLocation:YES completionHandler:nil];
 }
 
 - (void)requestAddressWithCompletionHandler:(IPHRequestAddressCompletionHandler)completionHandler{
@@ -129,18 +141,18 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
             completionHandler(self.coordinate, _address, error);
         }
     }];
-
+    
 }
 
 
 #pragma mark - Private methods
 
-- (void)p_requestLocationNeedReverseGeocodeLocation:(BOOL)isNeed completionHandler:(IPHRequestLocationCompletionHandler)completionHandler{
+- (void)p_requestLocationNeedReverseGeocodeLocation:(BOOL)isNeed completionHandler:(IPHLocateCompletionHandler)completionHandler{
     if (![IPHCLLocationManager locationServicesEnabled]) {
         [self p_executeBlock:completionHandler withLocalizedDescription:@"Location services disabled"];
         return;
     }
-        
+    
     if (self.authorizationStatus == IPHAuthorizationStatusDenied) {
         [self p_executeBlock:completionHandler withLocalizedDescription:@"Location services refused"];
         return;
@@ -166,7 +178,7 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
     [self.locationManagers addObject:locationManager];
 }
 
-- (void)p_executeBlock:(IPHRequestLocationCompletionHandler)completionHandler withLocalizedDescription:(NSString *)description{
+- (void)p_executeBlock:(IPHLocateCompletionHandler)completionHandler withLocalizedDescription:(NSString *)description{
     if (completionHandler) {
         NSDictionary *userInfo = @{NSLocalizedDescriptionKey:description};
         NSError *error = [NSError errorWithDomain:kIPHRequestLocationErrorDomain code:-1 userInfo:userInfo];
@@ -207,7 +219,10 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
     self.location = availableLocation;
     locationManager.hasGetLocation = YES;
     
-    [locationManager executeBlockWithError:nil hasReverseGeocodeLocation:NO];
+    if (!locationManager.needReverseGeocodeLocation) {
+        [locationManager executeBlockWithError:nil];
+        return;
+    }
     
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder reverseGeocodeLocation:availableLocation completionHandler:^(NSArray *placemarks, NSError *error) {
@@ -231,9 +246,9 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
             }
             self.city = _placemark.locality;
             self.address = address;
-            [locationManager executeBlockWithError:nil hasReverseGeocodeLocation:YES];
+            [locationManager executeBlockWithError:nil];
         }else{
-            [locationManager executeBlockWithError:error hasReverseGeocodeLocation:YES];
+            [locationManager executeBlockWithError:error];
         }
     }];
 }
@@ -245,6 +260,7 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
     [locationManager stopUpdatingLocation];
     [locationManager executeBlockWithError:error];
 }
+
 
 #pragma mark - Get
 
@@ -259,7 +275,16 @@ NSString * const kIPHRequestLocationErrorDomain = @"com.iPhuanLib.error.location
     }
 }
 
+- (BOOL)isAuthorizationAuthorized {
+    return self.authorizationStatus == IPHAuthorizationStatusAuthorized;
+}
 
+- (CLLocationManager *)requestAuthorizationManager {
+    if (_requestAuthorizationManager == nil) {
+        _requestAuthorizationManager = [[CLLocationManager alloc] init];
+    }
+    return _requestAuthorizationManager;
+}
 
 
 @end

@@ -20,7 +20,7 @@
 	<string>20170420</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationAlwaysUsageDescription</key>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>iPhuanLib定位测试</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

@@ -14,14 +14,27 @@
 #define IPHScreenBounds        [UIScreen mainScreen].bounds
 
 
-#define HHT6PSizeMultiple      (HHTScreenWidth <= 375?1.0:(HHTScreenWidth/375.0))
-#define HHT6PFitSize(X)        ((X) * HHT6PSizeMultiple)   // 以6为参考，5和6保持一样的值，6P等比缩放
+#define IPHXSizeMultiple      (IPHScreenHeight/667.0)
+#define IPHXFitSize(X)        ((X) * IPHXSizeMultiple)   // 以6为参考，5，6，6P，X等比缩放，适应于纵向布局
 
-#define HHTRatioMultiple       (HHTScreenWidth/375.0)
-#define HHTRatioFitSize(X)     ((X) * HHTRatioMultiple)  // 以6为参考，5和6P等比缩放
+#define IPH6PSizeMultiple      (IPHScreenWidth <= 375?1.0:(IPHScreenWidth/375.0))
+#define IPH6PFitSize(X)        ((X) * IPH6PSizeMultiple)  // 以6为参考，5和6保持一样的值，6P等比缩放
 
-#define HHT5SizeMultiple       (HHTScreenWidth >= 375?1.0:(HHTScreenWidth/375.0))
-#define HHT5FitSize(X)         ((X) * HHT5SizeMultiple)   // 以6为参考，6和6P保持一样的值，5等比缩放
+#define IPHRatioMultiple       (IPHScreenWidth/375.0)
+#define IPHRatioFitSize(X)     ((X) * IPHRatioMultiple)  // 以6为参考，5和6P等比缩放
+
+#define IPH5SizeMultiple       (IPHScreenWidth >= 375?1.0:(IPHScreenWidth/375.0))
+#define IPH5FitSize(X)         ((X) * IPH5SizeMultiple)   // 以6为参考，6和6P保持一样的值，5等比缩放
+
+
+
+#define IPHIsIPhoneX  CGSizeEqualToSize(CGSizeMake(1125, 2436), [UIScreen mainScreen].currentMode.size)
+
+#define IPHTopOffset          (IPHIsIPhoneX ? 24 : 0)
+#define IPHBottomOffset       (IPHIsIPhoneX ? 34 : 0)
+#define IPHNavBarHeight       (IPHIsIPhoneX ? 88 : 64)
+#define IPHStatusBarHeight    (IPHIsIPhoneX ? 44 : 20)
+#define IPHTabBarHeight       (IPHIsIPhoneX ? 83 : 49)
 
 
 
@@ -89,8 +102,8 @@ string = value; \
 
 #pragma mark - Deprecated
 /*****************************************************************************************/
-#define HHT6SizeMultiple       (HHTScreenWidth <= 375?1.0:(HHTScreenWidth/375.0))
-#define HHT6FitSize(X)         ((X) * HHT6SizeMultiple)   // 请使用HHT6PFitSize
+#define IPH6SizeMultiple       (IPHScreenWidth <= 375?1.0:(IPHScreenWidth/375.0))
+#define IPH6FitSize(X)         ((X) * IPH6SizeMultiple)   // 请使用IPH6PFitSize
 
-#define HHT6RatioMultiple      (HHTScreenWidth/375.0)
-#define HHT6RatioFitSize(X)    ((X) * HHT6RatioMultiple)  // 请使用HHTRatioFitSize
+#define IPH6RatioMultiple      (IPHScreenWidth/375.0)
+#define IPH6RatioFitSize(X)    ((X) * IPH6RatioMultiple)  // 请使用IPHRatioFitSize

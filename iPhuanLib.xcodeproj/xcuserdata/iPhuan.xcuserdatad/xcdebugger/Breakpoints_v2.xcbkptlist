@@ -25,22 +25,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iPhuanLib/Class/iPhuanLib/Others/IPHLocationManager.m"
-            timestampString = "514284497.642916"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
-            landmarkName = "-p_requestLocationNeedReverseGeocodeLocation:completionHandler:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "iPhuanLib/Class/Demo/IPHBaseModelProtocal/IPHDeluxeRoom.m"
             timestampString = "519203983.227638"
             startingColumnNumber = "9223372036854775807"
@@ -97,6 +81,70 @@
             endingLineNumber = "60"
             landmarkName = "ViewController"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iPhuanLib/Class/Demo/IPHLocationManager/IPHLocationManagerViewController.m"
+            timestampString = "534324486.410982"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[IPHLocationManagerViewController tableView:didSelectRowAtIndexPath:]"
+                  moduleName = "iPhuanLib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///iPhuan/GitHub/iPhuanLib/iPhuanLib/Class/Demo/IPHLocationManager/IPHLocationManagerViewController.m"
+                  timestampString = "534324413.127555"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "624">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__70-[IPHLocationManagerViewController tableView:didSelectRowAtIndexPath:]_block_invoke"
+                  moduleName = "iPhuanLib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///iPhuan/GitHub/iPhuanLib/iPhuanLib/Class/Demo/IPHLocationManager/IPHLocationManagerViewController.m"
+                  timestampString = "534324413.128883"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iPhuanLib/Class/Demo/IPHLocationManager/IPHLocationManagerViewController.m"
+            timestampString = "534324486.411574"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

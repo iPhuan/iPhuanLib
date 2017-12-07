@@ -32,7 +32,7 @@ static const CGFloat kIPHConfirmButtonTag = 123;
 - (void)layoutSubviews {
     [super layoutSubviews];
     if (!_isLoadFromNib) {
-        UIButton *confirmBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, IPH6FitSize(296), IPH6FitSize(39))];
+        UIButton *confirmBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, IPH6PFitSize(296), IPH6PFitSize(39))];
         confirmBtn.tag = kIPHConfirmButtonTag;
         confirmBtn.backgroundColor = self.buttonBackgroundColor;
         confirmBtn.center = CGPointMake(self.width_iph/2.0f, self.height_iph/2.0f);

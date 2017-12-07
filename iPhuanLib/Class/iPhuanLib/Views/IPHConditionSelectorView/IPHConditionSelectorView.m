@@ -253,7 +253,7 @@ static NSString * const kIPHConfirmCellReuseIdentifier = @"IPHConfirmCell";
     CGFloat height = 0;
     NSArray *conditionsData = [self p_conditionsInSection:indexPath.row];
     if (indexPath.row == _numberOfConditionsSection) {
-        height = IPH6FitSize(51);
+        height = IPH6PFitSize(51);
     }else{
         height = [IPHConditionCell getCellHeightWithConditions:conditionsData];
     }

@@ -23,6 +23,7 @@
     self.optionTitles = @[@"requestLocation",
                           @"requestLocationWithCompletionHandler",
                           @"requestCoordinateWithCompletionHandler",
+                          @"requestReversedGeocodeLocation",
                           @"requestAddressWithCompletionHandler",
                           @"requestCityWithCompletionHandler",
                           @"requestCoordinateAndAddressCompletionHandler"
@@ -60,31 +61,31 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    IPH_LOCATION_MANAGER.requestAuthorizationType = IPHRequestAuthorizationTypeAlways;
-    IPH_LOCATION_MANAGER.desiredAccuracy = kCLLocationAccuracyBest;
-    IPH_LOCATION_MANAGER.distanceFilter = 200.0f;
+    [IPHLocationManager sharedManager].requestAuthorizationType = IPHRequestAuthorizationTypeWhenInUse;
+    [IPHLocationManager sharedManager].desiredAccuracy = kCLLocationAccuracyBest;
+    [IPHLocationManager sharedManager].distanceFilter = 200.0f;
     
     __block NSString *locationInfo = nil;
     switch (indexPath.row) {
         case 0:
-            [IPH_LOCATION_MANAGER requestLocation];
+            [[IPHLocationManager sharedManager] requestLocation];
             locationInfo = @"已请求地理位置";
             [self iph_popupAlertViewWithTitle:@"获取位置信息" message:locationInfo];
             break;
         case 1:
         {
-            [IPH_LOCATION_MANAGER requestLocationWithCompletionHandler:^(NSError *error) {
-                locationInfo = [NSString stringWithFormat:@"location: %@\n\nplacemark: %@\n\nlatitude: %f\nlongitude: %f\ncity: %@\naddress: %@", IPH_LOCATION_MANAGER.location, IPH_LOCATION_MANAGER.placemark, IPH_LOCATION_MANAGER.coordinate.latitude, IPH_LOCATION_MANAGER.coordinate.longitude, IPH_LOCATION_MANAGER.city, IPH_LOCATION_MANAGER.address];
+            [[IPHLocationManager sharedManager] requestLocationWithCompletionHandler:^(CLLocation *location, NSError *error) {
+                locationInfo = [NSString stringWithFormat:@"location: %@\n\nplacemark: %@\n\nlatitude: %f\nlongitude: %f\ncity: %@\naddress: %@", [IPHLocationManager sharedManager].location, [IPHLocationManager sharedManager].placemark, [IPHLocationManager sharedManager].coordinate.latitude, [IPHLocationManager sharedManager].coordinate.longitude, [IPHLocationManager sharedManager].city, [IPHLocationManager sharedManager].address];
                 [self iph_popupAlertViewWithTitle:@"获取位置信息" message:locationInfo];
             }];
             break;
         }
         case 2:
         {
-            [IPH_LOCATION_MANAGER requestCoordinateWithCompletionHandler:^(CLLocationCoordinate2D coordinate, NSError *error) {
+            [[IPHLocationManager sharedManager] requestCoordinateWithCompletionHandler:^(CLLocationCoordinate2D coordinate, NSError *error) {
                 locationInfo = error.localizedDescription;
                 if (error == nil) {
-                    locationInfo = [NSString stringWithFormat:@"location: %@\n\nplacemark: %@\n\nlatitude: %f\nlongitude: %f", IPH_LOCATION_MANAGER.location, IPH_LOCATION_MANAGER.placemark, coordinate.latitude, coordinate.longitude];
+                    locationInfo = [NSString stringWithFormat:@"location: %@\n\nplacemark: %@\n\nlatitude: %f\nlongitude: %f", [IPHLocationManager sharedManager].location, [IPHLocationManager sharedManager].placemark, coordinate.latitude, coordinate.longitude];
                 }
                 [self iph_popupAlertViewWithTitle:@"获取位置信息" message:locationInfo];
             }];
@@ -92,7 +93,14 @@
         }
         case 3:
         {
-            [IPH_LOCATION_MANAGER requestAddressWithCompletionHandler:^(NSString *address, NSError *error) {
+            [[IPHLocationManager sharedManager] requestReversedGeocodeLocation];
+            locationInfo = @"已请求反向地理编码位置";
+            [self iph_popupAlertViewWithTitle:@"获取位置信息" message:locationInfo];
+            break;
+        }
+        case 4:
+        {
+            [[IPHLocationManager sharedManager] requestAddressWithCompletionHandler:^(NSString *address, NSError *error) {
                 locationInfo = error.localizedDescription;
                 if (error == nil) {
                     locationInfo = [NSString stringWithFormat:@"address: %@", address];
@@ -102,9 +110,9 @@
             }];
             break;
         }
-        case 4:
+        case 5:
         {
-            [IPH_LOCATION_MANAGER requestCityWithCompletionHandler:^(NSString *city, NSError *error) {
+            [[IPHLocationManager sharedManager] requestCityWithCompletionHandler:^(NSString *city, NSError *error) {
                 locationInfo = error.localizedDescription;
                 if (error == nil) {
                     locationInfo = [NSString stringWithFormat:@"city: %@", city];
@@ -113,9 +121,9 @@
             }];
             break;
         }
-        case 5:
+        case 6:
         {
-            [IPH_LOCATION_MANAGER requestCoordinateAndAddressCompletionHandler:^(CLLocationCoordinate2D coordinate, NSString *address, NSError *error) {
+            [[IPHLocationManager sharedManager] requestCoordinateAndAddressCompletionHandler:^(CLLocationCoordinate2D coordinate, NSString *address, NSError *error) {
                 locationInfo = [NSString stringWithFormat:@"latitude: %f\nlongitude: %f\naddress: %@", coordinate.latitude, coordinate.longitude, address];
                 [self iph_popupAlertViewWithTitle:@"获取位置信息" message:locationInfo];
             }];
