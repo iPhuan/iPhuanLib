@@ -397,13 +397,20 @@
         objc_property_t property = properties[i];
         const char * name = property_getName(property);
         NSString *propertyName = [NSString stringWithUTF8String:name];
-        if (![[self p_NSObjectPropertyNames] containsObject:propertyName]) {
+        
+        const char * attributes = property_getAttributes(property);
+        NSString *propertyAttributes = [NSString stringWithUTF8String:attributes];
+        
+        // 因为对象遵循IPHBaseModelProtocal协议即遵循了NSObject协议，所以会自动添加几个NSObject协议的属性；weak类型属性不进行解析，防止死循环的出现
+        if (![[self p_NSObjectPropertyNames] containsObject:propertyName] && ![propertyAttributes containsString:@"W"]) {
             [propertyNames addObject:propertyName];
         }
+        
     }
     free(properties);
     return propertyNames;
 }
+
 
 
 - (NSArray *)p_NSObjectPropertyNames {

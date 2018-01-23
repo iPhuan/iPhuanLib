@@ -381,7 +381,15 @@
     for (unsigned int i = 0; i < propertyCount; ++i) {
         objc_property_t property = properties[i];
         const char * name = property_getName(property);
-        [propertyNames addObject:[NSString stringWithUTF8String:name]];
+        NSString *propertyName = [NSString stringWithUTF8String:name];
+        
+        const char * attributes = property_getAttributes(property);
+        NSString *propertyAttributes = [NSString stringWithUTF8String:attributes];
+        
+        // weak类型属性不进行解析，防止死循环的出现
+        if (![propertyAttributes containsString:@"W"]) {
+            [propertyNames addObject:propertyName];
+        }
     }
     free(properties);
     return propertyNames;
